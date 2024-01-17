@@ -1,0 +1,46 @@
+path+=('/Users/jerry/bin')
+
+setopt share_history
+setopt hist_ignore_space
+
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+bindkey -v
+
+export EDITOR="nvim"
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+export FZF_DEFAULT_OPTS="--bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
+
+alias lg="lazygit"
+alias ls="eza"
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# NOTE: fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
+source /Users/jerry/Documents/github/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# so that zsh-vi-mode does not overwrite fzf keybindings
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+
+# so that zsh-vi-mode does not overwrite vi-forward-word
+zvm_after_lazy_keybindings ()
+{
+  bindkey '^w' vi-forward-word
+}
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
