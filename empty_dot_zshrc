@@ -1,4 +1,5 @@
 path+=('/Users/jerry/bin')
+path+=('/Users/jerry/.local/bin')
 path+=('/Users/jerry/.ghcup/bin')
 path+=('/Applications/SuperCollider.app/Contents/MacOS')
 # path+=('/Users/jerry/.ghcup/env')
