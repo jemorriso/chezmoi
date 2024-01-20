@@ -71,7 +71,7 @@
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
-  M-tab         @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             rsft          up
+  lsft          @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             rsft          up
   fn            lctl          lalt          @ms_bspc_lmet @ms_spc_space @ret_rcmd     ralt          left          down          rght
 )
 (deflayer base_typing
@@ -83,22 +83,22 @@
   fn            lctl          lalt          bspc          @spc_space    @ret_rcmd     ralt          left          down          rght
 )
 (defalias
-  0_sft (tap-hold-release 200 200 0 lsft)
-  4_ctl (tap-hold-release 200 200 4 lctl)
-  5_alt (tap-hold-release 200 200 5 lalt)
-  6_met (tap-hold-release 200 200 6 lmet)
+  0_ctl (tap-hold-release 200 200 0 lctl)
+  4_alt (tap-hold-release 200 200 4 lalt)
+  5_met (tap-hold-release 200 200 5 lmet)
+  6_sft (tap-hold-release 200 200 6 lsft)
   7_hyp (tap-hold-release 200 200 7 @hyp)
   8_meh (tap-hold-release 200 200 8 @meh)
 
-  down_met (tap-hold-release-timeout 200 200 down lmet down)
-  up_alt (tap-hold-release-timeout 200 200 up lalt up)
-  rght_sft (tap-hold-release-timeout 200 200 rght lsft rght)
+  down_sft (tap-hold-release-timeout 200 200 down lsft down)
+  up_met (tap-hold-release-timeout 200 200 up lmet up)
+  rght_ctl (tap-hold-release-timeout 200 200 rght lctl rght)
 )
 (deflayer space
   _             _             _             _             _             _             _             _             _             _             _             _             _             
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _             _
-  _             @0_sft        @4_ctl        @5_alt        @6_met        _             left          @down_met     @up_alt       @rght_sft     _             _             _
+  _             @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_ctl     _             _             _
   _             _             1             2             3             _             home          pgdn          pgup          end           _             _             _
   _             _             _             del           _             _             _             _             _             _
 ) 
