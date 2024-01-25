@@ -99,7 +99,7 @@
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _             _
   _             @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_ctl     _             _             _
-  _             _             1             2             3             _             home          pgdn          pgup          end           _             _             _
+  _             1             2             3             _             _             home          pgdn          pgup          end           _             _             _
   _             _             _             del           _             _             _             _             _             _
 ) 
 (defalias
