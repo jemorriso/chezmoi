@@ -20,6 +20,8 @@ export FZF_DEFAULT_OPTS="--bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:tog
 
 alias lg="lazygit"
 alias ls="eza"
+alias vd="$HOME/Documents/venvs/visidata/.venv/bin/vd"
+alias vdsql="$HOME/Documents/venvs/vdsql-python3.11/.venv/bin/vdsql"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -45,6 +47,7 @@ zvm_after_lazy_keybindings ()
   bindkey '^w' vi-forward-word
 }
 
+eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
