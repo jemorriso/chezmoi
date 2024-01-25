@@ -20,8 +20,8 @@ export FZF_DEFAULT_OPTS="--bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:tog
 
 alias lg="lazygit"
 alias ls="eza"
-alias vd="$HOME/Documents/venvs/visidata/.venv/bin/vd"
-alias vdsql="$HOME/Documents/venvs/vdsql-python3.11/.venv/bin/vdsql"
+alias vd="$HOME/venvs/visidata/.venv/bin/vd"
+alias vdsql="$HOME/venvs/vdsql-python3.11/.venv/bin/vdsql"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -31,7 +31,7 @@ if type brew &>/dev/null; then
 fi
 
 # NOTE: fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
-source /Users/jerry/Documents/github/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
+source /Users/jerry/github/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
