@@ -1,11 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ';'
 
-
--- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
-
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -21,7 +16,7 @@ vim.o.mouse = 'a'
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
--- Enable break indent
+-- indent wrapped lines
 vim.o.breakindent = true
 
 -- Save undo history
