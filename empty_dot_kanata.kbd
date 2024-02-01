@@ -95,7 +95,7 @@
   rght_ctl (tap-hold-release-timeout 200 200 rght lctl rght)
 )
 (deflayer space
-  _             _             _             _             _             _             _             _             _             _             _             _             _             
+  esc           f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _             _
   _             @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_ctl     _             _             _
