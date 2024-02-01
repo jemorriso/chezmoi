@@ -95,8 +95,8 @@ require("lazy").setup({
 
 vim.g.mapleader = " "
 vim.o.clipboard = 'unnamedplus'
--- vim.o.undofile = true
 
+-- TODO add condition to check env so it doesn't cause errors when I debug from neovim
 local vscode = require("vscode-neovim")
 
 vim.keymap.set("", "<a-h>", function()
@@ -112,15 +112,11 @@ vim.keymap.set("", "<a-l>", function()
   vim.fn.VSCodeNotify("workbench.action.navigateRight")
 end)
 
--- copied from lazyvim
-local function augroup(name)
-  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
-end
-
--- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
   end,
+  group = highlight_group,
+  pattern = '*',
 })
