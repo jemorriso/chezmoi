@@ -62,9 +62,24 @@ require('lazy').setup {
     },
 
     -- need to pass empty opts or config true
-    { 'numToStr/Comment.nvim', config = true,       lazy = false },
+    { 'numToStr/Comment.nvim', config = true, lazy = false },
 
-    { "catppuccin/nvim",       name = "catppuccin", priority = 1000 },
+    { "catppuccin/nvim", name = "catppuccin",
+      opts = {
+        integrations = {
+          native_lsp = {
+            enabled = true,
+            underlines = {
+              errors = { "undercurl" },
+              hints = { "undercurl" },
+              warnings = { "undercurl" },
+              information = { "undercurl" },
+            },
+          },
+        }
+      },
+      priority = 1000
+    },
 
     {
       'jpalardy/vim-slime',
@@ -259,7 +274,7 @@ require('lazy').setup {
       opts = {
         formatters_by_ft = {
           lua = { 'stylua' },
-          python = { "isort", "black" },
+          python = { 'ruff_fix', 'ruff_format' },
         },
         format_on_save = {
           timeout_ms = 500,
