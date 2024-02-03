@@ -27,7 +27,7 @@
   ;; alias to cancel tap-hold keys if typing rapidly but restore after a short idle period
   type (multi
     (layer-switch base_typing)
-    (on-idle-fakekey fk_to_base tap 100)
+    (on-idle-fakekey fk_to_base tap 75)
   )
 
   ms_q (multi q @type)
@@ -55,7 +55,7 @@
 
   ms_z (multi z @type)
   ms_x (multi x @type)
-  ms_c
+  ms_c (multi c @type)
   ms_v (multi v @type)
   ms_b (multi b @type)
   ms_n (multi n @type)
@@ -80,7 +80,7 @@
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             @ms_f_sft     g             h             @ms_j_sft     k             l             ;             '             ret
   lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
-  fn            lctl          lalt          bspc          @spc_space    @ret_rcmd     ralt          left          down          rght
+  fn            lctl          lalt          bspc          @spc_space    ret           ralt          left          down          rght
 )
 (defalias
   0_ctl (tap-hold-release 200 200 0 lctl)
