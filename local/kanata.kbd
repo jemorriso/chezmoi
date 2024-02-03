@@ -17,8 +17,7 @@
   l_space (layer-while-held space)
   l_rcmd_layer (layer-while-held rcmd)
 
-  ;; lmet so it functions as cmd for non-letter keys
-  ret_rcmd (tap-hold-release 200 200 ret (multi lmet @l_rcmd_layer))
+  ret_lalt (tap-hold-release 200 200 ret lalt)
   spc_space (tap-hold-release 200 200 spc @l_space)
 )
 (defalias
@@ -63,7 +62,8 @@
   ms_, (multi , @type)
   ms_. (multi . @type)
 
-  ms_bspc_lmet (tap-hold-release 200 200 (multi bspc @type) lmet)
+  ;; lmet so it functions as cmd for non-letter keys
+  ms_bspc_rcmd (tap-hold-release 200 200 (multi bspc @type) (multi lmet @l_rcmd_layer))
   ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
 )
 (deflayer base
@@ -72,15 +72,15 @@
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
   lsft          @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             rsft          up
-  fn            lctl          lalt          @ms_bspc_lmet @ms_spc_space @ret_rcmd     ralt          left          down          rght
+  fn            lctl          lalt          lmet          @ms_spc_space @ms_bspc_rcmd @ret_lalt     left          down          rght
 )
 (deflayer base_typing
-  esc           f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
+  esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             @ms_f_sft     g             h             @ms_j_sft     k             l             ;             '             ret
   lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
-  fn            lctl          lalt          bspc          @spc_space    @ret_rcmd     ralt          left          down          rght
+  fn            lctl          lalt          lmet          @spc_space    bspc          ret           left          down          rght
 )
 (defalias
   0_ctl (tap-hold-release 200 200 0 lctl)
