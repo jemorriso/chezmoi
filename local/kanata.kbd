@@ -14,12 +14,14 @@
   meh (multi lctl lalt lsft)
   hyp (multi lctl lalt lsft lmet)
 
-  l_space (layer-while-held space)
+  l_nav (layer-while-held nav)
+  l_fn (layer-while-held function)
   l_rcmd_layer (layer-while-held rcmd)
 
   ;; lmet so it functions as cmd for non-letter keys
   ret_rcmd (tap-hold-release 200 200 ret (multi lmet @l_rcmd_layer))
-  spc_space (tap-hold-release 200 200 spc @l_space)
+
+  del_fn (tap-hold-release 200 200 del @l_fn)
 )
 (defalias
   ;; home-row mod quick typing aliases
@@ -64,7 +66,7 @@
   ms_. (multi . @type)
 
   ms_bspc_lmet (tap-hold-release 200 200 (multi bspc @type) lmet)
-  ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
+  ms_spc_nav (tap-hold-release 200 200 (multi spc @type) @l_nav)
 )
 (deflayer base
   esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
@@ -72,36 +74,40 @@
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
   lsft          @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             rsft          up
-  fn            lctl          lalt          @ms_bspc_lmet @ms_spc_space @ret_rcmd     ralt          left          down          rght
+  fn            lctl          @del_fn       @ms_bspc_lmet @ms_spc_nav   @ret_rcmd     ralt          left          down          rght
+)
+(defalias
+  ;; shift is more important than other modifiers, so these keys go on typing layer for quick shifting
+  f_sft (tap-hold-release 200 200 f lsft)
+  j_sft (tap-hold-release 200 200 j lsft)
+
+  ;; also allow tap-hold spc on typing layer for quick arrows
+  spc_nav (tap-hold-release 200 200 spc @l_nav)
 )
 (deflayer base_typing
   esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
-  esc           a             s             d             @ms_f_sft     g             h             @ms_j_sft     k             l             ;             '             ret
+  esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
   lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
-  fn            lctl          lalt          bspc          @spc_space    ret           ralt          left          down          rght
+  fn            lctl          del           bspc          @spc_nav      ret           ralt          left          down          rght
 )
-(defalias
-  0_ctl (tap-hold-release 200 200 0 lctl)
-  4_alt (tap-hold-release 200 200 4 lalt)
-  5_met (tap-hold-release 200 200 5 lmet)
-  6_sft (tap-hold-release 200 200 6 lsft)
-  7_hyp (tap-hold-release 200 200 7 @hyp)
-  8_meh (tap-hold-release 200 200 8 @meh)
-
-  down_sft (tap-hold-release-timeout 200 200 down lsft down)
-  up_met (tap-hold-release-timeout 200 200 up lmet up)
-  rght_ctl (tap-hold-release-timeout 200 200 rght lctl rght)
-)
-(deflayer space
-  esc           f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
+(deflayer nav
+  _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _             _
-  _             @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_ctl     _             _             _
-  _             1             2             3             _             _             home          pgdn          pgup          end           _             _             _
-  _             _             _             del           _             _             _             _             _             _
-) 
+  _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             left          down          up            rght          _             _             _
+  _             _             _             _             _             _             home          pgdn          pgup          end           _             _             _
+  _             _             _             _             _             _             _             _             _             _
+)
+(deflayer function
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12           _
+  _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _
+)
 (defalias
   fake_rmet_press (on-press-fakekey rmeta press)
   fake_rmet_release (on-release-fakekey rmeta release)
