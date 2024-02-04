@@ -20,11 +20,17 @@
 
   ;; lmet so it functions as cmd for non-letter keys
   ret_rcmd (tap-hold-release 200 200 ret (multi lmet @l_rcmd_layer))
-
   del_fn (tap-hold-release 200 200 del @l_fn)
+
+  cw (caps-word 500)
+  cw_lalt (tap-hold-release 200 200 @cw lalt)
 )
 (defalias
-  ;; home-row mod quick typing aliases
+  #|
+  Base layer letter keys / quick-typing keys trigger base_typing layer which has no tap-hold mods except essential ones.
+
+  Any key aliased with prefix 'ms_' is a key that is commonly typed during prose, and thus should trigger base_typing layer.
+  |#
 
   ;; alias to cancel tap-hold keys if typing rapidly but restore after a short idle period
   type (multi
@@ -74,9 +80,11 @@
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
   lsft          @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             rsft          up
-  fn            lctl          @del_fn       @ms_bspc_lmet @ms_spc_nav   @ret_rcmd     ralt          left          down          rght
+  lrld          lctl          @del_fn       @ms_bspc_lmet @ms_spc_nav   @ret_rcmd     @cw_lalt      left          down          rght
 )
 (defalias
+  ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
+
   ;; shift is more important than other modifiers, so these keys go on typing layer for quick shifting
   f_sft (tap-hold-release 200 200 f lsft)
   j_sft (tap-hold-release 200 200 j lsft)
@@ -90,7 +98,7 @@
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
   lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
-  fn            lctl          del           bspc          @spc_nav      ret           ralt          left          down          rght
+  lrld          lctl          del           bspc          @spc_nav      ret           @cw           left          down          rght
 )
 (deflayer nav
   _             _             _             _             _             _             _             _             _             _             _             _             _
@@ -109,6 +117,11 @@
   _             _             _             _             _             _             _             _             _             _
 )
 (defalias
+  #|
+  Layer for `rcmd` macos app.
+
+  Using macros + fake keys here because I couldn't get rcmd to work with a simple tap-hold on base layer.
+  |#
   fake_rmet_press (on-press-fakekey rmeta press)
   fake_rmet_release (on-release-fakekey rmeta release)
 
