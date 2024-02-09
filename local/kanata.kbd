@@ -20,7 +20,8 @@
 
   ;; lmet so it functions as cmd for non-letter keys
   ret_rcmd (tap-hold-release 200 200 ret (multi lmet @l_rcmd_layer))
-  del_fn (tap-hold-release 200 200 del @l_fn)
+  ;;del_fn (tap-hold-release 200 200 del @l_fn)
+  del_ctl (tap-hold-release 200 200 del lctl)
 
   cw (caps-word 500)
   cw_lalt (tap-hold-release 200 200 @cw lalt)
@@ -80,7 +81,7 @@
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
   lsft          @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             rsft          up
-  lrld          lctl          @del_fn       @ms_bspc_lmet @ms_spc_nav   @ret_rcmd     @cw_lalt      left          down          rght
+  lrld          @l_fn         @del_ctl      @ms_bspc_lmet @ms_spc_nav   @ret_rcmd     @cw_lalt      left          down          rght
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
