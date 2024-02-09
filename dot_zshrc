@@ -20,8 +20,9 @@ export FZF_DEFAULT_OPTS="--bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:tog
 
 alias lg="lazygit"
 alias ls="eza"
+alias lt="eza -a --tree --git-ignore"
 alias vd="$HOME/venvs/visidata/.venv/bin/vd"
-alias vdsql="$HOME/venvs/vdsql-python3.11/.venv/bin/vdsql"
+alias vdsql="$HOME/venvs/vdsql/.venv/bin/vdsql"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
