@@ -48,6 +48,12 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 
   "catppuccin.workbenchMode": "minimal",
 
@@ -61,5 +67,5 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
+  "vscode-neovim.NVIM_APPNAME": "vscode-neovim"
 }

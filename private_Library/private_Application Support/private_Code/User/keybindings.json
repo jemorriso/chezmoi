@@ -32,5 +32,14 @@
   {
     "key": "shift+alt+enter",
     "command": "workbench.action.terminal.runSelectedText"
+  },
+  {
+    "key": "alt+shift+2",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == 'markdown'",
+    "args": {
+      "langId": "markdown",
+      "name": "Insert today's date as wikilink"
+    }
   }
 ]
