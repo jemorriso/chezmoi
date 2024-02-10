@@ -38,6 +38,7 @@
   "editor.inlayHints.enabled": "off",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.renderWhitespace": "none",
+  "editor.acceptSuggestionOnEnter": "off",
 
   "[python]": {
     "editor.codeActionsOnSave": {
