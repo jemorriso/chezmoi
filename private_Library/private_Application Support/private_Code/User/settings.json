@@ -1,0 +1,65 @@
+{
+  "breadcrumbs.enabled": false,
+  "window.commandCenter": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "files.associations": {
+    "*.tidal": "haskell",
+    "*.sql": "jinja-sql",
+    "*.yml": "jinja-yaml"
+  },
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "never",
+
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.layoutControl.enabled": false,
+  "workbench.tips.enabled": false,
+  "workbench.editor.showTabs": "none",
+
+  "zenMode.fullScreen": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.showTabs": "none",
+
+  "editor.fontSize": 13,
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+
+  "editor.accessibilitySupport": "off",
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.guides.indentation": false,
+  "editor.formatOnSave": true,
+  "editor.foldingHighlight": false,
+  "editor.inlayHints.enabled": "off",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.renderWhitespace": "none",
+
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.ruff": "explicit"
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "catppuccin.workbenchMode": "minimal",
+
+  "notebook.output.scrolling": true,
+  "jupyter.askForKernelRestart": false
+
+  "sqltools.useNodeRuntime": true,
+
+  "foam.files.ignore": [".venv"],
+
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
+}
