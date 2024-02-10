@@ -52,7 +52,7 @@
   "catppuccin.workbenchMode": "minimal",
 
   "notebook.output.scrolling": true,
-  "jupyter.askForKernelRestart": false
+  "jupyter.askForKernelRestart": false,
 
   "sqltools.useNodeRuntime": true,
 
