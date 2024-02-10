@@ -95,6 +95,8 @@ require("lazy").setup({
 
 vim.g.mapleader = " "
 vim.o.clipboard = 'unnamedplus'
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- TODO add condition to check env so it doesn't cause errors when I debug from neovim
 local vscode = require("vscode-neovim")
