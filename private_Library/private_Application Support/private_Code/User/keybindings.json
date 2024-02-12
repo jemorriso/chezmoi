@@ -41,5 +41,27 @@
       "langId": "markdown",
       "name": "Insert today's date as wikilink"
     }
+  },
+  {
+    "key": "space",
+    "command": "-tidalcycles.sounds.play",
+    "when": "listFocus && listHasSelectionOrFocus"
+  },
+  {
+    "key": "escape",
+    "command": "-tidalcycles.sounds.stop",
+    "when": "listFocus && listHasSelectionOrFocus"
+  },
+  {
+    "key": "ctrl+alt+h",
+    "command": "-tidal.hush"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-tidal.evalMulti"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-tidal.eval"
   }
 ]
