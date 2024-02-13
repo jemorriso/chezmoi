@@ -79,5 +79,9 @@
   {
     "key": "shift+enter",
     "command": "-tidal.eval"
+  },
+  {
+    "key": "alt+d",
+    "command": "-foam-vscode.open-daily-note"
   }
 ]
