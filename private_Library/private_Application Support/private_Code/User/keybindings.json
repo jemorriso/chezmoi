@@ -83,5 +83,14 @@
   {
     "key": "alt+d",
     "command": "-foam-vscode.open-daily-note"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-workbench.action.tasks.build",
+    "when": "taskCommandsRegistered"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "workbench.action.toggleSidebarVisibility"
   }
 ]
