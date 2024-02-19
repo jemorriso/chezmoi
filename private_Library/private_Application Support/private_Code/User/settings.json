@@ -60,15 +60,16 @@
 
   "catppuccin.workbenchMode": "minimal",
 
-  "notebook.output.scrolling": true,
+  "notebook.output.textLineLimit": 10,
+  "notebook.formatOnSave.enabled": true,
   "jupyter.askForKernelRestart": false,
 
   "sqltools.useNodeRuntime": true,
 
   "foam.files.ignore": [".venv"],
 
+  "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "vscode-neovim.NVIM_APPNAME": "vscode-neovim"
 }
