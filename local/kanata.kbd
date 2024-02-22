@@ -14,6 +14,8 @@
   meh (multi lctl lalt lsft)
   hyp (multi lctl lalt lsft lmet)
 
+  os_sft (one-shot 500 lsft)
+
   l_nav (layer-while-held nav)
   l_fn (layer-while-held function)
   l_rcmd_layer (layer-while-held rcmd)
@@ -80,7 +82,7 @@
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
-  lsft          @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             rsft          up
+  @os_sft       @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             @os_sft       up
   lrld          @l_fn         @del_ctl      @ms_bspc_lmet @ms_spc_nav   @ret_rcmd     @cw_lalt      left          down          rght
 )
 (defalias
@@ -98,7 +100,7 @@
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
-  lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
+  @os_sft       z             x             c             v             b             n             m             ,             .             /             @os_sft       up
   lrld          lctl          del           bspc          @spc_nav      ret           @cw           left          down          rght
 )
 (deflayer nav
