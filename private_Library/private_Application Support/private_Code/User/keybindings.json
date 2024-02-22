@@ -142,5 +142,14 @@
     "key": "ctrl+tab",
     "command": "-workbench.action.quickOpenNavigateNextInEditorPicker",
     "when": "inEditorsPicker && inQuickOpen"
+  },
+  {
+    "key": "alt+s",
+    "command": "markdown.extension.editing.toggleStrikethrough"
+  },
+  {
+    "key": "alt+s",
+    "command": "-markdown.extension.editing.toggleStrikethrough",
+    "when": "false"
   }
 ]

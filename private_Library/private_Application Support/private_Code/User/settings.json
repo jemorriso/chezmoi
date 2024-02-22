@@ -66,10 +66,11 @@
 
   "sqltools.useNodeRuntime": true,
 
-  "foam.files.ignore": [".venv"],
+  "foam.files.ignore": ["1.projects/handson-ml3/.venv"],
 
   "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
+  "rubberduck.model": "gpt-4"
 }
