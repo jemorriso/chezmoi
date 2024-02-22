@@ -1,0 +1,2 @@
+options.quitguard = True
+options.disp_float_fmt = '%.05f'
