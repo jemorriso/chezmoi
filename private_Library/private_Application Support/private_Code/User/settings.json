@@ -57,6 +57,10 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[plaintext]": {
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 120
+  },
 
   "catppuccin.workbenchMode": "minimal",
 
@@ -72,5 +76,6 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
+
   "rubberduck.model": "gpt-4"
 }
