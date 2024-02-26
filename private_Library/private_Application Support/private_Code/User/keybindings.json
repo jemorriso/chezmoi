@@ -50,24 +50,6 @@
     "command": "workbench.action.increaseViewHeight"
   },
   {
-    "key": "ctrl+tab",
-    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor"
-  },
-  {
-    "key": "ctrl+shift+tab",
-    "command": "workbench.action.quickOpenLeastRecentlyUsedEditor"
-  },
-  {
-    "key": "ctrl+tab",
-    "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
-    "when": "inQuickOpen"
-  },
-  {
-    "key": "ctrl+shift+tab",
-    "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
-    "when": "inQuickOpen"
-  },
-  {
     "key": "ctrl+u",
     "command": "runCommands",
     "args": {
@@ -160,26 +142,6 @@
   {
     "key": "shift+cmd+c",
     "command": "-dbtPowerUser.changeQuery"
-  },
-  {
-    "key": "ctrl+shift+tab",
-    "command": "-workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
-    "when": "!activeEditorGroupEmpty"
-  },
-  {
-    "key": "ctrl+tab",
-    "command": "-workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
-    "when": "!activeEditorGroupEmpty"
-  },
-  {
-    "key": "ctrl+shift+tab",
-    "command": "-workbench.action.quickOpenNavigatePreviousInEditorPicker",
-    "when": "inEditorsPicker && inQuickOpen"
-  },
-  {
-    "key": "ctrl+tab",
-    "command": "-workbench.action.quickOpenNavigateNextInEditorPicker",
-    "when": "inEditorsPicker && inQuickOpen"
   },
   {
     "key": "alt+s",

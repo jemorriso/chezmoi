@@ -38,7 +38,7 @@
   "editor.inlayHints.enabled": "off",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.renderWhitespace": "none",
-  "editor.lightbulb.enabled": "off", // no more annoying lightbulb and copilot sparkles
+  "editor.lightbulb.enabled": "off", // no more lightbulb and copilot sparkles
 
   "[python]": {
     "editor.codeActionsOnSave": {
