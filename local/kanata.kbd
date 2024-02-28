@@ -20,6 +20,9 @@
   l_fn (layer-while-held function)
   l_rcmd_layer (layer-while-held rcmd)
 
+  ls_base (layer-switch base)
+  ls_acmk (layer-switch ableton_computer_midi_keyboard)
+
   ;; lmet so it functions as cmd for non-letter keys
   ret_rcmd (tap-hold-release 200 200 ret (multi lmet @l_rcmd_layer))
   ;;del_fn (tap-hold-release 200 200 del @l_fn)
@@ -105,8 +108,8 @@
 )
 (deflayer nav
   _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  @ls_base      _             _             _             _             _             _             _             _             _             _             _             _             _
+  @ls_acmk      _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             left          down          up            rght          _             _             _
   _             _             _             _             _             _             home          pgdn          pgup          end           _             _             _
   _             _             _             _             _             _             _             _             _             _
@@ -162,6 +165,14 @@
   _             @a_rcmd       @s_rcmd       @d_rcmd       @f_rcmd       @g_rcmd       @h_rcmd       @j_rcmd       @k_rcmd       @l_rcmd       _             _             _
   _             @z_rcmd       @x_rcmd       @c_rcmd       @v_rcmd       @b_rcmd       @n_rcmd       @m_rcmd       _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _
+)
+(deflayer ableton_computer_midi_keyboard
+  esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
+  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
+  tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
+  esc           a             s             d             f             g             h             j             k             l             ;             '             ret
+  @os_sft       z             x             c             v             b             n             m             ,             .             /             @os_sft       up
+  lrld          lctl          lalt          lmet          @spc_nav      rmet          ralt          left          down          rght
 )
 (deflayer empty
   _             _             _             _             _             _             _             _             _             _             _             _             _
