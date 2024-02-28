@@ -27,6 +27,7 @@
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.macOptionIsMeta": true,
 
   "editor.accessibilitySupport": "off",
   "editor.lineNumbers": "relative",
