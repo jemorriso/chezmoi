@@ -1,5 +1,6 @@
 options.quitguard = True
 options.disp_float_fmt = '%.05f'
+options.ibis_limit = 10000
 
 Sheet.addCommand('^D', 'scroll-halfpage-down', 'cursorDown(nScreenRows//2); sheet.topRowIndex += nScreenRows//2')
-Sheet.addCommand('^U', 'scroll-halfpage-up', 'cursorDown(nScreenRows//2); sheet.topRowIndex += nScreenRows//2')
+Sheet.addCommand('^U', 'scroll-halfpage-up', 'cursorDown(-nScreenRows//2); sheet.topRowIndex -= nScreenRows//2')
