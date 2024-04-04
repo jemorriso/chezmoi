@@ -1,11 +1,10 @@
 {
-  "breadcrumbs.enabled": false,
   "window.commandCenter": false,
   "security.workspace.trust.untrustedFiles": "open",
   "files.associations": {
     "*.tidal": "haskell",
-    "*.sql": "jinja-sql",
-    "*.yml": "jinja-yaml"
+    "*.sql": "jinja-sql"
+    // "*.yml": "jinja-yaml"
   },
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -14,7 +13,7 @@
   "git.autofetch": true,
   "git.openRepositoryInParentFolders": "never",
 
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Catppuccin Macchiato",
   "workbench.layoutControl.enabled": false,
   "workbench.tips.enabled": false,
   "workbench.editor.showTabs": "none",
@@ -22,12 +21,20 @@
   "zenMode.fullScreen": false,
   "zenMode.hideStatusBar": false,
   "zenMode.showTabs": "none",
+  "zenMode.hideLineNumbers": false,
 
   "editor.fontSize": 13,
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
   "terminal.integrated.macOptionIsMeta": true,
+  "terminal.integrated.profiles.osx": {
+    "tmux-shell": {
+      "path": "tmux",
+      "args": ["new-session", "-A", "-s", "vscode:${workspaceFolder}"]
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "tmux-shell",
 
   "editor.accessibilitySupport": "off",
   "editor.lineNumbers": "relative",
@@ -40,6 +47,8 @@
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.renderWhitespace": "none",
   "editor.lightbulb.enabled": "off", // no more lightbulb and copilot sparkles
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
 
   "[python]": {
     "editor.codeActionsOnSave": {
@@ -48,28 +57,41 @@
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[plaintext]": {
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120
+  },
+  "[jinja-sql]": {
+    // TODO this has stopped working 2024-02-29
+    "editor.defaultFormatter": "innoverio.vscode-dbt-power-user",
+    "editor.formatOnSave": true
+  },
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": ".*\\.sql(\\.jinja)?",
+        "isAsync": true,
+        "cmd": "sqlfmt ${file}"
+      }
+    ]
   },
 
   "catppuccin.workbenchMode": "minimal",
 
   "notebook.output.textLineLimit": 10,
   "notebook.formatOnSave.enabled": true,
+  "notebook.codeActionsOnSave": {
+    "source.organizeImports.ruff": "explicit"
+  },
+  "notebook.stickyScroll.enabled": true,
   "jupyter.askForKernelRestart": false,
+  "jupyter.debugJustMyCode": false,
+  "interactiveWindow.collapseCellInputCode": "never",
 
-  "sqltools.useNodeRuntime": true,
+  "debugpy.debugJustMyCode": false,
 
   "foam.files.ignore": ["1.projects/handson-ml3/.venv"],
 
@@ -78,5 +100,14 @@
     "asvetliakov.vscode-neovim": 1
   },
 
-  "rubberduck.model": "gpt-4"
+  "rubberduck.model": "gpt-4",
+
+  "dbt.sqlFmtPath": "/Users/jerry/.local/bin/sqlfmt",
+
+  "genieai.enableConversationHistory": true,
+
+  "sqltools.useNodeRuntime": true,
+  "sqltools.connections": [],
+  "sqltools.results.limit": 100,
+  "sqltools.results.location": "current"
 }
