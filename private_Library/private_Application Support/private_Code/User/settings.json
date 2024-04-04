@@ -30,8 +30,8 @@
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.profiles.osx": {
     "tmux-shell": {
-      "path": "tmux",
-      "args": ["new-session", "-A", "-s", "vscode:${workspaceFolder}"]
+      "path": "/Users/jerry/local/vscode_tmux.sh",
+      "args": ["${workspaceFolder}"]
     }
   },
   "terminal.integrated.defaultProfile.osx": "tmux-shell",
