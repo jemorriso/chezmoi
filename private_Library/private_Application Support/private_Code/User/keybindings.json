@@ -31,6 +31,11 @@
     "key": "alt+-",
     "command": "workbench.action.decreaseViewWidth"
   },
+  {
+    "key": "alt+s",
+    "command": "markdown.extension.editing.toggleStrikethrough",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
   // alt+ctrl
   {
     "key": "alt+ctrl+-",
@@ -65,6 +70,13 @@
       "langId": "markdown",
       "name": "Insert today's date as wikilink"
     }
+  },
+  // cmd+shift
+  // markdown all-in-one uses cmd+b for toggle bold
+  {
+    "key": "cmd+shift+b",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
   },
   // ctrl
   {
@@ -109,7 +121,7 @@
   },
   // ctrl+k prefix
   {
-    "key": "ctrl+k ctrl+t",
+    "key": "ctrl+k ctrl+d",
     "command": "foam-vscode.open-daily-note"
   },
   {
@@ -160,15 +172,6 @@
     "command": "-foam-vscode.open-daily-note"
   },
   {
-    "key": "shift+cmd+b",
-    "command": "-workbench.action.tasks.build",
-    "when": "taskCommandsRegistered"
-  },
-  {
-    "key": "shift+cmd+b",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
-  {
     "key": "shift+cmd+e",
     "command": "-dbtPowerUser.summarizeQuery"
   },
@@ -179,19 +182,5 @@
   {
     "key": "shift+cmd+c",
     "command": "-dbtPowerUser.changeQuery"
-  },
-  {
-    "key": "alt+s",
-    "command": "markdown.extension.editing.toggleStrikethrough"
-  },
-  {
-    "key": "alt+s",
-    "command": "-markdown.extension.editing.toggleStrikethrough",
-    "when": "false"
-  },
-  {
-    "key": "ctrl+k",
-    "command": "-deleteAllRight",
-    "when": "textInputFocus && !editorReadonly"
   }
 ]
