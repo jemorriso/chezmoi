@@ -16,8 +16,8 @@
 
   os_sft (one-shot 500 lsft)
 
-  l_nav (layer-while-held nav)
-  l_fn (layer-while-held function)
+  l_nav_fn (layer-while-held nav_fn)
+  ;; l_fn (layer-while-held function)
   l_rcmd_layer (layer-while-held rcmd)
 
   ls_base (layer-switch base)
@@ -78,7 +78,7 @@
   ms_. (multi . @type)
 
   ms_bspc_lmet (tap-hold-release 200 200 (multi bspc @type) lmet)
-  ms_spc_nav (tap-hold-release 200 200 (multi spc @type) @l_nav)
+  ms_spc_nav_fn (tap-hold-release 200 200 (multi spc @type) @l_nav_fn)
 )
 (deflayer base
   esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
@@ -86,7 +86,7 @@
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
   @os_sft       @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             @os_sft       up
-  lrld          @l_fn         @del_ctl      @ms_bspc_lmet @ms_spc_nav   @ret_rcmd     @cw_lalt      left          down          rght
+  lrld          lctl          @del_ctl      @ms_bspc_lmet @ms_spc_nav_fn @ret_rcmd    @cw_lalt      left          down          rght
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -96,7 +96,7 @@
   j_sft (tap-hold-release 200 200 j lsft)
 
   ;; also allow tap-hold spc on typing layer for quick arrows
-  spc_nav (tap-hold-release 200 200 spc @l_nav)
+  spc_nav_fn (tap-hold-release 200 200 spc @l_nav_fn)
 )
 (deflayer base_typing
   esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
@@ -104,24 +104,30 @@
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
   @os_sft       z             x             c             v             b             n             m             ,             .             /             @os_sft       up
-  lrld          lctl          del           bspc          @spc_nav      ret           @cw           left          down          rght
+  lrld          lctl          del           bspc          @spc_nav_fn   ret           @cw           left          down          rght
 )
-(deflayer nav
+(defalias
+  down_sft (tap-hold-release 200 200 down lsft)
+  up_met (tap-hold-release 200 200 up lmet)
+  rght_alt (tap-hold-release 200 200 rght lalt)
+  
+)
+(deflayer nav_fn
   _             _             _             _             _             _             _             _             _             _             _             _             _
-  @ls_base      _             _             _             _             _             _             _             _             _             _             _             _             _
+  @ls_base      f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12           _
   @ls_acmk      _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             left          down          up            rght          _             _             _
+  _             _             _             _             _             _             left          @down_sft     @up_met       @rght_alt     _             _             _
   _             _             _             _             _             _             home          pgdn          pgup          end           _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
-(deflayer function
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12           _
-  _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _
-)
+;; (deflayer function
+;;   _             _             _             _             _             _             _             _             _             _             _             _             _
+;;   _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12           _
+;;   _             _             _             _             _             _             _             _             _             _             _             _             _             _
+;;   _             _             _             _             _             _             _             _             _             _             _             _             _
+;;   _             _             _             _             _             _             _             _             _             _             _             _             _
+;;   _             _             _             _             _             _             _             _             _             _
+;; )
 (defalias
   #|
   Layer for `rcmd` macos app.
@@ -172,7 +178,7 @@
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             f             g             h             j             k             l             ;             '             ret
   @os_sft       z             x             c             v             b             n             m             ,             .             /             @os_sft       up
-  lrld          lctl          lalt          lmet          @spc_nav      rmet          ralt          left          down          rght
+  lrld          lctl          lalt          lmet          @spc_nav_fn   rmet          ralt          left          down          rght
 )
 (deflayer empty
   _             _             _             _             _             _             _             _             _             _             _             _             _
