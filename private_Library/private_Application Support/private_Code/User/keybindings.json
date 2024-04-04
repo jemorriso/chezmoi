@@ -1,5 +1,8 @@
-// Place your key bindings in this file to override the defaults
 [
+  /////////////////////////////////////////////////////////////////////////////
+  // additions
+  /////////////////////////////////////////////////////////////////////////////
+  // alt
   {
     "key": "alt+h",
     "command": "workbench.action.navigateLeft"
@@ -17,11 +20,41 @@
     "command": "workbench.action.navigateDown"
   },
   {
-    "key": "shift+alt+z",
+    "key": "alt+,",
+    "command": "workbench.action.openSettingsJson"
+  },
+  {
+    "key": "alt+=",
+    "command": "workbench.action.increaseViewWidth"
+  },
+  {
+    "key": "alt+-",
+    "command": "workbench.action.decreaseViewWidth"
+  },
+  // alt+ctrl
+  {
+    "key": "alt+ctrl+-",
+    "command": "workbench.action.decreaseViewHeight"
+  },
+  {
+    "key": "alt+ctrl+=",
+    "command": "workbench.action.increaseViewHeight"
+  },
+  // alt+shift
+  {
+    "key": "alt+shift+z",
     "command": "workbench.action.toggleMaximizedPanel"
   },
   {
-    "key": "shift+alt+enter",
+    "key": "alt+shift+g",
+    "command": "chatgpt-vscode.view.focus"
+  },
+  {
+    "key": "alt+shift+c",
+    "command": "workbench.panel.chat.view.copilot.focus"
+  },
+  {
+    "key": "alt+shift+enter",
     "command": "workbench.action.terminal.runSelectedText"
   },
   {
@@ -33,22 +66,7 @@
       "name": "Insert today's date as wikilink"
     }
   },
-  {
-    "key": "alt+=",
-    "command": "workbench.action.increaseViewWidth"
-  },
-  {
-    "key": "alt+-",
-    "command": "workbench.action.decreaseViewWidth"
-  },
-  {
-    "key": "ctrl+alt+-",
-    "command": "workbench.action.decreaseViewHeight"
-  },
-  {
-    "key": "ctrl+alt+=",
-    "command": "workbench.action.increaseViewHeight"
-  },
+  // ctrl
   {
     "key": "ctrl+u",
     "command": "runCommands",
@@ -87,8 +105,25 @@
         }
       ]
     },
-    "when": "editorTextFocus"
+    "when": "editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
   },
+  // ctrl+k prefix
+  {
+    "key": "ctrl+k ctrl+t",
+    "command": "foam-vscode.open-daily-note"
+  },
+  {
+    "key": "ctrl+k ctrl+s",
+    "command": "workbench.action.openGlobalKeybindingsFile"
+  },
+  // ctrl+shift
+  {
+    "key": "ctrl+shift+enter",
+    "command": "sqltools.executeCurrentQuery"
+  },
+  /////////////////////////////////////////////////////////////////////////////
+  // removals
+  /////////////////////////////////////////////////////////////////////////////
   {
     "key": "alt+h",
     "command": "-foam-vscode.open-daily-note-for-date"
@@ -155,13 +190,8 @@
     "when": "false"
   },
   {
-    "key": "ctrl+u",
-    "command": "-vscode-neovim.ctrl-u",
-    "when": "editorTextFocus && neovim.ctrlKeysNormal.u && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
-  },
-  {
-    "key": "ctrl+d",
-    "command": "-vscode-neovim.ctrl-d",
-    "when": "editorTextFocus && neovim.ctrlKeysNormal.d && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    "key": "ctrl+k",
+    "command": "-deleteAllRight",
+    "when": "textInputFocus && !editorReadonly"
   }
 ]
