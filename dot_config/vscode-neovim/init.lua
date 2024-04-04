@@ -44,6 +44,11 @@ require("lazy").setup({
     'numToStr/Comment.nvim',
     opts = {},
     lazy = false,
+    config = function()
+        local ft = require('Comment.ft')
+        ft.set('kbd', ft.get('lisp'))
+        -- require('Comment').setup()
+    end,
   }
 })
 -- {
