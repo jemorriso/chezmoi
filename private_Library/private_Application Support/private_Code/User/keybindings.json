@@ -32,6 +32,15 @@
     "command": "workbench.action.decreaseViewWidth"
   },
   {
+    "key": "alt+r",
+    "command": "workbench.action.openRecent"
+  },
+  {
+    "key": "alt+r",
+    "command": "workbench.action.quickOpenNavigateNextInRecentFilesPicker",
+    "when": "inQuickOpen && inRecentFilesPicker"
+  },
+  {
     "key": "alt+s",
     "command": "markdown.extension.editing.toggleStrikethrough",
     "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
@@ -127,6 +136,10 @@
   {
     "key": "ctrl+k ctrl+s",
     "command": "workbench.action.openGlobalKeybindingsFile"
+  },
+  {
+    "key": "ctrl+k ctrl+backspace",
+    "command": "notifications.clearAll"
   },
   // ctrl+shift
   {
