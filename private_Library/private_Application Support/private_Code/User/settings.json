@@ -1,11 +1,17 @@
 {
+  "breadcrumbs.enabled": false,
+
   "window.commandCenter": false,
+  "window.newWindowDimensions": "inherit",
+
   "security.workspace.trust.untrustedFiles": "open",
+
   "files.associations": {
     "*.tidal": "haskell",
     "*.sql": "jinja-sql"
     // "*.yml": "jinja-yaml"
   },
+
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
 
@@ -17,14 +23,13 @@
   "workbench.layoutControl.enabled": false,
   "workbench.tips.enabled": false,
   "workbench.editor.showTabs": "none",
+  "workbench.activityBar.location": "hidden",
 
   "zenMode.fullScreen": false,
   "zenMode.hideStatusBar": false,
   "zenMode.showTabs": "none",
   "zenMode.hideLineNumbers": false,
 
-  "editor.fontSize": 13,
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
   "terminal.integrated.macOptionIsMeta": true,
@@ -36,6 +41,8 @@
   },
   "terminal.integrated.defaultProfile.osx": "tmux-shell",
 
+  "editor.fontSize": 13,
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.accessibilitySupport": "off",
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
