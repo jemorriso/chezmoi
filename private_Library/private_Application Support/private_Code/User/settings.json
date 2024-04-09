@@ -67,6 +67,9 @@
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120
   },
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
+  },
   "[plaintext]": {
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120
