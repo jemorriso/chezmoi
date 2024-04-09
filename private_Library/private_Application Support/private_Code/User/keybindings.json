@@ -93,6 +93,10 @@
   },
   // ctrl
   {
+    "key": "ctrl+escape",
+    "command": "workbench.action.focusActiveEditorGroup"
+  },
+  {
     "key": "ctrl+u",
     "command": "runCommands",
     "args": {

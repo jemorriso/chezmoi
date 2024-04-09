@@ -23,7 +23,7 @@
   "workbench.layoutControl.enabled": false,
   "workbench.tips.enabled": false,
   "workbench.editor.showTabs": "none",
-  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.location": "top",
 
   "zenMode.fullScreen": false,
   "zenMode.hideStatusBar": false,
