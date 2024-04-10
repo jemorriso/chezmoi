@@ -51,10 +51,10 @@
   },
   {
     "key": "alt+2",
-    "command": "editor.action.insertsnippet",
-    "when": "editortextfocus && editorlangid == 'markdown'",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == 'markdown'",
     "args": {
-      "langid": "markdown",
+      "langId": "markdown",
       "name": "Insert current time, italicized"
     }
   },
@@ -86,17 +86,12 @@
   },
   {
     "key": "alt+shift+2",
-    "command": "editor.action.insertsnippet",
-    "when": "editortextfocus && editorlangid == 'markdown'",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == 'markdown'",
     "args": {
-      "langid": "markdown",
-      "name": "insert today's date as wikilink"
+      "langId": "markdown",
+      "name": "Insert today's date as wikilink"
     }
-  },
-  {
-    "key": "alt+shift+r",
-    "command": "workbench.action.quickOpenNavigatePreviousInRecentFilesPicker",
-    "when": "inQuickOpen && inRecentFilesPicker"
   },
   // cmd+shift
   // markdown all-in-one uses cmd+b for toggle bold
