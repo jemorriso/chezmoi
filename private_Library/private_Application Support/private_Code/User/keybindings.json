@@ -84,6 +84,11 @@
       "name": "Insert today's date as wikilink"
     }
   },
+  {
+    "key": "alt+shift+r",
+    "command": "workbench.action.quickOpenNavigatePreviousInRecentFilesPicker",
+    "when": "inQuickOpen && inRecentFilesPicker"
+  },
   // cmd+shift
   // markdown all-in-one uses cmd+b for toggle bold
   {

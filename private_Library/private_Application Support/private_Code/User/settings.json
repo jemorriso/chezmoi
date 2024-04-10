@@ -143,6 +143,8 @@
 
   "genieai.enableConversationHistory": true,
 
+  "todotxtmode.addCreatedAt": true,
+
   "sqltools.useNodeRuntime": true,
   "sqltools.connections": [],
   "sqltools.results.limit": 100,
