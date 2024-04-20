@@ -17,7 +17,10 @@
   os_sft (one-shot 500 lsft)
 
   l_space (layer-while-held space)
-  l_fn_med (layer-while-held fn_media)
+  
+  ;; use multi for cmd-tab, release cmd for all other keys
+  l_fn_med (multi lmet (layer-while-held fn_media))
+
   l_rcmd_layer (layer-while-held rcmd)
 
   ls_base (layer-switch base)
@@ -135,23 +138,40 @@
   @ls_acmk      _             _             0             _             _             _             _             _             _
 )
 (defalias
-  vold_sft (tap-hold-release 200 200 vold lsft)
-  volu_met (tap-hold-release 200 200 volu lmet)
-  next_alt (tap-hold-release 200 200 next lalt)
+  vold_sft (multi (release-key lmet) (tap-hold-release 200 200 vold lsft))
+  volu_met (multi (release-key lmet) (tap-hold-release 200 200 volu lmet))
+  next_alt (multi (release-key lmet) (tap-hold-release 200 200 next lalt))
 
-  f7_hyp (tap-hold-release 200 200 f7 @hyp)
-  f8_meh (tap-hold-release 200 200 f8 @meh)
+  f7_hyp (multi (release-key lmet) (tap-hold-release 200 200 f7 @hyp))
+  f8_meh (multi (release-key lmet) (tap-hold-release 200 200 f8 @meh))
   
-  f4_alt (tap-hold-release 200 200 f4 lalt)
-  f5_met (tap-hold-release 200 200 f5 lmet)
-  f6_sft (tap-hold-release 200 200 f6 lsft)
+  f4_alt (multi (release-key lmet) (tap-hold-release 200 200 f4 lalt))
+  f5_met (multi (release-key lmet) (tap-hold-release 200 200 f5 lmet))
+  f6_sft (multi (release-key lmet) (tap-hold-release 200 200 f6 lsft))
+  
+  f1 (multi (release-key lmet) f1)
+  f2 (multi (release-key lmet) f2)
+  f3 (multi (release-key lmet) f3)
+
+  f9 (multi (release-key lmet) f9)
+  f10 (multi (release-key lmet) f10)
+  f11 (multi (release-key lmet) f11)
+  f12 (multi (release-key lmet) f12)
+
+  prev (multi (release-key lmet) prev)
+  mute (multi (release-key lmet) mute)
+  pp (multi (release-key lmet) pp)
+  brdn (multi (release-key lmet) brdn)
+  brup (multi (release-key lmet) brup)
+  
+  m_tab (multi (layer-switch base) tab)
 )
 (deflayer fn_media
   _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             f10           f11           f12           _             _             _             _             _             _             _             _             _
-  _             _             @f7_hyp       @f8_meh       f9            _             _             _             mute          pp            _             _             _             _
-  _             _             @f4_alt       @f5_met       @f6_sft       _             prev          @vold_sft     @volu_met     @next_alt     _             _             _
-  _             f1            f2            f3            _             _             _             brdn          brup          _             _             _             _
+  _             _             @f10          @f11          @f12          _             _             _             _             _             _             _             _             _
+  @m_tab        _             @f7_hyp       @f8_meh       @f9           _             _             _             @mute         @pp           _             _             _             _
+  _             _             @f4_alt       @f5_met       @f6_sft       _             @prev         @vold_sft     @volu_met     @next_alt     _             _             _
+  _             @f1           @f2           @f3           _             _             _             @brdn         @brup         _             _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
 (defalias
