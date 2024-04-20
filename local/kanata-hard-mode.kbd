@@ -10,6 +10,10 @@
   fk_to_base (layer-switch base)
   rmeta rmet
 )
+(defvar
+  left_keys (tab q w e r t caps a s d f g lsft z x c v b)
+  right_keys (y u i o p [ h j k l ; ' n m , . /)
+)
 (defalias
   meh (multi lctl lalt lsft)
   hyp (multi lctl lalt lsft lmet)
@@ -26,7 +30,8 @@
   l_fn_med (layer-while-held fn_media)
   l_rcmd_layer (layer-while-held rcmd)
 
-  esc_rcmd (tap-hold-release 200 200 esc @l_rcmd_layer)
+  esc_rcmd (tap-hold-release-keys 200 200 esc @l_rcmd_layer $left_keys)
+
   ret_sym (tap-hold-release 200 200 ret @l_sym)
 
   cw (caps-word 500)
@@ -41,40 +46,40 @@
   ;; alias to cancel tap-hold keys if typing rapidly but restore after a short idle period
   type (multi
     (layer-switch base_typing)
-    (on-idle-fakekey fk_to_base tap 100)
+    (on-idle-fakekey fk_to_base tap 75)
   )
 
   ms_q (multi q @type)
-  ms_w_hyp (tap-hold-release 200 200 (multi w @type) @hyp)
-  ms_e_meh (tap-hold-release 200 200 (multi e @type) @meh)
+  ms_w_hyp (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys)
+  ms_e_meh (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys)
   ms_r (multi r @type)
   ms_t (multi t @type)
   ms_y (multi y @type)
   ms_u (multi u @type)
-  ms_i_meh (tap-hold-release 200 200 (multi i @type) @meh)
-  ms_o_hyp (tap-hold-release 200 200 (multi o @type) @hyp)
+  ms_i_meh (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys)
+  ms_o_hyp (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys)
   ms_p (multi p @type)
 
-  ms_a_ctl (tap-hold-release 200 200 (multi a @type) lctl)
-  ms_s_alt (tap-hold-release 200 200 (multi s @type) lalt)
-  ms_d_met (tap-hold-release 200 200 (multi d @type) lmet)
-  ms_f_sft (tap-hold-release 200 200 (multi f @type) lsft)
+  ms_a_ctl (tap-hold-release-keys 200 200 (multi a @type) lctl $left_keys)
+  ms_s_alt (tap-hold-release-keys 200 200 (multi s @type) lalt $left_keys)
+  ms_d_met (tap-hold-release-keys 200 200 (multi d @type) lmet $left_keys)
+  ms_f_sft (tap-hold-release-keys 200 200 (multi f @type) lsft $left_keys)
   ms_g (multi g @type)
   ms_h (multi h @type)
-  ms_j_sft (tap-hold-release 200 200 (multi j @type) lsft)
-  ms_k_met (tap-hold-release 200 200 (multi k @type) lmet)
-  ms_l_alt (tap-hold-release 200 200 (multi l @type) lalt)
-  ms_;_ctl (tap-hold-release 200 200 (multi ; @type) lctl)
-  ms_'_rcmd (tap-hold-release 200 200 (multi ' @type) @l_rcmd_layer)
+  ms_j_sft (tap-hold-release-keys 200 200 (multi j @type) lsft $right_keys)
+  ms_k_met (tap-hold-release-keys 200 200 (multi k @type) lmet $right_keys)
+  ms_l_alt (tap-hold-release-keys 200 200 (multi l @type) lalt $right_keys)
+  ms_;_ctl (tap-hold-release-keys 200 200 (multi ; @type) lctl $right_keys)
+  ms_'_rcmd (tap-hold-release-keys 200 200 (multi ' @type) @l_rcmd_layer $right_keys)
 
   ms_z (multi z @type)
   ms_x (multi x @type)
-  ms_c_fn_med (tap-hold-release 200 200 (multi c @type) @l_fn_med)
+  ms_c_fn_med (tap-hold-release-keys 200 200 (multi c @type) @l_fn_med $left_keys)
   ;; ms_c (multi c @type)
   ms_v (multi v @type)
   ms_b (multi b @type)
   ms_n (multi n @type)
-  ms_m_fn_med (tap-hold-release 200 200 (multi m @type) @l_fn_med)
+  ms_m_fn_med (tap-hold-release-keys 200 200 (multi m @type) @l_fn_med $right_keys)
   ;; ms_m (multi m @type)
   ms_, (multi , @type)
   ms_. (multi . @type)
@@ -87,15 +92,15 @@
   XX            XX            @___          @___          @___          XX            XX            XX            @___          @___          @___          XX            XX            XX          
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   @esc_rcmd     @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'_rcmd    XX     
-  @os_sft       @ms_z         @ms_x         @ms_c_fn_med  @ms_v         @ms_b         @ms_n         @ms_m_fn_med  @ms_,         @ms_.         @os_sft       XX            XX     
+  @os_sft       @ms_z         @ms_x         @ms_c_fn_med  @ms_v         @ms_b         @ms_n         @ms_m_fn_med  @ms_,         @ms_.         /             XX            XX     
   lrld          XX            @___          @l_sym        @ms_spc_num_nav @ret_sym    @cw           XX            XX            XX     
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
 
   ;; shift is more important than other modifiers, so these keys go on typing layer for quick shifting
-  f_sft (tap-hold-release 200 200 f lsft)
-  j_sft (tap-hold-release 200 200 j lsft)
+  f_sft (tap-hold-release-keys 200 200 f lsft $left_keys)
+  j_sft (tap-hold-release-keys 200 200 j lsft $right_keys)
 
   ;; also allow tap-hold spc on typing layer for quick arrows
   spc_num_nav (tap-hold-release 200 200 spc @l_num_nav)
@@ -109,17 +114,17 @@
   @___          XX            @___          @l_sym        @spc_num_nav  @ret_sym      @cw           XX            XX            XX          
 )
 (defalias
-  down_sft (tap-hold-release 200 200 down lsft)
-  up_met (tap-hold-release 200 200 up lmet)
-  rght_alt (tap-hold-release 200 200 rght lalt)
+  7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys)
+  8_meh (tap-hold-release-keys 200 200 8 @meh $left_keys)
 
-  7_hyp (tap-hold-release 200 200 7 @hyp)
-  8_meh (tap-hold-release 200 200 8 @meh)
-  
-  0_ctl (tap-hold-release 200 200 0 lctl)
-  4_alt (tap-hold-release 200 200 4 lalt)
-  5_met (tap-hold-release 200 200 5 lmet)
-  6_sft (tap-hold-release 200 200 6 lsft)
+  ;; 0_ctl (tap-hold-release-keys 200 200 0 lctl $left_keys)
+  4_alt (tap-hold-release-keys 200 200 4 lalt $left_keys)
+  5_met (tap-hold-release-keys 200 200 5 lmet $left_keys)
+  6_sft (tap-hold-release-keys 200 200 6 lsft $left_keys)
+
+  down_sft (tap-hold-release-keys 200 200 down lsft $right_keys)
+  up_met (tap-hold-release-keys 200 200 up lmet $right_keys)
+  rght_alt (tap-hold-release-keys 200 200 rght lalt $right_keys)
 )
 (deflayer num_nav
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
@@ -129,32 +134,49 @@
   _             1             2             3             _             _             home          pgdn          pgup          end           _             XX            XX
   @ls_acmk      XX            _             0             _             _             _             XX            XX            XX
 )
+(defalias
+  s_7_hyp (tap-hold-release-keys 200 200 (multi lsft 7) @hyp $left_keys)
+  s_8_meh (tap-hold-release-keys 200 200 (multi lsft 8) @meh $left_keys)
+
+  grv_ctl (tap-hold-release-keys 200 200 grv lctl $left_keys)
+  s_4_alt (tap-hold-release-keys 200 200 (multi lsft 4) lalt $left_keys)
+  s_5_met (tap-hold-release-keys 200 200 (multi lsft 5) lmet $left_keys)
+  s_6_sft (tap-hold-release-keys 200 200 (multi lsft 6) lsft $left_keys)
+
+  s_9_meh (tap-hold-release-keys 200 200 (multi lsft 9) @meh $right_keys)
+  s_0_hyp (tap-hold-release-keys 200 200 (multi lsft 0) @hyp $right_keys)
+
+  s_[_sft (tap-hold-release-keys 200 200 (multi lsft [) lalt $right_keys)
+  [_met (tap-hold-release-keys 200 200 [ lmet $right_keys)
+  ]_alt (tap-hold-release-keys 200 200 ] lalt $right_keys)
+  s_]_ctl (tap-hold-release-keys 200 200 (multi lsft ]) lctl $right_keys)
+)
 (deflayer symbol
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
   XX            XX            _             _             _             XX            XX            XX            _             _             _             XX            XX            XX          
-  _             _             S-7           S-8           S-9           _             _             _             S-9           S-0           _             _             XX            XX
-  S-grv         grv           S-4           S-5           S-6           _             _             S-[           [             ]             S-]           S-\           XX
+  _             _             @s_7_hyp      @s_8_meh      S-9           _             _             _             @s_9_meh      @s_0_hyp      _             _             XX            XX
+  S-grv         @grv_ctl      @s_4_alt      @s_5_met      @s_6_sft      _             _             @s_[_sft      @[_met        @]_alt        @s_]_ctl      S-\           XX
   _             S-1           S-2           S-3           _             _             S--           -             =             S-=           \             XX            XX
   _             XX            _             S-0           _             _             _             XX            XX            XX
 )
 (defalias
-  vold_sft (tap-hold-release 200 200 vold lsft)
-  volu_met (tap-hold-release 200 200 volu lmet)
-  next_alt (tap-hold-release 200 200 next lalt)
-
-  f7_hyp (tap-hold-release 200 200 f7 @hyp)
-  f8_meh (tap-hold-release 200 200 f8 @meh)
+  f7_hyp (tap-hold-release-keys 200 200 f7 @hyp $left_keys)
+  f8_meh (tap-hold-release-keys 200 200 f8 @meh $left_keys)
   
-  f4_alt (tap-hold-release 200 200 f4 lalt)
-  f5_met (tap-hold-release 200 200 f5 lmet)
-  f6_sft (tap-hold-release 200 200 f6 lsft)
+  f4_alt (tap-hold-release-keys 200 200 f4 lalt $left_keys)
+  f5_met (tap-hold-release-keys 200 200 f5 lmet $left_keys)
+  f6_sft (tap-hold-release-keys 200 200 f6 lsft $left_keys)
+
+  vold_sft (tap-hold-release-keys 200 200 vold lsft $right_keys)
+  volu_met (tap-hold-release-keys 200 200 volu lmet $right_keys)
+  next_alt (tap-hold-release-keys 200 200 next lalt $right_keys)
 )
 (deflayer fn_media
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
   XX            XX            f10           f11           f12           XX            XX            XX            _             _             _             XX            XX            XX
-  _             _             @f7_hyp       @f8_meh       f9            _             _             _             mute          pp            _             _             XX            XX
+  _             _             @f7_hyp       @f8_meh       f9            _             _             _             _             _             _             _             XX            XX
   _             _             @f4_alt       @f5_met       @f6_sft       _             prev          @vold_sft     @volu_met     @next_alt     _             _             XX
-  _             f1            f2            f3            _             _             _             brdn          brup          _             _             XX            XX
+  _             f1            f2            f3            _             _             mute          brdn          brup          pp            _             XX            XX
   _             XX            _             _             _             _             _             XX            XX            XX
 )
 (defalias
