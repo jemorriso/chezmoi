@@ -74,13 +74,15 @@
 
   ms_z (multi z @type)
   ms_x (multi x @type)
-  ms_c_fn_med (tap-hold-release-keys 200 200 (multi c @type) @l_fn_med $left_keys)
   ;; ms_c (multi c @type)
-  ms_v (multi v @type)
+  ms_c_sym (tap-hold-release-keys 200 200 (multi c @type) @l_sym $left_keys)
+  ;; ms_v (multi v @type)
+  ms_v_fn_med (tap-hold-release-keys 200 200 (multi v @type) @l_fn_med $left_keys)
   ms_b (multi b @type)
-  ms_n (multi n @type)
-  ms_m_fn_med (tap-hold-release-keys 200 200 (multi m @type) @l_fn_med $right_keys)
+  ;; ms_n (multi n @type)
+  ms_n_fn_med (tap-hold-release-keys 200 200 (multi n @type) @l_fn_med $right_keys)
   ;; ms_m (multi m @type)
+  ms_m_sym (tap-hold-release-keys 200 200 (multi m @type) @l_sym $right_keys)
   ms_, (multi , @type)
   ms_. (multi . @type)
 
@@ -92,8 +94,8 @@
   XX            XX            @___          @___          @___          XX            XX            XX            @___          @___          @___          XX            XX            XX          
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   @esc_rcmd     @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'_rcmd    XX     
-  @os_sft       @ms_z         @ms_x         @ms_c_fn_med  @ms_v         @ms_b         @ms_n         @ms_m_fn_med  @ms_,         @ms_.         /             XX            XX     
-  lrld          XX            @___          @l_sym        @ms_spc_num_nav @ret_sym    @cw           XX            XX            XX     
+  @os_sft       @ms_z         @ms_x         @ms_c_sym     @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_sym     @ms_,         @ms_.         /             XX            XX     
+  lrld          XX            @___          @___          @ms_spc_num_nav ret         @cw           XX            XX            XX     
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -101,6 +103,10 @@
   ;; shift is more important than other modifiers, so these keys go on typing layer for quick shifting
   f_sft (tap-hold-release-keys 200 200 f lsft $left_keys)
   j_sft (tap-hold-release-keys 200 200 j lsft $right_keys)
+
+  ;; symbol layer needs to be accessible while typing quickly
+  c_sym (tap-hold-release-keys 200 200 c @l_sym $left_keys)
+  m_sym (tap-hold-release-keys 200 200 m @l_sym $right_keys)
 
   ;; also allow tap-hold spc on typing layer for quick arrows
   spc_num_nav (tap-hold-release 200 200 spc @l_num_nav)
@@ -110,14 +116,14 @@
   XX            XX            @___          @___          @___          XX            XX            XX            @___          @___          @___          XX            XX            XX          
   tab           q             w             e             r             t             y             u             i             o             p             bspc          XX            XX          
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX          
-  @os_sft       z             x             c             v             b             n             m             ,             .             /             XX            XX          
-  @___          XX            @___          @l_sym        @spc_num_nav  @ret_sym      @cw           XX            XX            XX          
+  @os_sft       z             x             @c_sym        v             b             n             @m_sym        ,             .             /             XX            XX          
+  @___          XX            @___          @___          @spc_num_nav  ret           @cw           XX            XX            XX          
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys)
   8_meh (tap-hold-release-keys 200 200 8 @meh $left_keys)
 
-  ;; 0_ctl (tap-hold-release-keys 200 200 0 lctl $left_keys)
+  0_ctl (tap-hold-release-keys 200 200 0 lctl $left_keys)
   4_alt (tap-hold-release-keys 200 200 4 lalt $left_keys)
   5_met (tap-hold-release-keys 200 200 5 lmet $left_keys)
   6_sft (tap-hold-release-keys 200 200 6 lsft $left_keys)
@@ -130,7 +136,7 @@
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
   XX            XX            _             _             _             XX            XX            XX            _             _             _             XX            XX            XX          
   _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             del           XX            XX
-  _             _             @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_alt     _             _             XX
+  _             @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_alt     _             _             XX
   _             1             2             3             _             _             home          pgdn          pgup          end           _             XX            XX
   @ls_acmk      XX            _             0             _             _             _             XX            XX            XX
 )
