@@ -11,10 +11,15 @@
   rmeta rmet
 )
 (defvar
-  ;; left_keys (tab q w e r t caps a s d f g lsft z x c v b)
-  ;; right_keys (y u i o p [ h j k l ; ' n m , . /)
-  left_keys (tab q w e r t caps g lsft z x c v b)
-  right_keys (y u i o p [ h ' n m , . /)
+  left_keys (tab q w e r t caps a s d f g lsft z x c v b)
+  left_keys_meh_hyp (tab q w e r t caps a s d f g lsft z x b) ;; c v
+  left_keys_home_row (tab q w e r t caps g lsft z x b) ;; a s d f c v
+  left_keys_sym_nav (tab q r t caps g lsft z x c v b) ;; w e a s d f
+
+  right_keys (y u i o p [ h j k l ; ' n m , . /)
+  right_keys_meh_hyp (y u i o p [ h j k l ; ' , . /) ;; n m
+  right_keys_home_row (y u i o p [ h ' , . /) ;; j k l ; n m
+  right_keys_sym_nav (y u p [ h ' n m , . /) ;; i o j k l ;
 )
 (defalias
   meh (multi lctl lalt lsft)
@@ -40,27 +45,27 @@
   cw (caps-word 500)
 )
 (defalias
-  e_meh (tap-hold-release-keys 200 200 e @meh $left_keys)
-  w_hyp (tap-hold-release-keys 200 200 w @hyp $left_keys)
+  e_meh (tap-hold-release-keys 200 200 e @meh $left_keys_meh_hyp)
+  w_hyp (tap-hold-release-keys 200 200 w @hyp $left_keys_meh_hyp)
 
-  i_meh (tap-hold-release-keys 200 200 i @meh $right_keys)
-  o_hyp (tap-hold-release-keys 200 200 o @hyp $right_keys)
+  i_meh (tap-hold-release-keys 200 200 i @meh $right_keys_meh_hyp)
+  o_hyp (tap-hold-release-keys 200 200 o @hyp $right_keys_meh_hyp)
 
-  f_sft (tap-hold-release-keys 200 200 f lsft $left_keys)
-  d_met (tap-hold-release-keys 200 200 d lmet $left_keys)
-  s_alt (tap-hold-release-keys 200 200 s lalt $left_keys)
-  a_ctl (tap-hold-release-keys 200 200 a lctl $left_keys)
+  f_sft (tap-hold-release-keys 200 200 f lsft $left_keys_home_row)
+  d_met (tap-hold-release-keys 200 200 d lmet $left_keys_home_row)
+  s_alt (tap-hold-release-keys 200 200 s lalt $left_keys_home_row)
+  a_ctl (tap-hold-release-keys 200 200 a lctl $left_keys_home_row)
 
-  j_sft (tap-hold-release-keys 200 200 j lsft $right_keys)
-  k_met (tap-hold-release-keys 200 200 k lmet $right_keys)
-  l_alt (tap-hold-release-keys 200 200 l lalt $right_keys)
-  ;_ctl (tap-hold-release-keys 200 200 ; lctl $right_keys)
+  j_sft (tap-hold-release-keys 200 200 j lsft $right_keys_home_row)
+  k_met (tap-hold-release-keys 200 200 k lmet $right_keys_home_row)
+  l_alt (tap-hold-release-keys 200 200 l lalt $right_keys_home_row)
+  ;_ctl (tap-hold-release-keys 200 200 ; lctl $right_keys_home_row)
 
-  c_sym (tap-hold-release-keys 200 200 c @l_sym $left_keys)
-  v_fn_med (tap-hold-release-keys 200 200 v @l_fn_med $left_keys)
+  c_sym (tap-hold-release-keys 200 200 c @l_sym $left_keys_sym_nav)
+  v_fn_med (tap-hold-release-keys 200 200 v @l_fn_med $left_keys_sym_nav)
 
-  m_sym (tap-hold-release-keys 200 200 m @l_sym $right_keys)
-  n_fn_med (tap-hold-release-keys 200 200 n @l_fn_med $right_keys)
+  m_sym (tap-hold-release-keys 200 200 m @l_sym $right_keys_sym_nav)
+  n_fn_med (tap-hold-release-keys 200 200 n @l_fn_med $right_keys_sym_nav)
 
   spc_num_nav (tap-hold-release 200 200 spc @l_num_nav)
 )
@@ -155,17 +160,17 @@
 ;;   @___          XX            @___          @___          @spc_num_nav  ret           @cw           XX            XX            XX          
 ;; )
 (defalias
-  7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys)
-  8_meh (tap-hold-release-keys 200 200 8 @meh $left_keys)
+  7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
+  8_meh (tap-hold-release-keys 200 200 8 @meh $left_keys_meh_hyp)
 
-  0_ctl (tap-hold-release-keys 200 200 0 lctl $left_keys)
-  4_alt (tap-hold-release-keys 200 200 4 lalt $left_keys)
-  5_met (tap-hold-release-keys 200 200 5 lmet $left_keys)
-  6_sft (tap-hold-release-keys 200 200 6 lsft $left_keys)
+  0_ctl (tap-hold-release-keys 200 200 0 lctl $left_keys_home_row)
+  4_alt (tap-hold-release-keys 200 200 4 lalt $left_keys_home_row)
+  5_met (tap-hold-release-keys 200 200 5 lmet $left_keys_home_row)
+  6_sft (tap-hold-release-keys 200 200 6 lsft $left_keys_home_row)
 
-  down_sft (tap-hold-release-keys 200 200 down lsft $right_keys)
-  up_met (tap-hold-release-keys 200 200 up lmet $right_keys)
-  rght_alt (tap-hold-release-keys 200 200 rght lalt $right_keys)
+  down_sft (tap-hold-release-keys 200 200 down lsft $right_keys_home_row)
+  up_met (tap-hold-release-keys 200 200 up lmet $right_keys_home_row)
+  rght_alt (tap-hold-release-keys 200 200 rght lalt $right_keys_home_row)
 )
 (deflayer num_nav
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
@@ -176,21 +181,21 @@
   @ls_acmk      XX            _             0             _             _             _             XX            XX            XX
 )
 (defalias
-  s_7_hyp (tap-hold-release-keys 200 200 (multi lsft 7) @hyp $left_keys)
-  s_8_meh (tap-hold-release-keys 200 200 (multi lsft 8) @meh $left_keys)
+  s_7_hyp (tap-hold-release-keys 200 200 (multi lsft 7) @hyp $left_keys_meh_hyp)
+  s_8_meh (tap-hold-release-keys 200 200 (multi lsft 8) @meh $left_keys_meh_hyp)
 
-  grv_ctl (tap-hold-release-keys 200 200 grv lctl $left_keys)
-  s_4_alt (tap-hold-release-keys 200 200 (multi lsft 4) lalt $left_keys)
-  s_5_met (tap-hold-release-keys 200 200 (multi lsft 5) lmet $left_keys)
-  s_6_sft (tap-hold-release-keys 200 200 (multi lsft 6) lsft $left_keys)
+  grv_ctl (tap-hold-release-keys 200 200 grv lctl $left_keys_home_row)
+  s_4_alt (tap-hold-release-keys 200 200 (multi lsft 4) lalt $left_keys_home_row)
+  s_5_met (tap-hold-release-keys 200 200 (multi lsft 5) lmet $left_keys_home_row)
+  s_6_sft (tap-hold-release-keys 200 200 (multi lsft 6) lsft $left_keys_home_row)
 
-  s_9_meh (tap-hold-release-keys 200 200 (multi lsft 9) @meh $right_keys)
-  s_0_hyp (tap-hold-release-keys 200 200 (multi lsft 0) @hyp $right_keys)
+  s_9_meh (tap-hold-release-keys 200 200 (multi lsft 9) @meh $right_keys_meh_hyp)
+  s_0_hyp (tap-hold-release-keys 200 200 (multi lsft 0) @hyp $right_keys_meh_hyp)
 
-  s_[_sft (tap-hold-release-keys 200 200 (multi lsft [) lalt $right_keys)
-  [_met (tap-hold-release-keys 200 200 [ lmet $right_keys)
-  ]_alt (tap-hold-release-keys 200 200 ] lalt $right_keys)
-  s_]_ctl (tap-hold-release-keys 200 200 (multi lsft ]) lctl $right_keys)
+  s_[_sft (tap-hold-release-keys 200 200 (multi lsft [) lalt $right_keys_home_row)
+  [_met (tap-hold-release-keys 200 200 [ lmet $right_keys_home_row)
+  ]_alt (tap-hold-release-keys 200 200 ] lalt $right_keys_home_row)
+  s_]_ctl (tap-hold-release-keys 200 200 (multi lsft ]) lctl $right_keys_home_row)
 )
 (deflayer symbol
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
@@ -201,16 +206,16 @@
   _             XX            _             S-0           _             _             _             XX            XX            XX
 )
 (defalias
-  f7_hyp (tap-hold-release-keys 200 200 f7 @hyp $left_keys)
-  f8_meh (tap-hold-release-keys 200 200 f8 @meh $left_keys)
+  f7_hyp (tap-hold-release-keys 200 200 f7 @hyp $left_keys_meh_hyp)
+  f8_meh (tap-hold-release-keys 200 200 f8 @meh $left_keys_meh_hyp)
   
-  f4_alt (tap-hold-release-keys 200 200 f4 lalt $left_keys)
-  f5_met (tap-hold-release-keys 200 200 f5 lmet $left_keys)
-  f6_sft (tap-hold-release-keys 200 200 f6 lsft $left_keys)
+  f4_alt (tap-hold-release-keys 200 200 f4 lalt $left_keys_home_row)
+  f5_met (tap-hold-release-keys 200 200 f5 lmet $left_keys_home_row)
+  f6_sft (tap-hold-release-keys 200 200 f6 lsft $left_keys_home_row)
 
-  vold_sft (tap-hold-release-keys 200 200 vold lsft $right_keys)
-  volu_met (tap-hold-release-keys 200 200 volu lmet $right_keys)
-  next_alt (tap-hold-release-keys 200 200 next lalt $right_keys)
+  vold_sft (tap-hold-release-keys 200 200 vold lsft $right_keys_home_row)
+  volu_met (tap-hold-release-keys 200 200 volu lmet $right_keys_home_row)
+  next_alt (tap-hold-release-keys 200 200 next lalt $right_keys_home_row)
 )
 (deflayer fn_media
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
