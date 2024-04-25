@@ -9,6 +9,8 @@
 (defvirtualkeys
   v_to_base (layer-switch base)
   v_rmet rmet
+  v_ctl lctl
+  v_met lmet
 )
 (defvar
   left_keys (tab q w e r t caps a s d f g lsft z x c v b)
@@ -31,6 +33,7 @@
 
   ls_base (layer-switch base)
   ls_acmk (layer-switch ableton_computer_midi_keyboard)
+  ls_ctl_tab (layer-switch ctl_tab)
 
   l_num_nav (layer-while-held num_nav)
   l_sym (layer-while-held symbol)
@@ -43,6 +46,20 @@
   ret_sym (tap-hold-release 200 200 ret @l_sym)
 
   cw (caps-word 500)
+)
+(defalias
+  p_ctl (on-press press-virtualkey v_ctl)
+  r_ctl (on-press release-virtualkey v_ctl)
+
+  p_ctl_tab (macro @p_ctl 10 tab)
+  to_ctl_tab (multi @p_ctl_tab @ls_ctl_tab)
+  from_ctl_tab (multi @r_ctl @ls_base)
+  esc_ctl_tab (multi esc @r_ctl @ls_base)
+)
+(defchords my_chords 40
+  (w  ) (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
+  (  e) (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
+  (w e) @to_ctl_tab
 )
 (defalias
   #|
@@ -58,8 +75,10 @@
   )
 
   ms_q (multi q @type)
-  ms_w_hyp (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
-  ms_e_meh (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
+  ;; ms_w_hyp (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
+  ;; ms_e_meh (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
+  ms_w_hyp (chord my_chords w)
+  ms_e_meh (chord my_chords e)
   ms_r (multi r @type)
   ms_t (multi t @type)
   ms_y (multi y @type)
@@ -240,6 +259,14 @@
   esc           a             s             d             f             g             h             j             k             l             ;             '             ret
   @os_sft       z             x             c             v             b             n             m             ,             .             /             @os_sft       up
   @ls_base      lctl          lalt          lmet          @spc_num_nav  rmet          ralt          left          down          rght
+)
+(deflayer ctl_tab
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
+  XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX          
+  @from_ctl_tab @from_ctl_tab S-tab         tab           @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
+  @esc_ctl_tab  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab tab           S-tab         @from_ctl_tab @from_ctl_tab @from_ctl_tab XX
+  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
+  @from_ctl_tab XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX
 )
 (deflayer empty
   _             _             _             _             _             _             _             _             _             _             _             _             _
