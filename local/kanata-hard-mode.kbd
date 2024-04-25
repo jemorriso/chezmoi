@@ -6,9 +6,9 @@
   lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
   fn            lctl          lalt          lmet          spc           rmet          ralt          left          down          rght
 )
-(deffakekeys
-  fk_to_base (layer-switch base)
-  rmeta rmet
+(defvirtualkeys
+  v_to_base (layer-switch base)
+  v_rmet rmet
 )
 (defvar
   left_keys (tab q w e r t caps a s d f g lsft z x c v b)
@@ -87,7 +87,7 @@
 ;;   ;; alias to cancel tap-hold keys if typing rapidly but restore after a short idle period
 ;;   type (multi
 ;;     (layer-switch base_typing)
-;;     (on-idle-fakekey fk_to_base tap 75)
+;;     (on-idle 75 tap-vkey v_to_base)
 ;;   )
 
 ;;   ms_q (multi q @type)
@@ -229,37 +229,37 @@
   #|
   Layer for `rcmd` macos app.
 
-  Using macros + fake keys here because I couldn't get rcmd to work with a simple tap-hold on base layer.
+  Using macros + virtual keys here because I couldn't get rcmd to work with a simple tap-hold on base layer.
   |#
-  fake_rmet_press (on-press-fakekey rmeta press)
-  fake_rmet_release (on-release-fakekey rmeta release)
+  p_rmet (on-press press-virtualkey v_rmet)
+  r_rmet (on-release release-virtualkey v_rmet)
 
-  a_rcmd (macro @fake_rmet_press 50 a 50 @fake_rmet_release)
-  b_rcmd (macro @fake_rmet_press 50 b 50 @fake_rmet_release)
-  c_rcmd (macro @fake_rmet_press 50 c 50 @fake_rmet_release)
-  d_rcmd (macro @fake_rmet_press 50 d 50 @fake_rmet_release)
-  e_rcmd (macro @fake_rmet_press 50 e 50 @fake_rmet_release)
-  f_rcmd (macro @fake_rmet_press 50 f 50 @fake_rmet_release)
-  g_rcmd (macro @fake_rmet_press 50 g 50 @fake_rmet_release)
-  h_rcmd (macro @fake_rmet_press 50 h 50 @fake_rmet_release)
-  i_rcmd (macro @fake_rmet_press 50 i 50 @fake_rmet_release)
-  j_rcmd (macro @fake_rmet_press 50 j 50 @fake_rmet_release)
-  k_rcmd (macro @fake_rmet_press 50 k 50 @fake_rmet_release)
-  l_rcmd (macro @fake_rmet_press 50 l 50 @fake_rmet_release)
-  m_rcmd (macro @fake_rmet_press 50 m 50 @fake_rmet_release)
-  n_rcmd (macro @fake_rmet_press 50 n 50 @fake_rmet_release)
-  o_rcmd (macro @fake_rmet_press 50 o 50 @fake_rmet_release)
-  p_rcmd (macro @fake_rmet_press 50 p 50 @fake_rmet_release)
-  q_rcmd (macro @fake_rmet_press 50 q 50 @fake_rmet_release)
-  r_rcmd (macro @fake_rmet_press 50 r 50 @fake_rmet_release)
-  s_rcmd (macro @fake_rmet_press 50 s 50 @fake_rmet_release)
-  t_rcmd (macro @fake_rmet_press 50 t 50 @fake_rmet_release)
-  u_rcmd (macro @fake_rmet_press 50 u 50 @fake_rmet_release)
-  v_rcmd (macro @fake_rmet_press 50 v 50 @fake_rmet_release)
-  w_rcmd (macro @fake_rmet_press 50 w 50 @fake_rmet_release)
-  x_rcmd (macro @fake_rmet_press 50 x 50 @fake_rmet_release)
-  y_rcmd (macro @fake_rmet_press 50 y 50 @fake_rmet_release)
-  z_rcmd (macro @fake_rmet_press 50 z 50 @fake_rmet_release)
+  a_rcmd (macro @p_rmet 50 a 50 @r_rmet)
+  b_rcmd (macro @p_rmet 50 b 50 @r_rmet)
+  c_rcmd (macro @p_rmet 50 c 50 @r_rmet)
+  d_rcmd (macro @p_rmet 50 d 50 @r_rmet)
+  e_rcmd (macro @p_rmet 50 e 50 @r_rmet)
+  f_rcmd (macro @p_rmet 50 f 50 @r_rmet)
+  g_rcmd (macro @p_rmet 50 g 50 @r_rmet)
+  h_rcmd (macro @p_rmet 50 h 50 @r_rmet)
+  i_rcmd (macro @p_rmet 50 i 50 @r_rmet)
+  j_rcmd (macro @p_rmet 50 j 50 @r_rmet)
+  k_rcmd (macro @p_rmet 50 k 50 @r_rmet)
+  l_rcmd (macro @p_rmet 50 l 50 @r_rmet)
+  m_rcmd (macro @p_rmet 50 m 50 @r_rmet)
+  n_rcmd (macro @p_rmet 50 n 50 @r_rmet)
+  o_rcmd (macro @p_rmet 50 o 50 @r_rmet)
+  p_rcmd (macro @p_rmet 50 p 50 @r_rmet)
+  q_rcmd (macro @p_rmet 50 q 50 @r_rmet)
+  r_rcmd (macro @p_rmet 50 r 50 @r_rmet)
+  s_rcmd (macro @p_rmet 50 s 50 @r_rmet)
+  t_rcmd (macro @p_rmet 50 t 50 @r_rmet)
+  u_rcmd (macro @p_rmet 50 u 50 @r_rmet)
+  v_rcmd (macro @p_rmet 50 v 50 @r_rmet)
+  w_rcmd (macro @p_rmet 50 w 50 @r_rmet)
+  x_rcmd (macro @p_rmet 50 x 50 @r_rmet)
+  y_rcmd (macro @p_rmet 50 y 50 @r_rmet)
+  z_rcmd (macro @p_rmet 50 z 50 @r_rmet)
 )
 (deflayer rcmd
   _             _             _             _             _             _             _             _             _             _             _             _             _
