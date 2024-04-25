@@ -200,10 +200,10 @@
 (deflayer symbol
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
   XX            XX            _             _             _             XX            XX            XX            _             _             _             XX            XX            XX          
-  _             _             @s_7_hyp      @s_8_meh      S-9           _             _             _             @s_9_meh      @s_0_hyp      _             _             XX            XX
+  _             _             @s_7_hyp      @s_8_meh      _             _             _             _             @s_9_meh      @s_0_hyp      _             _             XX            XX
   S-grv         @grv_ctl      @s_4_alt      @s_5_met      @s_6_sft      _             _             @s_[_sft      @[_met        @]_alt        @s_]_ctl      S-\           XX
   _             S-1           S-2           S-3           _             _             S--           -             =             S-=           \             XX            XX
-  _             XX            _             S-0           _             _             _             XX            XX            XX
+  _             XX            _             _             _             _             _             XX            XX            XX
 )
 (defalias
   f7_hyp (tap-hold-release-keys 200 200 f7 @hyp $left_keys_meh_hyp)
