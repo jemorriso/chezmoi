@@ -58,14 +58,40 @@
       "name": "Insert current time, italicized"
     }
   },
-  {
-    "key": "alt+`",
-    "command": "workbench.action.terminal.newWithProfile",
-    "args": {
-      "profileName": "tmux-shell",
-      "location": "editor"
-    }
-  },
+  // {
+  //   "key": "alt+`",
+  //   "command": "workbench.action.terminal.newWithProfile",
+  //   "args": {
+  //     "profileName": "tmux-shell",
+  //     "location": "editor"
+  //   }
+  // },
+  // {
+  //   "key": "alt+`",
+  //   "command": "workbench.action.terminal.newWithProfile",
+  //   "args": {
+  //     "profileName": "zsh",
+  //     "location": "editor"
+  //   }
+  // },
+  // {
+  //   "key": "alt+`",
+  //   "command": "runCommands",
+  //   "args": {
+  //     "commands": [
+  //       {
+  //         "command": "workbench.action.terminal.newWithProfile",
+  //         "args": {
+  //           "profileName": "zsh",
+  //           "location": "editor"
+  //         }
+  //       },
+  //       {
+  //         "command": "workbench.action.moveEditorToFirstGroup"
+  //       }
+  //     ]
+  //   }
+  // },
   // alt+ctrl
   {
     "key": "alt+ctrl+-",
@@ -79,10 +105,6 @@
   {
     "key": "alt+shift+z",
     "command": "workbench.action.toggleMaximizedPanel"
-  },
-  {
-    "key": "alt+shift+g",
-    "command": "chatgpt-vscode.view.focus"
   },
   {
     "key": "alt+shift+c",
