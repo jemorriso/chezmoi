@@ -34,6 +34,7 @@
   ls_base (layer-switch base)
   ls_acmk (layer-switch ableton_computer_midi_keyboard)
   ls_ctl_tab (layer-switch ctl_tab)
+  ls_met_tab (layer-switch met_tab)
 
   l_num_nav (layer-while-held num_nav)
   l_sym (layer-while-held symbol)
@@ -55,11 +56,22 @@
   to_ctl_tab (multi @p_ctl_tab @ls_ctl_tab)
   from_ctl_tab (multi @r_ctl @ls_base)
   esc_ctl_tab (multi esc @r_ctl @ls_base)
+
+  p_met (on-press press-virtualkey v_met)
+  r_met (on-press release-virtualkey v_met)
+
+  p_met_tab (macro @p_met 10 tab)
+  to_met_tab (multi @p_met_tab @ls_met_tab)
+  from_met_tab (multi @r_met @ls_base)
+  esc_met_tab (multi esc @r_met @ls_base)
 )
 (defchords my_chords 40
   (w  ) (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
   (  e) (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
   (w e) @to_ctl_tab
+  (i  ) (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys_meh_hyp)
+  (o  ) (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys_meh_hyp)
+  (i o) @to_met_tab
 )
 (defalias
   #|
@@ -83,8 +95,8 @@
   ms_t (multi t @type)
   ms_y (multi y @type)
   ms_u (multi u @type)
-  ms_i_meh (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys_meh_hyp)
-  ms_o_hyp (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys_meh_hyp)
+  ms_i_meh (chord my_chords i)
+  ms_o_hyp (chord my_chords o)
   ms_p (multi p @type)
 
   ms_a_ctl (tap-hold-release-keys 200 200 (multi a @type) lctl $left_keys_home_row)
@@ -252,6 +264,22 @@
   _             @z_rcmd       @x_rcmd       @c_rcmd       @v_rcmd       @b_rcmd       @n_rcmd       @m_rcmd       _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
+(deflayer ctl_tab
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
+  XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX          
+  @from_ctl_tab @from_ctl_tab S-tab         tab           @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
+  @esc_ctl_tab  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab S-tab         tab           S-tab         tab           @from_ctl_tab @from_ctl_tab XX
+  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
+  @from_ctl_tab XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX
+)
+(deflayer met_tab
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
+  XX            XX            @from_met_tab @from_met_tab @from_met_tab XX            XX            XX            @from_met_tab @from_met_tab @from_met_tab XX            XX            XX          
+  @from_met_tab q             w             @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab tab           S-tab         @from_met_tab @from_met_tab XX            XX
+  @esc_met_tab  @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab h             j             k             l             @from_met_tab @from_met_tab XX
+  @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab m             @from_met_tab @from_met_tab @from_met_tab XX            XX
+  @from_met_tab XX            @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab XX            XX            XX
+)
 (deflayer ableton_computer_midi_keyboard
   esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
@@ -259,14 +287,6 @@
   esc           a             s             d             f             g             h             j             k             l             ;             '             ret
   @os_sft       z             x             c             v             b             n             m             ,             .             /             @os_sft       up
   @ls_base      lctl          lalt          lmet          @spc_num_nav  rmet          ralt          left          down          rght
-)
-(deflayer ctl_tab
-  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX          
-  @from_ctl_tab @from_ctl_tab S-tab         tab           @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
-  @esc_ctl_tab  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab tab           S-tab         @from_ctl_tab @from_ctl_tab @from_ctl_tab XX
-  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
-  @from_ctl_tab XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX
 )
 (deflayer empty
   _             _             _             _             _             _             _             _             _             _             _             _             _
