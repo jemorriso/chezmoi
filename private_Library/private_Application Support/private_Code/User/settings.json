@@ -43,6 +43,11 @@
       "overrideName": true
     }
   },
+  "terminal.integrated.commandsToSkipShell": [
+    // I have this bound to ctrl+tab and I want to be able to use ctrl+tab if
+    // the editor window is a terminal
+    "workbench.action.openPreviousEditorFromHistory"
+  ],
   // "terminal.integrated.defaultProfile.osx": "tmux-shell",
   // for tasks and debug
   // this fixes sqltools node runtime error when I'm using tmux-shell profile as default
@@ -115,8 +120,6 @@
 
   "debugpy.debugJustMyCode": false,
 
-  "foam.files.ignore": ["1.projects/handson-ml3/.venv"],
-
   "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
   "vscode-neovim.ctrlKeysForNormalMode": [
     "a",
@@ -153,12 +156,10 @@
 
   "dbt.sqlFmtPath": "/Users/jerry/.local/bin/sqlfmt",
 
-  "genieai.enableConversationHistory": true,
-
-  "todotxtmode.addCreatedAt": true,
-
   "sqltools.useNodeRuntime": true,
   "sqltools.connections": [],
   "sqltools.results.limit": 100,
-  "sqltools.results.location": "current"
+  "sqltools.results.location": "current",
+
+  "foam.files.ignore": ["1.projects/handson-ml3/.venv"]
 }
