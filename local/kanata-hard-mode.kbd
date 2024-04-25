@@ -52,18 +52,18 @@
   p_ctl (on-press press-virtualkey v_ctl)
   r_ctl (on-press release-virtualkey v_ctl)
 
-  p_ctl_tab (macro @p_ctl 10 tab)
-  to_ctl_tab (multi @p_ctl_tab @ls_ctl_tab)
+  to_ctl_tab (multi (macro @p_ctl 10 tab) @ls_ctl_tab)
   from_ctl_tab (multi @r_ctl @ls_base)
   esc_ctl_tab (multi esc @r_ctl @ls_base)
 
   p_met (on-press press-virtualkey v_met)
   r_met (on-press release-virtualkey v_met)
 
-  p_met_tab (macro @p_met 10 tab)
-  to_met_tab (multi @p_met_tab @ls_met_tab)
+  to_met_tab (multi (macro @p_met 10 tab) @ls_met_tab)
   from_met_tab (multi @r_met @ls_base)
-  esc_met_tab (multi esc @r_met @ls_base)
+  ;; this macro needs a longer delay because sometimes alt-tab doesn't register
+  ;; the escape before closing the window
+  esc_met_tab (multi (macro esc 50 @r_met) @ls_base)
 )
 (defchords my_chords 40
   (w  ) (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
@@ -73,6 +73,14 @@
   (o  ) (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys_meh_hyp)
   (i o) @to_met_tab
 )
+;; TODO not working - maybe next release
+;; (defcfg
+;;   concurrent-tap-hold yes
+;;   chords-v2-min-idle-experimental 100
+;; )
+;; (defchordsv2-experimental
+;;   (q a) S-1 80 all-released ()
+;; )
 (defalias
   #|
   Base layer letter keys / quick-typing keys trigger base_typing layer which has no tap-hold mods except essential ones.
