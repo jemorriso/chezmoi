@@ -153,6 +153,16 @@
     },
     "when": "editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
   },
+  // https://code.visualstudio.com/docs/getstarted/userinterface#_working-without-tabs
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.openPreviousEditorFromHistory"
+  },
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.quickOpenNavigateNext",
+    "when": "inQuickOpen"
+  },
   // ctrl+k prefix
   {
     "key": "ctrl+k ctrl+d",
@@ -175,6 +185,11 @@
   {
     "key": "ctrl+shift+enter",
     "command": "sqltools.executeCurrentQuery"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.quickOpenNavigatePrevious",
+    "when": "inQuickOpen"
   },
   /////////////////////////////////////////////////////////////////////////////
   // removals
@@ -245,5 +260,10 @@
     "key": "ctrl+shift+alt+w",
     "command": "-extension.closeNonActiveTabsInEachGroup",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "-workbench.action.quickOpenNavigatePreviousInEditorPicker",
+    "when": "inEditorsPicker && inQuickOpen"
   }
 ]
