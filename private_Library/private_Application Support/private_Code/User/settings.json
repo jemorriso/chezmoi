@@ -38,10 +38,17 @@
   "terminal.integrated.profiles.osx": {
     "tmux-shell": {
       "path": "/Users/jerry/local/vscode_tmux.sh",
-      "args": ["${workspaceFolder}"]
+      "args": ["${workspaceFolder}"],
+      "overrideName": true
     }
   },
   "terminal.integrated.defaultProfile.osx": "tmux-shell",
+  // for tasks and debug
+  // this fixes sqltools node runtime error
+  "terminal.integrated.automationProfile.osx": {
+    "path": "bin/zsh"
+  },
+  "terminal.integrated.confirmOnKill": "never",
 
   "editor.fontSize": 13,
   "editor.fontFamily": "JetBrainsMono Nerd Font",
