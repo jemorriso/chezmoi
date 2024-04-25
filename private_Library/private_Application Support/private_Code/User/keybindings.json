@@ -58,6 +58,14 @@
       "name": "Insert current time, italicized"
     }
   },
+  {
+    "key": "alt+`",
+    "command": "workbench.action.terminal.newWithProfile",
+    "args": {
+      "profileName": "tmux-shell",
+      "location": "editor"
+    }
+  },
   // alt+ctrl
   {
     "key": "alt+ctrl+-",
@@ -158,6 +166,11 @@
     "key": "ctrl+k ctrl+backspace",
     "command": "notifications.clearAll"
   },
+  {
+    "key": "ctrl+k ctrl+w",
+    "command": "extension.closeNonActiveTabsInAllGroups",
+    "when": "editorTextFocus"
+  },
   // ctrl+shift
   {
     "key": "ctrl+shift+enter",
@@ -212,5 +225,25 @@
   {
     "key": "shift+cmd+c",
     "command": "-dbtPowerUser.changeQuery"
+  },
+  {
+    "key": "shift+alt+cmd+w",
+    "command": "-extension.closeNonActiveTabGroups",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+w",
+    "command": "-extension.closeNonActiveTabsInAllGroups",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+cmd+w",
+    "command": "-extension.closeNonActiveTabsInCurrentGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+w",
+    "command": "-extension.closeNonActiveTabsInEachGroup",
+    "when": "editorTextFocus"
   }
 ]
