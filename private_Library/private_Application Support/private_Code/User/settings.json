@@ -9,6 +9,10 @@
     "*.sql": "jinja-sql"
     // "*.yml": "jinja-yaml"
   },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.venv": true
+  },
 
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -47,13 +51,13 @@
   "editor.scrollbar.verticalScrollbarSize": 0,
   "editor.guides.indentation": false,
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
   "editor.foldingHighlight": false,
   "editor.inlayHints.enabled": "off",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.renderWhitespace": "none",
   "editor.lightbulb.enabled": "off", // no more lightbulb and copilot sparkles
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnPaste": true,
 
   "[python]": {
     "editor.codeActionsOnSave": {
@@ -71,6 +75,9 @@
   "[plaintext]": {
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "[jinja-sql]": {
     // TODO this has stopped working 2024-02-29
