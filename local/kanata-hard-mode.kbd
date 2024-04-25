@@ -264,6 +264,7 @@
   _             @z_rcmd       @x_rcmd       @c_rcmd       @v_rcmd       @b_rcmd       @n_rcmd       @m_rcmd       _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
+;; TODO try deflayermap
 (deflayer ctl_tab
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
   XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX          
@@ -272,6 +273,7 @@
   @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
   @from_ctl_tab XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX
 )
+;; TODO try deflayermap
 (deflayer met_tab
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
   XX            XX            @from_met_tab @from_met_tab @from_met_tab XX            XX            XX            @from_met_tab @from_met_tab @from_met_tab XX            XX            XX          
