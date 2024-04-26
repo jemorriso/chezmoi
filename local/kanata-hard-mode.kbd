@@ -51,7 +51,7 @@
 
   cw (caps-word 500)
 
-  os_sft (one-shot 500 lsft)
+  os_sft_td (tap-dance 200 ((one-shot 500 lsft) @cw))
   os_space_os (one-shot 500 @l_space_os)
   os_fn_med (one-shot 500 @l_fn_med)
   ;; do not use @l_space_os because it will go to smart_num layer
@@ -148,7 +148,7 @@
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   @esc_rcmd     @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'_rcmd    XX     
   ret           @ms_z         @ms_x_cmd_grv @ms_c_cmd_tab @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_ctl_tab @ms_,         @ms_.         /             XX            XX     
-  lrld          XX            @os_fn_med    @os_space_os  @ms_spc_space @os_sft       @os_s_space   XX            XX            XX     
+  lrld          XX            @os_fn_med    @os_space_os  @ms_spc_space @os_sft_td    @os_s_space   XX            XX            XX     
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -166,7 +166,7 @@
   tab           q             w             e             r             t             y             u             i             o             p             bspc          XX            XX          
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX          
   ret           z             x             c             v             b             n             m             ,             .             /             XX            XX          
-  @___          XX            @os_fn_med    @os_space_os  @spc_space    @os_sft       @os_s_space   XX            XX            XX          
+  @___          XX            @os_fn_med    @os_space_os  @spc_space    @os_sft_td    @os_s_space   XX            XX            XX          
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
@@ -193,18 +193,20 @@
   @ls_acmk      XX            _             _             _             _             _             XX            XX            XX
 )
 (defalias
-  7_hyp_sn (tap-hold-release-keys 200 200 (multi 7 @ls_smart_num) @hyp $left_keys_meh_hyp)
-  8_meh_sn (tap-hold-release-keys 200 200 (multi 8 @ls_smart_num) @meh $left_keys_meh_hyp)
-  9_sn (multi 9 @ls_smart_num)
+  smart_num_timeout (on-idle 500 tap-vkey v_to_base)
 
-  0_ctl_sn (tap-hold-release-keys 200 200 (multi 0 @ls_smart_num) lctl $left_keys_home_row)
-  4_alt_sn (tap-hold-release-keys 200 200 (multi 4 @ls_smart_num) lalt $left_keys_home_row)
-  5_met_sn (tap-hold-release-keys 200 200 (multi 5 @ls_smart_num) lmet $left_keys_home_row)
-  6_sft_sn (tap-hold-release-keys 200 200 (multi 6 @ls_smart_num) lsft $left_keys_home_row)
+  7_hyp_sn (tap-hold-release-keys 200 200 (multi 7 @ls_smart_num @smart_num_timeout) @hyp $left_keys_meh_hyp)
+  8_meh_sn (tap-hold-release-keys 200 200 (multi 8 @ls_smart_num @smart_num_timeout) @meh $left_keys_meh_hyp)
+  9_sn (multi 9 @ls_smart_num @smart_num_timeout)
 
-  1_sn (multi 1 @ls_smart_num)
-  2_sn (multi 2 @ls_smart_num)
-  3_sn (multi 3 @ls_smart_num)
+  0_ctl_sn (tap-hold-release-keys 200 200 (multi 0 @ls_smart_num @smart_num_timeout) lctl $left_keys_home_row)
+  4_alt_sn (tap-hold-release-keys 200 200 (multi 4 @ls_smart_num @smart_num_timeout) lalt $left_keys_home_row)
+  5_met_sn (tap-hold-release-keys 200 200 (multi 5 @ls_smart_num @smart_num_timeout) lmet $left_keys_home_row)
+  6_sft_sn (tap-hold-release-keys 200 200 (multi 6 @ls_smart_num @smart_num_timeout) lsft $left_keys_home_row)
+
+  1_sn (multi 1 @ls_smart_num @smart_num_timeout)
+  2_sn (multi 2 @ls_smart_num @smart_num_timeout)
+  3_sn (multi 3 @ls_smart_num @smart_num_timeout)
 )
 (deflayer space_oneshot
   ;; the only difference is we add smart_num. We do not want this on the space layer because it's used for number+mod shortcuts
@@ -350,7 +352,7 @@
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             f             g             h             j             k             l             ;             '             ret
-  @os_sft       z             x             c             v             b             n             m             ,             .             /             @os_sft       up
+  @os_sft_td    z             x             c             v             b             n             m             ,             .             /             @os_sft_td    up
   @ls_base      lctl          lalt          lmet          @spc_space    rmet          ralt          left          down          rght
 )
 (deflayer empty
