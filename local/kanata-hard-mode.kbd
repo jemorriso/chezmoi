@@ -133,7 +133,8 @@
   ms_, (multi , @type)
   ms_. (multi . @type)
 
-  ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
+  ;; we do not want to repeat spc instead of hold action so set tap timeout to 0
+  ms_spc_space (tap-hold-release 0 200 (multi spc @type) @l_space)
 )
 (deflayer base
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
@@ -151,7 +152,8 @@
   j_sft (tap-hold-release-keys 200 200 j lsft $right_keys)
 
   ;; also allow tap-hold spc on typing layer for quick arrows
-  spc_space (tap-hold-release 200 200 spc @l_space)
+  ;; we do not want to repeat spc instead of hold action so set tap timeout to 0
+  spc_space (tap-hold-release 0 200 spc @l_space)
 )
 (deflayer base_typing
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
