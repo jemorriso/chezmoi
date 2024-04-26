@@ -75,6 +75,7 @@
   (k  ) (tap-hold-release-keys 200 200 (multi k @type) lmet $right_keys_home_row)
   (  l) (tap-hold-release-keys 200 200 (multi l @type) lalt $right_keys_home_row)
   (k l) (tap-hold-release-keys 200 200 ret (multi lalt lmet) $right_keys_home_row)
+  (e i) -
 )
 ;; TODO not working - maybe next release
 ;; (defcfg
