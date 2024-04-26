@@ -72,6 +72,9 @@
   (i  ) (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys_meh_hyp)
   (o  ) (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys_meh_hyp)
   (i o) @to_met_tab
+  (k  ) (tap-hold-release-keys 200 200 (multi k @type) lmet $right_keys_home_row)
+  (  l) (tap-hold-release-keys 200 200 (multi l @type) lalt $right_keys_home_row)
+  (k l) (tap-hold-release-keys 200 200 ret (multi lalt lmet) $right_keys_home_row)
 )
 ;; TODO not working - maybe next release
 ;; (defcfg
@@ -95,8 +98,6 @@
   )
 
   ms_q (multi q @type)
-  ;; ms_w_hyp (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
-  ;; ms_e_meh (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
   ms_w_hyp (chord my_chords w)
   ms_e_meh (chord my_chords e)
   ms_r (multi r @type)
@@ -114,8 +115,8 @@
   ms_g (multi g @type)
   ms_h (multi h @type)
   ms_j_sft (tap-hold-release-keys 200 200 (multi j @type) lsft $right_keys_home_row)
-  ms_k_met (tap-hold-release-keys 200 200 (multi k @type) lmet $right_keys_home_row)
-  ms_l_alt (tap-hold-release-keys 200 200 (multi l @type) lalt $right_keys_home_row)
+  ms_k_met (chord my_chords k)
+  ms_l_alt (chord my_chords l)
   ms_;_ctl (tap-hold-release-keys 200 200 (multi ; @type) lctl $right_keys_home_row)
   ms_'_rcmd (tap-hold-release-keys 200 200 (multi ' @type) @l_rcmd_layer $right_keys)
 
