@@ -130,8 +130,7 @@
   ms_. (multi . @type)
 
   ;; ms_bspc_fn_med (tap-hold-release 200 200 (multi bspc @type) @l_fn_med)
-  ;; ms_spc_num_nav (tap-hold-release 200 200 (multi spc @type) @l_num_nav)
-  ms_spc_num_nav (tap-hold-release 200 200 (multi (tap-dance-eager 200 (spc (macro bspc ret))) @type) @l_num_nav)
+  ms_spc_num_nav (tap-hold-release 200 200 (multi spc @type) @l_num_nav)
 )
 (deflayer base
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
