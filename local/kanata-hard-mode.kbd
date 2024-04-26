@@ -74,17 +74,15 @@
   ;; the escape before closing the window
   esc_met_tab (multi (macro esc 50 @r_met) @ls_base)
 )
-(defchords my_chords 40
+(defchords ctl_tab_chords 40
   (w  ) (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
   (  e) (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
   (w e) @to_ctl_tab
+)
+(defchords cmd_tab_chords 40
   (i  ) (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys_meh_hyp)
   (o  ) (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys_meh_hyp)
   (i o) @to_met_tab
-  (k  ) (tap-hold-release-keys 200 200 (multi k @type) lmet $right_keys_home_row)
-  (  l) (tap-hold-release-keys 200 200 (multi l @type) lalt $right_keys_home_row)
-  (k l) (tap-hold-release-keys 200 200 ret (multi lalt lmet) $right_keys_home_row)
-  (e i) -
 )
 ;; TODO not working - maybe next release
 ;; (defcfg
@@ -108,14 +106,14 @@
   )
 
   ms_q (multi q @type)
-  ms_w_hyp (chord my_chords w)
-  ms_e_meh (chord my_chords e)
+  ms_w_hyp (chord ctl_tab_chords w)
+  ms_e_meh (chord ctl_tab_chords e)
   ms_r (multi r @type)
   ms_t (multi t @type)
   ms_y (multi y @type)
   ms_u (multi u @type)
-  ms_i_meh (chord my_chords i)
-  ms_o_hyp (chord my_chords o)
+  ms_i_meh (chord cmd_tab_chords i)
+  ms_o_hyp (chord cmd_tab_chords o)
   ms_p (multi p @type)
 
   ms_a_ctl (tap-hold-release-keys 200 200 (multi a @type) lctl $left_keys_home_row)
@@ -125,8 +123,8 @@
   ms_g (multi g @type)
   ms_h (multi h @type)
   ms_j_sft (tap-hold-release-keys 200 200 (multi j @type) lsft $right_keys_home_row)
-  ms_k_met (chord my_chords k)
-  ms_l_alt (chord my_chords l)
+  ms_k_met (tap-hold-release-keys 200 200 (multi k @type) lmet $right_keys_home_row)
+  ms_l_alt (tap-hold-release-keys 200 200 (multi l @type) lalt $right_keys_home_row)
   ms_;_ctl (tap-hold-release-keys 200 200 (multi ; @type) lctl $right_keys_home_row)
   ms_'_rcmd (tap-hold-release-keys 200 200 (multi ' @type) @l_rcmd_layer $right_keys)
 
