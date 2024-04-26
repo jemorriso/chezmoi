@@ -22,6 +22,9 @@
   right_keys_meh_hyp (y u i o p [ h j k l ; ' , . /) ;; n m
   right_keys_home_row (y u i o p [ h ' , . /) ;; j k l ; n m
   right_keys_sym_nav (y u p [ h ' n m , . /) ;; i o j k l ;
+
+  ;; f and j for shift
+  all_keys_except_tab_f_j (q w e r t caps a s d g lsft z x c v b y u i o p [ h k l ; ' n m , . /) ;; tab
 )
 (defalias
   meh (multi lctl lalt lsft)
@@ -44,6 +47,8 @@
 
   esc_rcmd (tap-hold-release-keys 200 200 esc @l_rcmd_layer $left_keys)
   '_rcmd (tap-hold-release-keys 200 200 ' @l_rcmd_layer $right_keys)
+
+  ret_s_spc (tap-hold-release 200 200 ret (multi lsft @l_space))
 
   cw (caps-word 500)
 )
@@ -121,14 +126,12 @@
   ms_'_rcmd (tap-hold-release-keys 200 200 (multi ' @type) @l_rcmd_layer $right_keys)
 
   ms_z (multi z @type)
-  ms_x (multi x @type)
-  ms_c (multi c @type)
-  ;; ms_c_sym (tap-hold-release-keys 200 200 (multi c @type) @l_sym $left_keys_sym_nav)
+  ms_x_cmd_grv (tap-hold-release-keys 200 200 (multi x @type) (multi lmet @l_space) $all_keys_except_tab_f_j)
+  ms_c_cmd_tab (tap-hold-release-keys 200 200 (multi c @type) lmet $all_keys_except_tab_f_j)
   ms_v_fn_med (tap-hold-release-keys 200 200 (multi v @type) @l_fn_med $left_keys_sym_nav)
   ms_b (multi b @type)
   ms_n_fn_med (tap-hold-release-keys 200 200 (multi n @type) @l_fn_med $right_keys_sym_nav)
-  ;; ms_m_sym (tap-hold-release-keys 200 200 (multi m @type) @l_sym $right_keys_sym_nav)
-  ms_m (multi m @type)
+  ms_m_ctl_tab (tap-hold-release-keys 200 200 (multi m @type) lctl $all_keys_except_tab_f_j)
   ms_, (multi , @type)
   ms_. (multi . @type)
 
@@ -140,8 +143,8 @@
   XX            XX            @___          @___          @___          XX            XX            XX            @___          @___          @___          XX            XX            XX          
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   @esc_rcmd     @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'_rcmd    XX     
-  @os_sft       @ms_z         @ms_x         @ms_c         @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m         @ms_,         @ms_.         /             XX            XX     
-  lrld          XX            @___          @___          @ms_spc_space ret           @cw           XX            XX            XX     
+  @os_sft       @ms_z         @ms_x_cmd_grv @ms_c_cmd_tab @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_ctl_tab @ms_,         @ms_.         /             XX            XX     
+  lrld          XX            @___          @___          @ms_spc_space @ret_s_spc    @cw           XX            XX            XX     
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -163,7 +166,7 @@
   tab           q             w             e             r             t             y             u             i             o             p             bspc          XX            XX          
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX          
   @os_sft       z             x             c             v             b             n             m             ,             .             /             XX            XX          
-  @___          XX            @___          @___          @spc_space    ret           @cw           XX            XX            XX          
+  @___          XX            @___          @___          @spc_space    @ret_s_spc    @cw           XX            XX            XX          
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
