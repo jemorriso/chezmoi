@@ -138,7 +138,7 @@
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   @esc_rcmd     @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'_rcmd    XX     
   @os_sft       @ms_z         @ms_x         @ms_c_sym     @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_sym     @ms_,         @ms_.         /             XX            XX     
-  lrld          XX            @___          @___          @ms_spc_num_nav ret         @cw           XX            XX            XX     
+  lrld          XX            @___          rpt-any       @ms_spc_num_nav ret         @cw           XX            XX            XX     
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -160,7 +160,7 @@
   tab           q             w             e             r             t             y             u             i             o             p             bspc          XX            XX          
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX          
   @os_sft       z             x             @c_sym        v             b             n             @m_sym        ,             .             /             XX            XX          
-  @___          XX            @___          @___          @spc_num_nav  ret           @cw           XX            XX            XX          
+  @___          XX            @___          rpt-any       @spc_num_nav  ret           @cw           XX            XX            XX          
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
