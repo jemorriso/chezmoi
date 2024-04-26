@@ -39,8 +39,6 @@
   ls_ctl_tab (layer-switch ctl_tab)
   ls_met_tab (layer-switch met_tab)
 
-  ;; l_num_nav (layer-while-held num_nav)
-  ;; l_sym (layer-while-held symbol)
   l_space (layer-while-held space)
   l_fn_med (layer-while-held fn_media)
   l_rcmd_layer (layer-while-held rcmd)
@@ -135,7 +133,6 @@
   ms_, (multi , @type)
   ms_. (multi . @type)
 
-  ;; ms_bspc_fn_med (tap-hold-release 200 200 (multi bspc @type) @l_fn_med)
   ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
 )
 (deflayer base
@@ -152,10 +149,6 @@
   ;; shift is more important than other modifiers, so these keys go on typing layer for quick shifting
   f_sft (tap-hold-release-keys 200 200 f lsft $left_keys)
   j_sft (tap-hold-release-keys 200 200 j lsft $right_keys)
-
-  ;; symbol layer needs to be accessible while typing quickly
-  ;; c_sym (tap-hold-release-keys 200 200 c @l_sym $left_keys)
-  ;; m_sym (tap-hold-release-keys 200 200 m @l_sym $right_keys)
 
   ;; also allow tap-hold spc on typing layer for quick arrows
   spc_space (tap-hold-release 200 200 spc @l_space)
@@ -192,52 +185,6 @@
   pgdn          1             2             3             _             _             S--           -             =             S-=           \             XX            XX
   @ls_acmk      XX            _             _             _             _             _             XX            XX            XX
 )
-;; (defalias
-;;   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
-;;   8_meh (tap-hold-release-keys 200 200 8 @meh $left_keys_meh_hyp)
-
-;;   0_ctl (tap-hold-release-keys 200 200 0 lctl $left_keys_home_row)
-;;   4_alt (tap-hold-release-keys 200 200 4 lalt $left_keys_home_row)
-;;   5_met (tap-hold-release-keys 200 200 5 lmet $left_keys_home_row)
-;;   6_sft (tap-hold-release-keys 200 200 6 lsft $left_keys_home_row)
-
-;;   down_sft (tap-hold-release-keys 200 200 down lsft $right_keys_home_row)
-;;   up_met (tap-hold-release-keys 200 200 up lmet $right_keys_home_row)
-;;   rght_alt (tap-hold-release-keys 200 200 rght lalt $right_keys_home_row)
-;; )
-;; (deflayer num_nav
-;;   xx            xx            xx            xx            xx            xx            xx            xx            xx            xx            xx            xx            xx          
-;;   xx            xx            _             _             _             xx            xx            xx            _             _             _             xx            xx            xx          
-;;   _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             del           xx            xx
-;;   _             @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_alt     _             _             xx
-;;   _             1             2             3             _             _             home          pgdn          pgup          end           _             xx            xx
-;;   @ls_acmk      xx            _             0             _             _             _             xx            xx            xx
-;; )
-;; (defalias
-;;   s_7_hyp (tap-hold-release-keys 200 200 (multi lsft 7) @hyp $left_keys_meh_hyp)
-;;   s_8_meh (tap-hold-release-keys 200 200 (multi lsft 8) @meh $left_keys_meh_hyp)
-
-;;   grv_ctl (tap-hold-release-keys 200 200 grv lctl $left_keys_home_row)
-;;   s_4_alt (tap-hold-release-keys 200 200 (multi lsft 4) lalt $left_keys_home_row)
-;;   s_5_met (tap-hold-release-keys 200 200 (multi lsft 5) lmet $left_keys_home_row)
-;;   s_6_sft (tap-hold-release-keys 200 200 (multi lsft 6) lsft $left_keys_home_row)
-
-;;   s_9_meh (tap-hold-release-keys 200 200 (multi lsft 9) @meh $right_keys_meh_hyp)
-;;   s_0_hyp (tap-hold-release-keys 200 200 (multi lsft 0) @hyp $right_keys_meh_hyp)
-
-;;   s_[_sft (tap-hold-release-keys 200 200 (multi lsft [) lsft $right_keys_home_row)
-;;   [_met (tap-hold-release-keys 200 200 [ lmet $right_keys_home_row)
-;;   ]_alt (tap-hold-release-keys 200 200 ] lalt $right_keys_home_row)
-;;   s_]_ctl (tap-hold-release-keys 200 200 (multi lsft ]) lctl $right_keys_home_row)
-;; )
-;; (deflayer symbol
-;;   xx            xx            xx            xx            xx            xx            xx            xx            xx            xx            xx            xx            xx          
-;;   xx            xx            _             _             _             xx            xx            xx            _             _             _             xx            xx            xx          
-;;   _             _             @s_7_hyp      @s_8_meh      _             _             _             _             @s_9_meh      @s_0_hyp      _             _             xx            xx
-;;   s-grv         @grv_ctl      @s_4_alt      @s_5_met      @s_6_sft      _             _             @s_[_sft      @[_met        @]_alt        @s_]_ctl      s-\           xx
-;;   _             s-1           s-2           s-3           _             _             s--           -             =             s-=           \             xx            xx
-;;   _             xx            _             _             _             _             _             xx            xx            xx
-;; )
 (defalias
   f7_hyp (tap-hold-release-keys 200 200 f7 @hyp $left_keys_meh_hyp)
   f8_meh (tap-hold-release-keys 200 200 f8 @meh $left_keys_meh_hyp)
