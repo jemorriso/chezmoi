@@ -32,7 +32,6 @@
   
   ___ XX
 
-  os_sft (one-shot 500 lsft)
 
   ls_base (layer-switch base)
   ls_acmk (layer-switch ableton_computer_midi_keyboard)
@@ -49,6 +48,11 @@
   ret_s_spc (tap-hold-release 200 200 ret (multi lsft @l_space))
 
   cw (caps-word 500)
+
+  os_sft (one-shot 500 lsft)
+  os_space (one-shot 500 @l_space)
+  os_fn_med (one-shot 500 @l_fn_med)
+  os_s_space (multi (one-shot 500 lsft) (one-shot 500 @l_space))
 )
 (defalias
   p_ctl (on-press press-virtualkey v_ctl)
@@ -133,16 +137,15 @@
   ms_, (multi , @type)
   ms_. (multi . @type)
 
-  ;; we do not want to repeat spc instead of hold action so set tap timeout to 0
-  ms_spc_space (tap-hold-release 0 200 (multi spc @type) @l_space)
+  ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
 )
 (deflayer base
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
   XX            XX            @___          @___          @___          XX            XX            XX            @___          @___          @___          XX            XX            XX          
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   @esc_rcmd     @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'_rcmd    XX     
-  @os_sft       @ms_z         @ms_x_cmd_grv @ms_c_cmd_tab @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_ctl_tab @ms_,         @ms_.         /             XX            XX     
-  lrld          XX            @___          @___          @ms_spc_space @ret_s_spc    @cw           XX            XX            XX     
+  ret           @ms_z         @ms_x_cmd_grv @ms_c_cmd_tab @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_ctl_tab @ms_,         @ms_.         /             XX            XX     
+  lrld          XX            @os_fn_med    @os_space     @ms_spc_space @os_sft       @os_s_space   XX            XX            XX     
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -152,16 +155,15 @@
   j_sft (tap-hold-release-keys 200 200 j lsft $right_keys)
 
   ;; also allow tap-hold spc on typing layer for quick arrows
-  ;; we do not want to repeat spc instead of hold action so set tap timeout to 0
-  spc_space (tap-hold-release 0 200 spc @l_space)
+  spc_space (tap-hold-release 200 200 spc @l_space)
 )
 (deflayer base_typing
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
   XX            XX            @___          @___          @___          XX            XX            XX            @___          @___          @___          XX            XX            XX          
   tab           q             w             e             r             t             y             u             i             o             p             bspc          XX            XX          
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX          
-  @os_sft       z             x             c             v             b             n             m             ,             .             /             XX            XX          
-  @___          XX            @___          @___          @spc_space    @ret_s_spc    @cw           XX            XX            XX          
+  ret           z             x             c             v             b             n             m             ,             .             /             XX            XX          
+  @___          XX            @os_fn_med    @os_space     @spc_space    @os_sft       @os_s_space   XX            XX            XX          
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
