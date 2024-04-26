@@ -34,6 +34,7 @@
 
 
   ls_base (layer-switch base)
+  ls_smart_num (layer-switch smart_num)
   ls_acmk (layer-switch ableton_computer_midi_keyboard)
   ls_ctl_tab (layer-switch ctl_tab)
   ls_met_tab (layer-switch met_tab)
@@ -166,13 +167,18 @@
   @___          XX            @os_fn_med    @os_space     @spc_space    @os_sft       @os_s_space   XX            XX            XX          
 )
 (defalias
-  7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
-  8_meh (tap-hold-release-keys 200 200 8 @meh $left_keys_meh_hyp)
+  7_hyp_sn (tap-hold-release-keys 200 200 (multi 7 @ls_smart_num) @hyp $left_keys_meh_hyp)
+  8_meh_sn (tap-hold-release-keys 200 200 (multi 8 @ls_smart_num) @meh $left_keys_meh_hyp)
+  9_sn (multi 9 @ls_smart_num)
 
-  0_ctl (tap-hold-release-keys 200 200 0 lctl $left_keys_home_row)
-  4_alt (tap-hold-release-keys 200 200 4 lalt $left_keys_home_row)
-  5_met (tap-hold-release-keys 200 200 5 lmet $left_keys_home_row)
-  6_sft (tap-hold-release-keys 200 200 6 lsft $left_keys_home_row)
+  0_ctl_sn (tap-hold-release-keys 200 200 (multi 0 @ls_smart_num) lctl $left_keys_home_row)
+  4_alt_sn (tap-hold-release-keys 200 200 (multi 4 @ls_smart_num) lalt $left_keys_home_row)
+  5_met_sn (tap-hold-release-keys 200 200 (multi 5 @ls_smart_num) lmet $left_keys_home_row)
+  6_sft_sn (tap-hold-release-keys 200 200 (multi 6 @ls_smart_num) lsft $left_keys_home_row)
+
+  1_sn (multi 1 @ls_smart_num)
+  2_sn (multi 2 @ls_smart_num)
+  3_sn (multi 3 @ls_smart_num)
 
   [_meh (tap-hold-release-keys 200 200 [ @meh $right_keys_meh_hyp)
   ]_hyp (tap-hold-release-keys 200 200 ] @hyp $right_keys_meh_hyp)
@@ -184,10 +190,58 @@
 (deflayer space
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
   XX            XX            home          end           _             XX            XX            XX            _             S-9           S-0           XX            XX            XX          
-  grv           S-grv         @7_hyp        @8_meh        9             _             _             S-[           @[_meh        @]_hyp        S-]           del           XX            XX
-  pgup          @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_alt     S-\           _             XX
-  pgdn          1             2             3             _             _             S--           -             =             S-=           \             XX            XX
+  grv           S-grv         @7_hyp_sn     @8_meh_sn     @9_sn         _             _             S-[           @[_meh        @]_hyp        S-]           del           XX            XX
+  pgup          @0_ctl_sn     @4_alt_sn     @5_met_sn     @6_sft_sn     _             left          @down_sft     @up_met       @rght_alt     S-\           _             XX
+  pgdn          @1_sn         @2_sn         @3_sn         _             _             S--           -             =             S-=           \             XX            XX
   @ls_acmk      XX            _             _             _             _             _             XX            XX            XX
+)
+(defalias
+  sn_tab (multi @ls_base tab)
+  sn_q (multi @ls_base q)
+  sn_w (multi @ls_base w)
+  sn_e (multi @ls_base e)
+  sn_r (multi @ls_base r)
+  sn_t (multi @ls_base t)
+  sn_y (multi @ls_base y)
+  sn_u (multi @ls_base u)
+  sn_i (multi @ls_base i)
+  sn_o (multi @ls_base o)
+  sn_p (multi @ls_base p)
+
+  sn_esc (multi @ls_base esc)
+  sn_a (multi @ls_base a)
+  sn_s (multi @ls_base s)
+  sn_d (multi @ls_base d)
+  sn_f (multi @ls_base f)
+  sn_g (multi @ls_base g)
+  sn_h (multi @ls_base h)
+  sn_j (multi @ls_base j)
+  sn_k (multi @ls_base k)
+  sn_l (multi @ls_base l)
+  sn_; (multi @ls_base ;)
+  sn_' (multi @ls_base ')
+
+  sn_ret (multi @ls_base ret)
+  sn_z (multi @ls_base z)
+  sn_x (multi @ls_base x)
+  sn_c (multi @ls_base c)
+  sn_v (multi @ls_base v)
+  sn_b (multi @ls_base b)
+  sn_n (multi @ls_base n)
+  sn_m (multi @ls_base m)
+  sn_, (multi @ls_base ,)
+  sn_. (multi @ls_base .)
+  sn_/ (multi @ls_base /)
+  
+  sn_spc (multi @ls_base spc)
+)
+(deflayer smart_num
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
+  XX            XX            @___          @___          @___          XX            XX            XX            @___          @___          @___          XX            XX            XX          
+  @sn_tab       @sn_q         7             8             9             @sn_t         @sn_y         @sn_u         @sn_i         @sn_o         @sn_p         bspc          XX            XX
+  @sn_esc       0             4             5             6             @sn_g         @sn_h         @sn_j         @sn_k         @sn_l         @sn_;         @sn_'         XX
+  @sn_ret       1             2             3             @sn_v         @sn_b         @sn_n         @sn_m         @sn_,         @sn_.         @sn_/         XX            XX
+  _             XX            _             _             @sn_spc       @ls_base      _             XX            XX            XX
 )
 (defalias
   f7_hyp (tap-hold-release-keys 200 200 f7 @hyp $left_keys_meh_hyp)
