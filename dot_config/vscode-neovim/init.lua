@@ -1,33 +1,61 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
     lazypath,
-  })
+  }
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+require('lazy').setup {
   {
-    "folke/flash.nvim",
+    'folke/flash.nvim',
     lazy = false,
     opts = {
       modes = {
         search = {
-          enabled == false
-        }
-      }
+          enabled == false,
+        },
+      },
     },
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-      { "r", mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-      { "R", mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    }
+      {
+        's',
+        mode = { 'n', 'x', 'o' },
+        function()
+          require('flash').jump()
+        end,
+        desc = 'Flash',
+      },
+      {
+        'S',
+        mode = { 'n', 'x', 'o' },
+        function()
+          require('flash').treesitter()
+        end,
+        desc = 'Flash Treesitter',
+      },
+      {
+        'r',
+        mode = 'o',
+        function()
+          require('flash').remote()
+        end,
+        desc = 'Remote Flash',
+      },
+      {
+        'R',
+        mode = { 'o', 'x' },
+        function()
+          require('flash').treesitter_search()
+        end,
+        desc = 'Treesitter Search',
+      },
+    },
   },
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
@@ -63,8 +91,8 @@ require("lazy").setup({
     opts = {},
     lazy = false,
     config = function()
-      local ft = require('Comment.ft')
-      ft.set('kbd', ft.get('lisp'))
+      local ft = require 'Comment.ft'
+      ft.set('kbd', ft.get 'lisp')
       -- require('Comment').setup()
     end,
   },
@@ -136,10 +164,10 @@ require("lazy").setup({
         },
       }
     end,
-  }
-})
+  },
+}
 
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 vim.o.clipboard = 'unnamedplus'
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -159,7 +187,7 @@ if not vim.g.vscode then
   return
 end
 
-local vscode = require("vscode-neovim")
+local vscode = require 'vscode-neovim'
 
 -- this works but you can't prefix it with number :(
 -- vim.keymap.set('n', 'k', function()
