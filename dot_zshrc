@@ -3,7 +3,7 @@ path+=('/Users/jerry/.local/bin')
 path+=('/Users/jerry/.ghcup/bin')
 path+=('/Applications/SuperCollider.app/Contents/MacOS')
 # path+=('/Users/jerry/.ghcup/env')
-#
+
 zstyle ':completion:*' menu select
 
 setopt share_history
@@ -20,11 +20,16 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export FZF_DEFAULT_OPTS="--bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
 
+alias cr="cd \"\$(git rev-parse --show-toplevel)\""
 alias lg="lazygit"
 alias ls="eza"
 alias lt="eza -a --tree --git-ignore"
 alias vd="$HOME/venvs/visidata/.venv/bin/vd"
-alias vdsql="$HOME/venvs/vdsql/.venv/bin/vdsql"
+alias vdsql="$HOME/venvs/vdsql/.venv/bin/vdsql --config=~/.vdsqlrc"
+
+function dmv() {
+  duckdb -csv -c "select * from \"$1\";" /Users/jerry/source/masterbet/masterbet_duckdb/masterbet.duckdb | vd -f csv
+}
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -34,7 +39,7 @@ if type brew &>/dev/null; then
 fi
 
 # NOTE: fzf-tab needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
-source /Users/jerry/github/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
+# source /Users/jerry/github/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
