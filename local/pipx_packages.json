@@ -1,0 +1,537 @@
+{
+    "pipx_spec_version": "0.1",
+    "venvs": {
+        "aider-chat": {
+            "metadata": {
+                "injected_packages": {},
+                "main_package": {
+                    "app_paths": [
+                        {
+                            "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/aider",
+                            "__type__": "Path"
+                        }
+                    ],
+                    "app_paths_of_dependencies": {
+                        "charset-normalizer": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/normalizer",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "distro": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/distro",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "grep-ast": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/gast",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/grep-ast",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "httpx": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/httpx",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "huggingface-hub": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/huggingface-cli",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "jsonschema": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/jsonschema",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "litellm": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/litellm",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "markdown-it-py": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/markdown-it",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "numpy": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/f2py",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "openai": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/openai",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "playwright": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/playwright",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "pygments": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/pygmentize",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "python-dotenv": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/dotenv",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "rsa": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/pyrsa-decrypt",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/pyrsa-encrypt",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/pyrsa-keygen",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/pyrsa-priv2pub",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/pyrsa-sign",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/pyrsa-verify",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "tqdm": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/aider-chat/bin/tqdm",
+                                "__type__": "Path"
+                            }
+                        ]
+                    },
+                    "apps": [
+                        "aider"
+                    ],
+                    "apps_of_dependencies": [
+                        "normalizer",
+                        "distro",
+                        "pyrsa-decrypt",
+                        "pyrsa-encrypt",
+                        "pyrsa-keygen",
+                        "pyrsa-priv2pub",
+                        "pyrsa-sign",
+                        "pyrsa-verify",
+                        "tqdm",
+                        "gast",
+                        "grep-ast",
+                        "httpx",
+                        "huggingface-cli",
+                        "jsonschema",
+                        "litellm",
+                        "openai",
+                        "dotenv",
+                        "markdown-it",
+                        "f2py",
+                        "playwright",
+                        "pygmentize"
+                    ],
+                    "include_apps": true,
+                    "include_dependencies": false,
+                    "man_pages": [],
+                    "man_pages_of_dependencies": [],
+                    "man_paths": [],
+                    "man_paths_of_dependencies": {},
+                    "package": "aider-chat",
+                    "package_or_url": "aider-chat",
+                    "package_version": "0.30.1",
+                    "pip_args": [],
+                    "suffix": ""
+                },
+                "pipx_metadata_version": "0.4",
+                "python_version": "Python 3.12.1",
+                "source_interpreter": null,
+                "venv_args": []
+            }
+        },
+        "harlequin": {
+            "metadata": {
+                "injected_packages": {},
+                "main_package": {
+                    "app_paths": [
+                        {
+                            "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/harlequin/bin/harlequin",
+                            "__type__": "Path"
+                        }
+                    ],
+                    "app_paths_of_dependencies": {
+                        "markdown-it-py": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/harlequin/bin/markdown-it",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "numpy": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/harlequin/bin/f2py",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "pygments": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/harlequin/bin/pygmentize",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "rich-click": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/harlequin/bin/rich-click",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "shandy-sqlfmt": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/harlequin/bin/sqlfmt",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/harlequin/bin/sqlfmt_primer",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "tqdm": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/harlequin/bin/tqdm",
+                                "__type__": "Path"
+                            }
+                        ]
+                    },
+                    "apps": [
+                        "harlequin"
+                    ],
+                    "apps_of_dependencies": [
+                        "f2py",
+                        "rich-click",
+                        "markdown-it",
+                        "pygmentize",
+                        "sqlfmt",
+                        "sqlfmt_primer",
+                        "tqdm"
+                    ],
+                    "include_apps": true,
+                    "include_dependencies": false,
+                    "man_pages": [],
+                    "man_pages_of_dependencies": [],
+                    "man_paths": [],
+                    "man_paths_of_dependencies": {},
+                    "package": "harlequin",
+                    "package_or_url": "harlequin",
+                    "package_version": "1.19.0",
+                    "pip_args": [],
+                    "suffix": ""
+                },
+                "pipx_metadata_version": "0.4",
+                "python_version": "Python 3.12.3",
+                "source_interpreter": {
+                    "__Path__": "/opt/homebrew/opt/python@3.12/libexec/bin/python",
+                    "__type__": "Path"
+                },
+                "venv_args": []
+            }
+        },
+        "jupytext": {
+            "metadata": {
+                "injected_packages": {},
+                "main_package": {
+                    "app_paths": [
+                        {
+                            "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/jupytext/bin/jupytext",
+                            "__type__": "Path"
+                        },
+                        {
+                            "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/jupytext/bin/jupytext-config",
+                            "__type__": "Path"
+                        }
+                    ],
+                    "app_paths_of_dependencies": {
+                        "jsonschema": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/jupytext/bin/jsonschema",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "jupyter-core": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/jupytext/bin/jupyter",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/jupytext/bin/jupyter-migrate",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/jupytext/bin/jupyter-troubleshoot",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "markdown-it-py": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/jupytext/bin/markdown-it",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "nbformat": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/jupytext/bin/jupyter-trust",
+                                "__type__": "Path"
+                            }
+                        ]
+                    },
+                    "apps": [
+                        "jupytext",
+                        "jupytext-config"
+                    ],
+                    "apps_of_dependencies": [
+                        "markdown-it",
+                        "jupyter-trust",
+                        "jsonschema",
+                        "jupyter",
+                        "jupyter-migrate",
+                        "jupyter-troubleshoot"
+                    ],
+                    "include_apps": true,
+                    "include_dependencies": false,
+                    "man_pages": [],
+                    "man_pages_of_dependencies": [],
+                    "man_paths": [],
+                    "man_paths_of_dependencies": {},
+                    "package": "jupytext",
+                    "package_or_url": "jupytext",
+                    "package_version": "1.16.1",
+                    "pip_args": [],
+                    "suffix": ""
+                },
+                "pipx_metadata_version": "0.4",
+                "python_version": "Python 3.12.2",
+                "source_interpreter": null,
+                "venv_args": []
+            }
+        },
+        "kaggle": {
+            "metadata": {
+                "injected_packages": {},
+                "main_package": {
+                    "app_paths": [
+                        {
+                            "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/kaggle/bin/kaggle",
+                            "__type__": "Path"
+                        }
+                    ],
+                    "app_paths_of_dependencies": {
+                        "charset-normalizer": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/kaggle/bin/normalizer",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "python-slugify": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/kaggle/bin/slugify",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "tqdm": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/kaggle/bin/tqdm",
+                                "__type__": "Path"
+                            }
+                        ]
+                    },
+                    "apps": [
+                        "kaggle"
+                    ],
+                    "apps_of_dependencies": [
+                        "normalizer",
+                        "tqdm",
+                        "slugify"
+                    ],
+                    "include_apps": true,
+                    "include_dependencies": false,
+                    "man_pages": [],
+                    "man_pages_of_dependencies": [],
+                    "man_paths": [],
+                    "man_paths_of_dependencies": {},
+                    "package": "kaggle",
+                    "package_or_url": "kaggle",
+                    "package_version": "1.6.12",
+                    "pip_args": [],
+                    "suffix": ""
+                },
+                "pipx_metadata_version": "0.4",
+                "python_version": "Python 3.12.2",
+                "source_interpreter": null,
+                "venv_args": []
+            }
+        },
+        "shandy-sqlfmt": {
+            "metadata": {
+                "injected_packages": {},
+                "main_package": {
+                    "app_paths": [
+                        {
+                            "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shandy-sqlfmt/bin/sqlfmt",
+                            "__type__": "Path"
+                        },
+                        {
+                            "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shandy-sqlfmt/bin/sqlfmt_primer",
+                            "__type__": "Path"
+                        }
+                    ],
+                    "app_paths_of_dependencies": {
+                        "black": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shandy-sqlfmt/bin/black",
+                                "__type__": "Path"
+                            },
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shandy-sqlfmt/bin/blackd",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "tqdm": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shandy-sqlfmt/bin/tqdm",
+                                "__type__": "Path"
+                            }
+                        ]
+                    },
+                    "apps": [
+                        "sqlfmt",
+                        "sqlfmt_primer"
+                    ],
+                    "apps_of_dependencies": [
+                        "black",
+                        "blackd",
+                        "tqdm"
+                    ],
+                    "include_apps": true,
+                    "include_dependencies": false,
+                    "man_pages": [],
+                    "man_pages_of_dependencies": [],
+                    "man_paths": [],
+                    "man_paths_of_dependencies": {},
+                    "package": "shandy-sqlfmt",
+                    "package_or_url": "shandy-sqlfmt[jinjafmt]",
+                    "package_version": "0.21.3",
+                    "pip_args": [],
+                    "suffix": ""
+                },
+                "pipx_metadata_version": "0.4",
+                "python_version": "Python 3.12.1",
+                "source_interpreter": null,
+                "venv_args": []
+            }
+        },
+        "shell-gpt": {
+            "metadata": {
+                "injected_packages": {},
+                "main_package": {
+                    "app_paths": [
+                        {
+                            "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shell-gpt/bin/sgpt",
+                            "__type__": "Path"
+                        }
+                    ],
+                    "app_paths_of_dependencies": {
+                        "distro": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shell-gpt/bin/distro",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "httpx": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shell-gpt/bin/httpx",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "instructor": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shell-gpt/bin/instructor",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "markdown-it-py": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shell-gpt/bin/markdown-it",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "openai": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shell-gpt/bin/openai",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "pygments": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shell-gpt/bin/pygmentize",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "tqdm": [
+                            {
+                                "__Path__": "/Users/jerry/Library/Application Support/pipx/venvs/shell-gpt/bin/tqdm",
+                                "__type__": "Path"
+                            }
+                        ]
+                    },
+                    "apps": [
+                        "sgpt"
+                    ],
+                    "apps_of_dependencies": [
+                        "distro",
+                        "instructor",
+                        "openai",
+                        "httpx",
+                        "tqdm",
+                        "markdown-it",
+                        "pygmentize"
+                    ],
+                    "include_apps": true,
+                    "include_dependencies": false,
+                    "man_pages": [],
+                    "man_pages_of_dependencies": [],
+                    "man_paths": [],
+                    "man_paths_of_dependencies": {},
+                    "package": "shell-gpt",
+                    "package_or_url": "shell-gpt",
+                    "package_version": "1.4.3",
+                    "pip_args": [],
+                    "suffix": ""
+                },
+                "pipx_metadata_version": "0.4",
+                "python_version": "Python 3.12.1",
+                "source_interpreter": null,
+                "venv_args": []
+            }
+        }
+    }
+}
