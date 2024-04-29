@@ -29,15 +29,34 @@ require("lazy").setup({
       { "R", mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     }
   },
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
+  { -- Collection of various small independent plugins/modules
+    'echasnovski/mini.nvim',
     config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
+      -- Better Around/Inside textobjects
+      --
+      -- Examples:
+      --  - va)  - [V]isually select [A]round [)]paren
+      --  - yinq - [Y]ank [I]nside [N]ext [']quote
+      --  - ci'  - [C]hange [I]nside [']quote
+      require('mini.ai').setup { n_lines = 500 }
+
+      -- Add/delete/replace surroundings (brackets, quotes, etc.)
+      --
+      -- - gsaiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+      -- - gsd'   - [S]urround [D]elete [']quotes
+      -- - gsr)'  - [S]urround [R]eplace [)] [']
+      require('mini.surround').setup {
+        mappings = {
+          add = 'gsa',
+          delete = 'gsd',
+          find = 'gsf',
+          find_left = 'gsF',
+          highlight = 'gsh',
+          replace = 'gsr',
+          update_n_lines = 'gsn',
+        },
+      }
+    end,
   },
   {
     'numToStr/Comment.nvim',
