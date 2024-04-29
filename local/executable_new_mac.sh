@@ -6,6 +6,9 @@
 # install brew packages
 brew bundle
 
+# clone dotfiles
+chezmoi init --apply https://github.com/jemorriso/chezmoi.git
+
 # install rust and cargo
 curl https://sh.rustup.rs -sSf | sh
 
