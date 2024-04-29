@@ -1,0 +1,14 @@
+import = [ "~/github/catppuccin/alacritty/catppuccin-mocha.toml" ]
+
+[env]
+# not sure if this is necessary, but recommended in https://github.com/catppuccin/alacritty
+TERM = "xterm-256color"
+
+[window]
+option_as_alt = "Both"
+decorations = "Buttonless"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font"}
+size = 13
+
