@@ -75,16 +75,16 @@
   ;; the escape before closing the window
   esc_met_tab (multi (macro esc 50 @r_met) @ls_base)
 )
-(defchords ctl_tab_chords 40
-  (w  ) (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
-  (  e) (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
-  (w e) @to_ctl_tab
-)
-(defchords cmd_tab_chords 40
-  (i  ) (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys_meh_hyp)
-  (o  ) (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys_meh_hyp)
-  (i o) @to_met_tab
-)
+;; (defchords ctl_tab_chords 40
+;;   (w  ) (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
+;;   (  e) (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
+;;   (w e) @to_ctl_tab
+;; )
+;; (defchords cmd_tab_chords 40
+;;   (i  ) (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys_meh_hyp)
+;;   (o  ) (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys_meh_hyp)
+;;   (i o) @to_met_tab
+;; )
 ;; TODO not working - maybe next release
 ;; (defcfg
 ;;   concurrent-tap-hold yes
@@ -107,14 +107,14 @@
   )
 
   ms_q (multi q @type)
-  ms_w_hyp (chord ctl_tab_chords w)
-  ms_e_meh (chord ctl_tab_chords e)
+  ms_w_hyp (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
+  ms_e_meh (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
   ms_r (multi r @type)
   ms_t (multi t @type)
   ms_y (multi y @type)
   ms_u (multi u @type)
-  ms_i_meh (chord cmd_tab_chords i)
-  ms_o_hyp (chord cmd_tab_chords o)
+  ms_i_meh (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys_meh_hyp)
+  ms_o_hyp (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys_meh_hyp)
   ms_p (multi p @type)
 
   ms_a_ctl (tap-hold-release-keys 200 200 (multi a @type) lctl $left_keys_home_row)
@@ -143,7 +143,7 @@
 )
 (deflayer base
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            @___          @___          @___          XX            XX            XX            @___          ret           @___          XX            XX            XX          
+  XX            XX            @to_ctl_tab   @to_met_tab   @___          XX            XX            XX            @___          ret           @___          XX            XX            XX          
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   @esc_rcmd     @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'_rcmd    XX     
   @___          @ms_z         @ms_x_cmd_grv @ms_c_cmd_tab @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_ctl_tab @ms_,         @ms_.         /             XX            XX     
@@ -331,8 +331,8 @@
 ;; TODO try deflayermap
 (deflayer ctl_tab
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX          
-  @from_ctl_tab @from_ctl_tab S-tab         tab           @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
+  XX            XX            tab           S-tab         @from_ctl_tab XX            XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX          
+  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
   @esc_ctl_tab  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab S-tab         tab           S-tab         tab           @from_ctl_tab @from_ctl_tab XX
   @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
   @from_ctl_tab XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX
@@ -340,8 +340,8 @@
 ;; TODO try deflayermap
 (deflayer met_tab
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            @from_met_tab @from_met_tab @from_met_tab XX            XX            XX            @from_met_tab @from_met_tab @from_met_tab XX            XX            XX          
-  @from_met_tab q             w             @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab tab           S-tab         @from_met_tab @from_met_tab XX            XX
+  XX            XX            S-tab         tab           @from_met_tab XX            XX            XX            @from_met_tab @from_met_tab @from_met_tab XX            XX            XX          
+  @from_met_tab q             w             @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab XX            XX
   @esc_met_tab  @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab h             j             k             l             @from_met_tab @from_met_tab XX
   @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab m             @from_met_tab @from_met_tab @from_met_tab XX            XX
   @from_met_tab XX            @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab XX            XX            XX
