@@ -1,0 +1,13 @@
+sourceDir = "/Users/jerry/source/chezmoi"
+
+{{ $email := promptString "email" -}}
+
+[diff]
+command = "delta"
+args = [
+    "{{ "{{" }} .Destination {{ "}}" }}",
+    "{{ "{{" }} .Target {{ "}}" }}",
+]
+
+[data]
+    email = {{ $email | quote }}
