@@ -52,11 +52,7 @@
 
   cw (caps-word 500)
 
-  ;; tap once for one-shot shift
-  ;; tap twice for caps-word
-  ;; hold for rcmd
-  ;; tap-hold for shift
-  sft_rcmd_td (tap-hold-release 200 200 (tap-dance 200 ((one-shot 500 lsft) (tap-hold-release 200 200 @cw lsft))) @l_rcmd_layer)
+  os_sft_td (tap-dance 200 ((one-shot 500 lsft) @cw))
   ;; double tap to for oneshot numbers (avoid smart_num layer)
   os_space_os_td (tap-dance 200 ((one-shot 500 @l_space_os) (one-shot 500 @l_space)))
   os_fn_med (one-shot 500 @l_fn_med)
@@ -158,8 +154,8 @@
   XX            XX            @to_ctl_tab   @to_met_tab   @to_met_grv   XX            XX            XX            @___          ret           @___          XX            XX            XX          
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         XX     
-  @___          @ms_z         @ms_x         @ms_c         @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m         @ms_,         @ms_.         /             XX            XX     
-  lrld          XX            @os_fn_med    @os_space_os_td @ms_spc_space @sft_rcmd_td @os_s_space  XX            XX            XX     
+  @___          @ms_z         @ms_x         @ms_c_rcmd    @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_rcmd    @ms_,         @ms_.         /             XX            XX     
+  lrld          XX            @os_fn_med    @os_space_os_td @ms_spc_space @os_sft_td  @os_s_space   XX            XX            XX     
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -177,7 +173,7 @@
   tab           q             w             e             r             t             y             u             i             o             p             bspc          XX            XX          
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX          
   @___          z             x             c             v             b             n             m             ,             .             /             XX            XX          
-  @___          XX            @os_fn_med    @os_space_os_td @spc_space  @sft_rcmd_td  @os_s_space   XX            XX            XX          
+  @___          XX            @os_fn_med    @os_space_os_td @spc_space  @os_sft_td    @os_s_space   XX            XX            XX          
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
@@ -274,7 +270,7 @@
   @sn_tab       @sn_q         7             8             9             @sn_t         @sn_y         @sn_u         @sn_i         @sn_o         @sn_p         bspc          XX            XX
   @sn_esc       0             4             5             6             @sn_g         @sn_h         @sn_j         @sn_k         @sn_l         ;             @sn_'         XX
   @___          1             2             3             @sn_v         @sn_b         @sn_n         @sn_m         ,             .             /             XX            XX
-  @___          XX            @os_fn_med    @os_space_os_td @sn_spc     @sft_rcmd_td  @os_s_space   XX            XX            XX
+  @___          XX            @os_fn_med    @os_space_os_td @sn_spc     @os_sft_td    @os_s_space   XX            XX            XX
 )
 (defalias
   f7_hyp (tap-hold-release-keys 200 200 f7 @hyp $left_keys_meh_hyp)
@@ -392,4 +388,3 @@
   _             _             _             _             _             _             _             _             _             _             _             _             XX
   _             _             _             _             _             _             _             _             _             _             _             XX            XX
   _             XX            _             _             _             _             _             XX            XX            XX
-)
