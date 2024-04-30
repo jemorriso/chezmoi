@@ -158,7 +158,7 @@
   XX            XX            @to_ctl_tab   @to_met_tab   @to_met_grv   XX            XX            XX            @___          ret           @___          XX            XX            XX          
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         XX     
-  @___          @ms_z         @ms_x         @ms_c_rcmd    @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_rcmd    @ms_,         @ms_.         /             XX            XX     
+  @___          @ms_z         @ms_x         @ms_c         @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m         @ms_,         @ms_.         /             XX            XX     
   lrld          XX            @os_fn_med    @os_space_os_td @ms_spc_space @sft_rcmd_td @os_s_space  XX            XX            XX     
 )
 (defalias
