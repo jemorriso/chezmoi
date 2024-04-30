@@ -1,12 +1,12 @@
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 
 [user]
-	name = jerry
-	email = {{ .email }}
+    name = jerry
+    email = {{ .email }}
 
 [core]
     pager = delta
@@ -24,4 +24,10 @@
     colorMoved = default
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
+
+[include]
+    path = ~/source/catppuccin/delta/catppuccin.gitconfig
+
+[delta]
+    features = catppuccin-macchiato
