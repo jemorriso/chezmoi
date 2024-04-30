@@ -1,0 +1,7 @@
+# not sure how templates work, so just storing my chezmoi.toml here
+
+sourceDir = "/Users/jerry/source/chezmoi"
+
+[diff]
+    command = "delta"
+    args = ["{{ .Destination }}", "{{ .Target }}"]
