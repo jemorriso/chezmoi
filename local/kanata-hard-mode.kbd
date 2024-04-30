@@ -38,6 +38,7 @@
   ls_acmk (layer-switch ableton_computer_midi_keyboard)
   ls_ctl_tab (layer-switch ctl_tab)
   ls_met_tab (layer-switch met_tab)
+  ls_met_grv (layer-switch met_grv)
 
   l_space (layer-while-held space)
   l_space_os (layer-while-held space_oneshot)
@@ -70,10 +71,11 @@
   r_met (on-press release-virtualkey v_met)
 
   to_met_tab (multi (macro @p_met 10 tab) @ls_met_tab)
-  from_met_tab (multi @r_met @ls_base)
+  to_met_grv (multi (macro @p_met 10 grv) @ls_met_grv)
+  from_met (multi @r_met @ls_base)
   ;; this macro needs a longer delay because sometimes alt-tab doesn't register
   ;; the escape before closing the window
-  esc_met_tab (multi (macro esc 50 @r_met) @ls_base)
+  esc_met (multi (macro esc 50 @r_met) @ls_base)
 )
 ;; (defchords ctl_tab_chords 40
 ;;   (w  ) (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
@@ -147,7 +149,7 @@
 )
 (deflayer base
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            @to_ctl_tab   @to_met_tab   @___          XX            XX            XX            @___          ret           @___          XX            XX            XX          
+  XX            XX            @to_ctl_tab   @to_met_tab   @to_met_grv   XX            XX            XX            @___          ret           @___          XX            XX            XX          
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         XX     
   @___          @ms_z         @ms_x         @ms_c_rcmd    @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_rcmd    @ms_,         @ms_.         /             XX            XX     
@@ -343,19 +345,30 @@
 )
 ;; TODO try deflayermap
 (deflayer met_tab
+  ;; these keys are used by the alt-tab-macos app
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            S-tab         tab           @from_met_tab XX            XX            XX            @from_met_tab @from_met_tab @from_met_tab XX            XX            XX          
-  @from_met_tab q             w             @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab XX            XX
-  @esc_met_tab  @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab h             j             k             l             @from_met_tab @from_met_tab XX
-  @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab m             @from_met_tab @from_met_tab @from_met_tab XX            XX
-  @from_met_tab XX            @from_met_tab @from_met_tab @from_met_tab @from_met_tab @from_met_tab XX            XX            XX
+  XX            XX            lsft          tab           @from_met     XX            XX            XX            @from_met     @from_met     @from_met     XX            XX            XX          
+  @from_met     q             w             @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     XX            XX
+  @esc_met      @from_met     @from_met     @from_met     @from_met     @from_met     h             j             k             l             @from_met     @from_met     XX
+  @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     m             @from_met     @from_met     @from_met     XX            XX
+  @from_met     XX            @from_met     @from_met     @from_met     @from_met     @from_met     XX            XX            XX
+)
+;; TODO try deflayermap
+(deflayer met_grv
+  ;; these keys are used by the alt-tab-macos app
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
+  XX            XX            @from_met     lsft          grv           XX            XX            XX            @from_met     @from_met     @from_met     XX            XX            XX          
+  @from_met     q             w             @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     XX            XX
+  @esc_met      @from_met     @from_met     @from_met     @from_met     @from_met     h             j             k             l             @from_met     @from_met     XX
+  @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     m             @from_met     @from_met     @from_met     XX            XX
+  @from_met     XX            @from_met     @from_met     @from_met     @from_met     @from_met     XX            XX            XX
 )
 (deflayer ableton_computer_midi_keyboard
   esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             f             g             h             j             k             l             ;             '             ret
-  @os_sft_td    z             x             c             v             b             n             m             ,             .             /             @os_sft_td    up
+  lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
   @ls_base      lctl          lalt          lmet          @spc_space    rmet          ralt          left          down          rght
 )
 (deflayer empty
