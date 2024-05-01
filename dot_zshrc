@@ -27,6 +27,9 @@ alias lt="eza -a --tree --git-ignore"
 alias vd="$HOME/venvs/visidata/.venv/bin/vd"
 alias vdsql="$HOME/venvs/vdsql/.venv/bin/vdsql --config=~/.vdsqlrc"
 
+alias zi='cd $(__jumper_fdir)'
+alias zfi='$EDITOR $(__jumper_ffile)'
+
 function dmv() {
   duckdb -csv -c "select * from \"$1\";" /Users/jerry/source/masterbet/masterbet_duckdb/masterbet.duckdb | vd -f csv
 }
@@ -48,6 +51,8 @@ source /opt/homebrew/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # so that zsh-vi-mode does not overwrite fzf keybindings
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+# so that zsh-vi-mode does not overwrite jumper keybindings
+zvm_after_init_commands+=('source ~/github/homerours/jumper/shell/jumper.zsh')
 
 # so that zsh-vi-mode does not overwrite vi-forward-word
 zvm_after_lazy_keybindings ()
@@ -56,5 +61,4 @@ zvm_after_lazy_keybindings ()
 }
 
 eval "$(mise activate zsh)"
-eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
