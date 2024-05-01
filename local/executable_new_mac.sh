@@ -22,3 +22,6 @@ if [[ -e ./pipx_packages.json ]]; then
 		pipx install $p
 	done
 fi
+
+# install github repos
+source ./github_repo_clone.sh
