@@ -5,6 +5,7 @@ sourceDir = "/Users/jerry/source/chezmoi"
 [diff]
 command = "delta"
 args = [
+    "--diff-so-fancy",
     "{{ "{{" }} .Destination {{ "}}" }}",
     "{{ "{{" }} .Target {{ "}}" }}",
 ]
