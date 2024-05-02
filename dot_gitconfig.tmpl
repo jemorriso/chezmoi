@@ -8,14 +8,12 @@
     name = jerry
     email = {{ .email }}
 
-[core]
-    pager = delta
+[init]
+    defaultBranch = main
 
-[interactive]
-    diffFilter = delta --color-only
-
-[delta]
-    navigate = true
+#----------------------------
+# delta config
+#----------------------------
 
 [merge]
     conflictstyle = diff3
@@ -23,11 +21,12 @@
 [diff]
     colorMoved = default
 
-[init]
-    defaultBranch = main
+[core]
+    pager = delta --diff-so-fancy
 
-[include]
-    path = ~/source/catppuccin/delta/catppuccin.gitconfig
+[interactive]
+    diffFilter = delta --color-only
 
 [delta]
-    features = catppuccin-macchiato
+    navigate = true
+    side-by-side = true
