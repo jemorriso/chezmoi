@@ -4,7 +4,6 @@ cd github
 gh repo clone Aloxaf/fzf-tab Aloxaf/fzf-tab
 gh repo clone catppuccin/alacritty catppuccin/alacritty
 gh repo clone catppuccin/bat catppuccin/bat
-gh repo clone catppuccin/delta catppuccin/delta
 gh repo clone catppuccin/sioyek catppuccin/sioyek
 gh repo clone cnstlungu/portable-data-stack-dagster cnstlungu/portable-data-stack-dagster
 gh repo clone dagster-io/dagster-open-platform dagster-io/dagster-open-platform
