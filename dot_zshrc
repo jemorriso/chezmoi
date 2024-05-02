@@ -28,8 +28,8 @@ alias lt="eza -a --tree --git-ignore"
 alias vd="$HOME/venvs/visidata/.venv/bin/vd"
 alias vdsql="$HOME/venvs/vdsql/.venv/bin/vdsql --config=~/.vdsqlrc"
 
-alias zi='cd $(__jumper_fdir)'
-alias zfi='$EDITOR $(__jumper_ffile)'
+# alias zi='cd $(__jumper_fdir)'
+# alias zfi='$EDITOR $(__jumper_ffile)'
 
 function dmv() {
   duckdb -csv -c "select * from \"$1\";" /Users/jerry/source/masterbet/masterbet_duckdb/masterbet.duckdb | vd -f csv
