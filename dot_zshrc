@@ -27,6 +27,9 @@ alias ls="eza"
 alias lt="eza -a --tree --git-ignore"
 alias vd="$HOME/venvs/visidata/.venv/bin/vd"
 alias vdsql="$HOME/venvs/vdsql/.venv/bin/vdsql --config=~/.vdsqlrc"
+alias cha="chezmoi apply"
+alias chr="chezmoi re-add"
+alias chd="chezmoi diff"
 
 # alias zi='cd $(__jumper_fdir)'
 # alias zfi='$EDITOR $(__jumper_ffile)'
