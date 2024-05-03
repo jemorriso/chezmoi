@@ -2,3 +2,27 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never --diff-so-fancy
+# Copied from ~/.cache/lazyvim/lazygit-theme.yml. See
+    # https://github.com/LazyVim/LazyVim/blob/f086bcde253c29be9a2b9c90b413a516f5d5a3b2/lua/lazyvim/util/lazygit.lua
+gui:
+  theme:
+   searchingActiveBorderColor:
+     - "#fab387"
+     - "bold"
+   optionsTextColor:
+     - "#89b4fa"
+   inactiveBorderColor:
+     - "#89b4fa"
+   defaultFgColor:
+     - "#cdd6f4"
+   cherryPickedCommitFgColor:
+     - "#89b4fa"
+   cherryPickedCommitBgColor:
+     - "#f2cdcd"
+   activeBorderColor:
+     - "#fab387"
+     - "bold"
+   unstagedChangesColor:
+     - "#f38ba8"
+   selectedLineBgColor:
+     - "#45475a"
