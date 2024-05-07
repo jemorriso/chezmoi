@@ -26,5 +26,8 @@ fi
 # install github repos
 source ./github_repo_clone.sh
 
+# make venvs, must be run after github_repo_clone.sh
+source ./venvs.sh
+
 # install oh-my-zsh & custom plugins
 source ./oh_my_zsh.sh
