@@ -25,3 +25,6 @@ fi
 
 # install github repos
 source ./github_repo_clone.sh
+
+# install oh-my-zsh & custom plugins
+source ./oh_my_zsh.sh
