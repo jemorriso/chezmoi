@@ -71,11 +71,17 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  colored-man-pages
   docker
+  docker-compose
   fzf-tab
   git
   gh
+  httpie
+  pip
+  starship
   taskwarrior
+  zoxide
   zsh-autosuggestions
   zsh-completions
   zsh-history-substring-search
@@ -150,6 +156,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
+# from https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
 eval "$(mise activate zsh)"
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
+# eval "$(zoxide init zsh)"
+# eval "$(starship init zsh)"
