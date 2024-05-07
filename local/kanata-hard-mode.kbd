@@ -269,7 +269,7 @@
   XX            XX            @___          @___          @___          XX            XX            XX            @___          @sn_ret       @___          XX            XX            XX          
   @sn_tab       @sn_q         7             8             9             @sn_t         @sn_y         @sn_u         @sn_i         @sn_o         @sn_p         bspc          XX            XX
   @sn_esc       0             4             5             6             @sn_g         @sn_h         @sn_j         @sn_k         @sn_l         ;             @sn_'         XX
-  @___          1             2             3             @sn_v         @sn_b         @sn_n         @sn_m         ,             .             /             XX            XX
+  @ls_base      1             2             3             @sn_v         @sn_b         @sn_n         @sn_m         ,             .             /             XX            XX
   @___          XX            @os_fn_med    @os_space_os_td @sn_spc     @os_sft_td    @os_s_space   XX            XX            XX
 )
 (defalias
