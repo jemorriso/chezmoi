@@ -3,6 +3,7 @@ mkdir venvs
 cd venvs
 
 # vdsql
+# do not use uv for vdsql
 mkdir vdsql
 cd vdsql
 mise shell python@3.11
@@ -13,3 +14,17 @@ pip install .
 cd ~/github/saulpw/visidata
 pip install .
 pip install 'ibis-framework[duckdb]'
+
+deactivate
+
+# pynvim
+# do not use uv for pynvim
+cd ~/venvs
+mkdir pynvim
+cd pynvim
+mise shell python@latest
+python -m venv .venv
+source .venv/bin/activate
+pip install pynvim
+
+deactivate
