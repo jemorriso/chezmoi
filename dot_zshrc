@@ -101,6 +101,7 @@ path+=('/Users/jerry/.local/bin')
 path+=('/Users/jerry/.ghcup/bin')
 path+=('/Users/jerry/.cargo/bin')
 path+=('/Applications/SuperCollider.app/Contents/MacOS')
+path+=('/Applications/Postgres.app/Contents/Versions/latest/bin')
 
 setopt share_history
 setopt hist_ignore_space
