@@ -152,10 +152,10 @@
 )
 (deflayer base
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            @to_ctl_tab   @to_met_tab   @to_met_grv   XX            XX            XX            @___          ret           @___          XX            XX            XX          
-  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            XX     
-  esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         XX     
-  @___          @ms_z         @ms_x         @ms_c_rcmd    @ms_v_fn_med  @ms_b         @ms_n_fn_med  @ms_m_rcmd    @ms_,         @ms_.         /             XX            XX     
+  XX            XX            @to_ctl_tab   @to_met_tab   @to_met_grv   XX            XX            XX            XX            @___          ret           @___          XX            XX            
+  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         XX            @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         bspc          XX            
+  esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         XX            @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         
+  @___          @ms_z         @ms_x         @ms_c_rcmd    @ms_v_fn_med  @ms_b         XX            @ms_n_fn_med  @ms_m_rcmd    @ms_,         @ms_.         /             XX            
   lrld          XX            @os_fn_med    @os_space_os_td @ms_spc_space @os_sft_td  @os_s_space   XX            XX            XX     
 )
 (defalias
@@ -170,10 +170,10 @@
 )
 (deflayer base_typing
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            @___          @___          @___          XX            XX            XX            @___          ret           @___          XX            XX            XX          
-  tab           q             w             e             r             t             y             u             i             o             p             bspc          XX            XX          
-  esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX          
-  @___          z             x             c             v             b             n             m             ,             .             /             XX            XX          
+  XX            XX            @to_ctl_tab   @to_met_tab   @to_met_grv   XX            XX            XX            XX            @___          ret           @___          XX            XX            
+  tab           q             w             e             r             t             XX            y             u             i             o             p             bspc          XX            
+  esc           a             s             d             @f_sft        g             XX            h             @j_sft        k             l             ;             '             
+  @___          z             x             c             v             b             XX            n             m             ,             .             /             XX            
   @___          XX            @os_fn_med    @os_space_os_td @spc_space  @os_sft_td    @os_s_space   XX            XX            XX          
 )
 (defalias
@@ -194,10 +194,10 @@
 )
 (deflayer space
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            home          end           _             XX            XX            XX            _             S-9           S-0           XX            XX            XX          
-  grv           S-grv         @7_hyp        @8_meh        9             _             _             S-[           @[_meh        @]_hyp        S-]           del           XX            XX
-  pgup          @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_alt     S-\           _             XX
-  pgdn          1             2             3             _             _             S--           -             =             S-=           \             XX            XX
+  XX            XX            home          end           _             XX            XX            XX            XX            _             S-9           S-0           XX            XX            
+  grv           S-grv         @7_hyp        @8_meh        9             _             XX            _             S-[           @[_meh        @]_hyp        S-]           del           XX            
+  pgup          @0_ctl        @4_alt        @5_met        @6_sft        _             XX            left          @down_sft     @up_met       @rght_alt     S-\           _             
+  pgdn          1             2             3             _             _             XX            S--           -             =             S-=           \             XX            
   @ls_acmk      XX            _             _             _             _             _             XX            XX            XX
 )
 (defalias
@@ -219,10 +219,10 @@
 (deflayer space_oneshot
   ;; the only difference is we add smart_num. We do not want this on the space layer because it's used for number+mod shortcuts
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            home          end           _             XX            XX            XX            _             S-9           S-0           XX            XX            XX          
-  grv           S-grv         @7_hyp_sn     @8_meh_sn     @9_sn         _             _             S-[           @[_meh        @]_hyp        S-]           del           XX            XX
-  pgup          @0_ctl_sn     @4_alt_sn     @5_met_sn     @6_sft_sn     _             left          @down_sft     @up_met       @rght_alt     S-\           _             XX
-  pgdn          @1_sn         @2_sn         @3_sn         _             _             S--           -             =             S-=           \             XX            XX
+  XX            XX            home          end           _             XX            XX            XX            XX            _             S-9           S-0           XX            XX            
+  grv           S-grv         @7_hyp_sn     @8_meh_sn     @9_sn         _             XX            _             S-[           @[_meh        @]_hyp        S-]           del           XX            
+  pgup          @0_ctl_sn     @4_alt_sn     @5_met_sn     @6_sft_sn     _             XX            left          @down_sft     @up_met       @rght_alt     S-\           _             
+  pgdn          @1_sn         @2_sn         @3_sn         _             _             XX            S--           -             =             S-=           \             XX            
   @ls_acmk      XX            _             _             _             _             _             XX            XX            XX
 )
 (defalias
@@ -267,10 +267,10 @@
 )
 (deflayer smart_num
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            @___          @___          @___          XX            XX            XX            @___          @sn_ret       @___          XX            XX            XX          
-  @sn_tab       @sn_q         7             8             9             @sn_t         @sn_y         @sn_u         @sn_i         @sn_o         @sn_p         bspc          XX            XX
-  @sn_esc       0             4             5             6             @sn_g         @sn_h         @sn_j         @sn_k         @sn_l         ;             @sn_'         XX
-  @ls_base      1             2             3             @sn_v         @sn_b         @sn_n         @sn_m         ,             .             /             XX            XX
+  XX            XX            @___          @___          @___          XX            XX            XX            XX            @___          @sn_ret       @___          XX            XX            
+  @sn_tab       @sn_q         7             8             9             @sn_t         XX            @sn_y         @sn_u         @sn_i         @sn_o         @sn_p         bspc          XX            
+  @sn_esc       0             4             5             6             @sn_g         XX            @sn_h         @sn_j         @sn_k         @sn_l         ;             @sn_'         
+  @ls_base      1             2             3             @sn_v         @sn_b         XX            @sn_n         @sn_m         ,             .             /             XX            
   @___          XX            @os_fn_med    @os_space_os_td @sn_spc     @os_sft_td    @os_s_space   XX            XX            XX
 )
 (defalias
@@ -287,10 +287,10 @@
 )
 (deflayer fn_media
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            f10           f11           f12           XX            XX            XX            _             _             _             XX            XX            XX
-  _             _             @f7_hyp       @f8_meh       f9            _             _             _             _             _             _             _             XX            XX
-  _             _             @f4_alt       @f5_met       @f6_sft       _             prev          @vold_sft     @volu_met     @next_alt     _             _             XX
-  _             f1            f2            f3            _             _             mute          brdn          brup          pp            _             XX            XX
+  XX            XX            f10           f11           f12           XX            XX            XX            XX            _             _             _             XX            XX            
+  _             _             @f7_hyp       @f8_meh       f9            _             XX            _             _             _             _             _             _             XX            
+  _             _             @f4_alt       @f5_met       @f6_sft       _             XX            prev          @vold_sft     @volu_met     @next_alt     _             _             
+  _             f1            f2            f3            _             _             XX            mute          brdn          brup          pp            _             XX            
   _             XX            _             _             _             _             _             XX            XX            XX
 )
 (defalias
@@ -332,38 +332,38 @@
 (deflayer rcmd
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             @q_rcmd       @w_rcmd       @e_rcmd       @r_rcmd       @t_rcmd       @y_rcmd       @u_rcmd       @i_rcmd       @o_rcmd       @p_rcmd       _             _             _
-  _             @a_rcmd       @s_rcmd       @d_rcmd       @f_rcmd       @g_rcmd       @h_rcmd       @j_rcmd       @k_rcmd       @l_rcmd       _             _             _
-  _             @z_rcmd       @x_rcmd       @c_rcmd       @v_rcmd       @b_rcmd       @n_rcmd       @m_rcmd       _             _             _             _             _
+  _             @q_rcmd       @w_rcmd       @e_rcmd       @r_rcmd       @t_rcmd       XX            @y_rcmd       @u_rcmd       @i_rcmd       @o_rcmd       @p_rcmd       _             _             
+  _             @a_rcmd       @s_rcmd       @d_rcmd       @f_rcmd       @g_rcmd       XX            @h_rcmd       @j_rcmd       @k_rcmd       @l_rcmd       _             _             
+  _             @z_rcmd       @x_rcmd       @c_rcmd       @v_rcmd       @b_rcmd       XX            @n_rcmd       @m_rcmd       _             _             _             _             
   _             _             _             _             _             _             _             _             _             _
 )
 ;; TODO try deflayermap
 (deflayer ctl_tab
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            tab           S-tab         @from_ctl_tab XX            XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX          
-  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
-  @esc_ctl_tab  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab S-tab         tab           S-tab         tab           @from_ctl_tab @from_ctl_tab XX
-  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX
+  XX            XX            tab           S-tab         @from_ctl_tab XX            XX            XX            XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            
+  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            
+  @esc_ctl_tab  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            S-tab         tab           S-tab         tab           @from_ctl_tab @from_ctl_tab 
+  @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            
   @from_ctl_tab XX            @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab @from_ctl_tab XX            XX            XX
 )
 ;; TODO try deflayermap
 (deflayer met_tab
   ;; these keys are used by the alt-tab-macos app
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            lsft          tab           @from_met     XX            XX            XX            @from_met     @from_met     @from_met     XX            XX            XX          
-  @from_met     q             w             @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     XX            XX
-  @esc_met      @from_met     @from_met     @from_met     @from_met     @from_met     h             j             k             l             @from_met     @from_met     XX
-  @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     m             @from_met     @from_met     @from_met     XX            XX
+  XX            XX            lsft          tab           @from_met     XX            XX            XX            XX            @from_met     @from_met     @from_met     XX            XX            
+  @from_met     q             w             @from_met     @from_met     @from_met     XX            @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     XX            
+  @esc_met      @from_met     @from_met     @from_met     @from_met     @from_met     XX            h             j             k             l             @from_met     @from_met     
+  @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     XX            @from_met     m             @from_met     @from_met     @from_met     XX            
   @from_met     XX            @from_met     @from_met     @from_met     @from_met     @from_met     XX            XX            XX
 )
 ;; TODO try deflayermap
 (deflayer met_grv
   ;; these keys are used by the alt-tab-macos app
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            @from_met     lsft          grv           XX            XX            XX            @from_met     @from_met     @from_met     XX            XX            XX          
-  @from_met     q             w             @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     XX            XX
-  @esc_met      @from_met     @from_met     @from_met     @from_met     @from_met     h             j             k             l             @from_met     @from_met     XX
-  @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     m             @from_met     @from_met     @from_met     XX            XX
+  XX            XX            @from_met     lsft          grv           XX            XX            XX            XX            @from_met     @from_met     @from_met     XX            XX            
+  @from_met     q             w             @from_met     @from_met     @from_met     XX            @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     XX            
+  @esc_met      @from_met     @from_met     @from_met     @from_met     @from_met     XX            h             j             k             l             @from_met     @from_met     
+  @from_met     @from_met     @from_met     @from_met     @from_met     @from_met     XX            @from_met     m             @from_met     @from_met     @from_met     XX            
   @from_met     XX            @from_met     @from_met     @from_met     @from_met     @from_met     XX            XX            XX
 )
 (deflayer ableton_computer_midi_keyboard
@@ -384,9 +384,9 @@
 )
 (deflayer empty_hard_mode
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX          
-  XX            XX            _             _             _             XX            XX            XX            _             _             _             XX            XX            XX          
-  _             _             _             _             _             _             _             _             _             _             _             _             XX            XX
-  _             _             _             _             _             _             _             _             _             _             _             _             XX
-  _             _             _             _             _             _             _             _             _             _             _             XX            XX
+  XX            XX            _             _             _             XX            XX            XX            XX            _             _             _             XX            XX            
+  _             _             _             _             _             _             XX            _             _             _             _             _             _             XX            
+  _             _             _             _             _             _             XX            _             _             _             _             _             _             
+  _             _             _             _             _             _             XX            _             _             _             _             _             XX            
   _             XX            _             _             _             _             _             XX            XX            XX
 )
