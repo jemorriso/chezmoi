@@ -14,6 +14,7 @@ pip install .
 cd ~/github/saulpw/visidata
 pip install .
 pip install 'ibis-framework[duckdb]'
+pip install 'ibis-framework[postgres]'
 
 deactivate
 
