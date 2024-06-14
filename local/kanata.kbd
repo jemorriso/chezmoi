@@ -6,90 +6,19 @@
   lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
   fn            lctl          lalt          lmet          spc           rmet          ralt          left          down          rght
 )
-(defvirtualkeys
-  v_to_base (layer-switch base)
-)
-(defvar
-  left_keys (tab q w e r t caps a s d f g lsft z x c v b)
-  left_keys_meh_hyp (tab q w e r t caps a s d f g lsft z x b) ;; c v
-  left_keys_home_row (tab q w e r t caps g lsft z x b) ;; a s d f c v
-  left_keys_sym_nav (tab q r t caps g lsft z x c v b) ;; w e a s d f
-
-  right_keys (y u i o p [ h j k l ; ' n m , . /)
-  right_keys_meh_hyp (y u i o p [ h j k l ; ' , . /) ;; n m
-  right_keys_home_row (y u i o p [ h ' , . /) ;; j k l ; n m
-  right_keys_sym_nav (y u p [ h ' n m , . /) ;; i o j k l ;
-
-  ;; f and j for shift
-  all_keys_except_tab_f_j (q w e r t caps a s d g lsft z x c v b y u i o p [ h k l ; ' n m , . /) ;; tab
-)
 (defalias
   meh (multi lctl lalt lsft)
   hyp (multi lctl lalt lsft lmet)
 
   ls_base (layer-switch base)
-  ls_acmk (layer-switch ableton_computer_midi_keyboard)
-
   l_space (layer-while-held space)
 
   cw (caps-word 500)
   os_sft_td (tap-dance 200 ((one-shot 500 lsft) @cw))
-)
-(defalias
-  #|
-  Base layer letter keys / quick-typing keys trigger base_typing layer which has no tap-hold mods except essential ones.
-
-  Any key aliased with prefix 'ms_' is a key that is commonly typed during prose, and thus should trigger base_typing layer.
-  |#
-
-  ;; alias to cancel tap-hold keys if typing rapidly but restore after a short idle period
-  type (multi
-    (layer-switch base_typing)
-    (on-idle 100 tap-vkey v_to_base)
-  )
-
-  ms_q (multi q @type)
-  ms_w_hyp (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys_meh_hyp)
-  ms_e_meh (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys_meh_hyp)
-  ms_r (multi r @type)
-  ms_t (multi t @type)
-  ms_y (multi y @type)
-  ms_u (multi u @type)
-  ms_i_meh (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys_meh_hyp)
-  ms_o_hyp (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys_meh_hyp)
-  ms_p (multi p @type)
-
-  ms_a_ctl (tap-hold-release-keys 200 200 (multi a @type) lctl $left_keys_home_row)
-  ms_s_alt (tap-hold-release-keys 200 200 (multi s @type) lalt $left_keys_home_row)
-  ms_d_met (tap-hold-release-keys 200 200 (multi d @type) lmet $left_keys_home_row)
-  ms_f_sft (tap-hold-release-keys 200 200 (multi f @type) lsft $left_keys_home_row)
-  ms_g (multi g @type)
-  ms_h (multi h @type)
-  ms_j_sft (tap-hold-release-keys 200 200 (multi j @type) lsft $right_keys_home_row)
-  ms_k_met (tap-hold-release-keys 200 200 (multi k @type) lmet $right_keys_home_row)
-  ms_l_alt (tap-hold-release-keys 200 200 (multi l @type) lalt $right_keys_home_row)
-  ms_;_ctl (tap-hold-release-keys 200 200 (multi ; @type) lctl $right_keys_home_row)
-  ms_' (multi ' @type)
-
-  ms_z (multi z @type)
-  ms_x (multi x @type)
-  ms_c (multi c @type)
-  ms_v (multi v @type)
-  ms_b (multi b @type)
-  ms_n (multi n @type)
-  ms_m (multi m @type)
-  ms_, (multi , @type)
-  ms_. (multi . @type)
-
-  ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
-)
-(deflayer base
-  esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
-  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
-  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
-  esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
-  @os_sft_td    @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             @os_sft_td    up
-  lrld          lctl          lalt          lmet          @ms_spc_space rmet          ralt          left          down          rght
+  os_ctl (one-shot 500 lctl)
+  os_met (one-shot 500 lmet)
+  os_sft (one-shot 500 lsft)
+  os_alt (one-shot 500 lalt)
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -101,42 +30,21 @@
   ;; also allow tap-hold spc on typing layer for quick arrows
   spc_space (tap-hold-release 200 200 spc @l_space)
 )
-(deflayer base_typing
-  esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
-  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
-  tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
-  esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
-  @os_sft_td    z             x             c             v             b             n             m             ,             .             /             @os_sft_td    up
-  lrld          lctl          lalt          lmet          @spc_space    rmet          ralt          left          down          rght
-)
-(defalias
-  7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
-  8_meh (tap-hold-release-keys 200 200 8 @meh $left_keys_meh_hyp)
-
-  0_ctl (tap-hold-release-keys 200 200 0 lctl $left_keys_home_row)
-  4_alt (tap-hold-release-keys 200 200 4 lalt $left_keys_home_row)
-  5_met (tap-hold-release-keys 200 200 5 lmet $left_keys_home_row)
-  6_sft (tap-hold-release-keys 200 200 6 lsft $left_keys_home_row)
-
-  down_sft (tap-hold-release-keys 200 200 down lsft $right_keys_home_row)
-  up_met (tap-hold-release-keys 200 200 up lmet $right_keys_home_row)
-  rght_alt (tap-hold-release-keys 200 200 rght lalt $right_keys_home_row)
-)
-(deflayer space
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12           _
-  _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _             del
-  _             @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_alt     _             _             _
-  _             1             2             3             _             _             home          pgdn          pgup          end           _             _             _
-  @ls_acmk      _             _             _             _             _             _             _             _             _
-)
-(deflayer ableton_computer_midi_keyboard
+(deflayer base
   esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             f             g             h             j             k             l             ;             '             ret
-  lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
-  @ls_base      lctl          lalt          lmet          @spc_space    rmet          ralt          left          down          rght
+  @os_sft_td    z             x             c             v             b             n             m             ,             .             /             @os_sft_td    up
+  lrld          lctl          @os_alt       @os_met       @spc_space    @os_ctl       ralt          left          down          rght
+)
+(deflayer space
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12           _
+  _             _             7             8             9             _             _             _             _             _             _             _             _             del
+  _             0             4             5             6             _             left          down          up            rght          _             _             _
+  _             1             2             3             _             _             home          pgdn          pgup          end           _             _             _
+  _             _             _             _             _             _             _             _             _             _
 )
 (deflayer empty
   _             _             _             _             _             _             _             _             _             _             _             _             _
