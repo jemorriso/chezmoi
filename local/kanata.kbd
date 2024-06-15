@@ -13,15 +13,10 @@
   left_keys (tab q w e r t caps a s d f g lsft z x c v b)
   left_keys_meh_hyp (tab q w e r t caps a s d f g lsft z x b) ;; c v
   left_keys_home_row (tab q w e r t caps g lsft z x b) ;; a s d f c v
-  left_keys_sym_nav (tab q r t caps g lsft z x c v b) ;; w e a s d f
 
   right_keys (y u i o p [ h j k l ; ' n m , . /)
   right_keys_meh_hyp (y u i o p [ h j k l ; ' , . /) ;; n m
   right_keys_home_row (y u i o p [ h ' , . /) ;; j k l ; n m
-  right_keys_sym_nav (y u p [ h ' n m , . /) ;; i o j k l ;
-
-  ;; f and j for shift
-  all_keys_except_tab_f_j (q w e r t caps a s d g lsft z x c v b y u i o p [ h k l ; ' n m , . /) ;; tab
 )
 (defalias
   meh (multi lctl lalt lsft)
@@ -32,8 +27,15 @@
 
   l_space (layer-while-held space)
 
+  os_sft (one-shot 500 lsft)
+  os_ctl (one-shot 500 lctl)
+  os_alt (one-shot 500 lalt)
+  os_met (one-shot 500 lmet)
+
+  os_ralt (one-shot 500 ralt)
+
   cw (caps-word 500)
-  os_sft_td (tap-dance 200 ((one-shot 500 lsft) @cw))
+  os_sft_td (tap-dance 200 (@os_sft @cw))
 )
 (defalias
   #|
@@ -89,7 +91,7 @@
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
   @os_sft_td    @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             @os_sft_td    up
-  lrld          lctl          lalt          lmet          @ms_spc_space rmet          ralt          left          down          rght
+  lrld          lctl          @os_alt       @os_met       @ms_spc_space @os_ctl       @os_ralt      left          down          rght
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -107,7 +109,7 @@
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
   @os_sft_td    z             x             c             v             b             n             m             ,             .             /             @os_sft_td    up
-  lrld          lctl          lalt          lmet          @spc_space    rmet          ralt          left          down          rght
+  lrld          lctl          @os_alt       @os_met       @spc_space    @os_ctl       @os_ralt      left          down          rght
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys_meh_hyp)
