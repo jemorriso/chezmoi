@@ -13,12 +13,14 @@
   ls_base (layer-switch base)
   l_space (layer-while-held space)
 
-  cw (caps-word 500)
-  os_sft_td (tap-dance 200 ((one-shot 500 lsft) @cw))
+  os_sft (one-shot 500 lsft)
   os_ctl (one-shot 500 lctl)
   os_met (one-shot 500 lmet)
-  os_sft (one-shot 500 lsft)
   os_alt (one-shot 500 lalt)
+  os_meh (multi @os_sft @os_ctl @os_alt)
+
+  cw (caps-word 500)
+  os_sft_td (tap-dance 200 (@os_sft @cw))
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -36,7 +38,7 @@
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             f             g             h             j             k             l             ;             '             ret
   @os_sft_td    z             x             c             v             b             n             m             ,             .             /             @os_sft_td    up
-  lrld          lctl          @os_alt       @os_met       @spc_space    @os_ctl       ralt          left          down          rght
+  lrld          @os_meh       @os_alt       @os_met       @spc_space    @os_ctl       ralt          left          down          rght
 )
 (deflayer space
   _             _             _             _             _             _             _             _             _             _             _             _             _
