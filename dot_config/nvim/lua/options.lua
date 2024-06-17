@@ -61,6 +61,8 @@ vim.opt.scrolloff = 10
 
 vim.opt.laststatus = 3
 
-vim.opt.statusline = '%#JerryStatus#%f %= %l:%c'
+vim.opt.statusline = '%#JerryStatus#%f %y %{mode()} %= %l:%c %p%%'
+
+vim.opt.conceallevel = 2
 
 -- vim: ts=2 sts=2 sw=2 et
