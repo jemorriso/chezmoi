@@ -34,6 +34,7 @@ return {
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
         toml = { 'taplo' },
+        yaml = { 'prettier' },
       },
       formatters = {
         ruff_fix = {
