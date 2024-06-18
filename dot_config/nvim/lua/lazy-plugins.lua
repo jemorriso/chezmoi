@@ -68,19 +68,15 @@ require('lazy').setup({
 
   require 'custom/plugins/smart-splits',
 
-  require 'custom/plugins/todo-txt-vim',
-
-  require 'custom/plugins/todotxt',
-
   require 'custom/plugins/toggleterm',
-
-  require 'custom/plugins/vim-easy-align',
 
   require 'custom/plugins/vim-fugitive',
 
   require 'custom/plugins/vim-slime',
 
   require 'custom/plugins/vim-visual-multi',
+
+  require 'custom/plugins/zen-mode',
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
