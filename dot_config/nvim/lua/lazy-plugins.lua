@@ -68,6 +68,8 @@ require('lazy').setup({
 
   require 'custom/plugins/smart-splits',
 
+  require 'custom/plugins/telescope-file-browser',
+
   require 'custom/plugins/toggleterm',
 
   require 'custom/plugins/vim-fugitive',
