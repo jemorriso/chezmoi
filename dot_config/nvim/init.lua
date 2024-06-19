@@ -101,7 +101,9 @@ vim.g['chezmoi#source_dir_path'] = '/Users/jerry/source/chezmoi'
 vim.g['chezmoi#use_tmp_buffer'] = 1
 
 -- define highlight for statusline color set to catppuccin dark gray
-vim.api.nvim_set_hl(0, 'JerryStatus', { bg = '#1e1e2e', fg = '#45475a' })
+-- vim.api.nvim_set_hl(0, 'JerryStatus', { bg = '#1e1e2e', fg = '#45475a' })
+-- catppuccin latte
+vim.api.nvim_set_hl(0, 'JerryStatus', { bg = '#eff1f5', fg = '#4c4f69' })
 
 -- [[ Setting options ]]
 require 'options'
