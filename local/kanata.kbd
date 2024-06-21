@@ -36,29 +36,76 @@
   os_sft_td (tap-dance 200 (@os_sft @cw))
 )
 (defalias
-  w_hyp (tap-hold-release-keys 200 200 w @hyp $left_keys)
-  e_meh (tap-hold-release-keys 200 200 e @meh $left_keys)
+  #|
+  Base layer letter keys / quick-typing keys trigger base_typing layer which has no tap-hold mods except essential ones.
 
-  i_meh (tap-hold-release-keys 200 200 i @meh $right_keys)
-  o_hyp (tap-hold-release-keys 200 200 o @hyp $right_keys)
+  Any key aliased with prefix 'ms_' is a key that is commonly typed during prose, and thus should trigger base_typing layer.
+  |#
 
-  a_ctl (tap-hold-release-keys 200 200 a lctl $left_keys_home_row)
-  s_alt (tap-hold-release-keys 200 200 s lalt $left_keys_home_row)
-  d_met (tap-hold-release-keys 200 200 d lmet $left_keys_home_row)
-  f_sft (tap-hold-release-keys 200 200 f lsft $left_keys_home_row)
+  ;; alias to cancel tap-hold keys if typing rapidly but restore after a short idle period
+  type (multi
+    (layer-switch base_typing)
+    (on-idle 100 tap-vkey v_to_base)
+  )
 
-  j_sft (tap-hold-release-keys 200 200 j lsft $right_keys_home_row)
-  k_met (tap-hold-release-keys 200 200 k lmet $right_keys_home_row)
-  l_alt (tap-hold-release-keys 200 200 l lalt $right_keys_home_row)
-  ;_ctl (tap-hold-release-keys 200 200 ; lctl $right_keys_home_row)
+  ms_q (multi q @type)
+  ms_w_hyp (tap-hold-release-keys 200 200 (multi w @type) @hyp $left_keys)
+  ms_e_meh (tap-hold-release-keys 200 200 (multi e @type) @meh $left_keys)
+  ms_r (multi r @type)
+  ms_t (multi t @type)
+  ms_y (multi y @type)
+  ms_u (multi u @type)
+  ms_i_meh (tap-hold-release-keys 200 200 (multi i @type) @meh $right_keys)
+  ms_o_hyp (tap-hold-release-keys 200 200 (multi o @type) @hyp $right_keys)
+  ms_p (multi p @type)
 
-  spc_space (tap-hold-release 200 200 spc @l_space)
+  ms_a_ctl (tap-hold-release-keys 200 200 (multi a @type) lctl $left_keys_home_row)
+  ms_s_alt (tap-hold-release-keys 200 200 (multi s @type) lalt $left_keys_home_row)
+  ms_d_met (tap-hold-release-keys 200 200 (multi d @type) lmet $left_keys_home_row)
+  ms_f_sft (tap-hold-release-keys 200 200 (multi f @type) lsft $left_keys_home_row)
+  ms_g (multi g @type)
+  ms_h (multi h @type)
+  ms_j_sft (tap-hold-release-keys 200 200 (multi j @type) lsft $right_keys_home_row)
+  ms_k_met (tap-hold-release-keys 200 200 (multi k @type) lmet $right_keys_home_row)
+  ms_l_alt (tap-hold-release-keys 200 200 (multi l @type) lalt $right_keys_home_row)
+  ms_;_ctl (tap-hold-release-keys 200 200 (multi ; @type) lctl $right_keys_home_row)
+  ms_' (multi ' @type)
+
+  ms_z (multi z @type)
+  ms_x (multi x @type)
+  ms_c (multi c @type)
+  ms_v (multi v @type)
+  ms_b (multi b @type)
+  ms_n (multi n @type)
+  ms_m (multi m @type)
+  ms_, (multi , @type)
+  ms_. (multi . @type)
+
+  ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
 )
 (deflayer base
   esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
-  tab           q             @w_hyp        @e_meh        r             t             y             u             @i_meh        @o_hyp        p             [             ]             \
-  esc           @a_ctl        @s_alt        @d_met        @f_sft        g             h             @j_sft        @k_met        @l_alt        @;_ctl        '             ret
+  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
+  esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
+  @os_sft_td    @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             @os_sft_td    up
+  lrld          lctl          @os_alt       @os_met       @ms_spc_space    @os_ctl       @os_ralt      left          down          rght
+)
+(defalias
+  ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
+
+  ;; shift is more important than other modifiers, so these keys go on typing layer for quick shifting
+  f_sft (tap-hold-release 200 200 f lsft)
+  j_sft (tap-hold-release 200 200 j lsft)
+
+  ;; also allow tap-hold spc on typing layer for quick arrows
+  spc_space (tap-hold-release 200 200 spc @l_space)
+)
+(deflayer base_typing
+  esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
+  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
+  tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
+  esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
   @os_sft_td    z             x             c             v             b             n             m             ,             .             /             @os_sft_td    up
   lrld          lctl          @os_alt       @os_met       @spc_space    @os_ctl       @os_ralt      left          down          rght
 )
