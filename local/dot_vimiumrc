@@ -33,6 +33,7 @@ map zh ScrollToLeft
 map zl ScrollToRight
 
 map b Vomnibar.activateTabSelection
+map <space> Vomnibar.activateTabSelection
 
 unmap <a-p>
 map gp togglePinTab
