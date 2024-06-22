@@ -64,6 +64,8 @@ require('lazy').setup({
 
   require 'custom/plugins/nvim-notify',
 
+  require 'custom/plugins/oil',
+
   require 'custom/plugins/obsidian',
 
   require 'custom/plugins/smart-splits',
