@@ -19,9 +19,6 @@ map E scrollFullPageUp
 map s Vomnibar.activateInNewTab
 map t Vomnibar.activateInNewTab
 
-map a Vomnibar.activateBookmarks
-map A Vomnibar.activateBookmarksInNewTab
-
 # global marks on lowercase keys instead of uppercase
 map ` Marks.activateGotoMode swap
 map ' Marks.activateGotoMode swap
@@ -32,11 +29,10 @@ map g. closeOtherTabs
 map zh ScrollToLeft
 map zl ScrollToRight
 
+unmap B
+
 map b Vomnibar.activateTabSelection
 map <space> Vomnibar.activateTabSelection
-
-unmap <a-p>
-map gp togglePinTab
 
 unmap <a-m>
 map gm toggleMuteTab
@@ -44,20 +40,24 @@ map gm toggleMuteTab
 unmap <a-f>
 map zf LinkHints.activateModeWithQueue
 
+unmap <a-p>
+
 unmap gf
 unmap gF
 map gf LinkHints.activateModeToOpenInNewForegroundTab
 
+#############################
+# non-arc
+#############################
+
+map gp togglePinTab
 map gxh closeTabsOnLeft
 map gxl closeTabsOnRight
 
 #############################
-# arc browser
+# arc
 #############################
 
-# map gxh closeTabsOnLeft
-# map gxl closeTabsOnRight
-# map gp togglePinTab
 unmap gt
 unmap gT
 unmap J
@@ -69,6 +69,7 @@ unmap x
 unmap W
 unmap <<
 unmap >>
+unmap yt
 
 ################################################################################
 # Custom search engines
