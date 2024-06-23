@@ -88,8 +88,8 @@
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
   esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
-  @os_sft_td    @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             @os_sft_td    up
-  lrld          lctl          @os_alt       @os_met       @ms_spc_space    @os_ctl       @os_ralt      left          down          rght
+  XX            @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             XX            up
+  lrld          XX            XX            XX            @ms_spc_space rmet          XX            left          down          rght
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -106,8 +106,8 @@
   grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
   esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
-  @os_sft_td    z             x             c             v             b             n             m             ,             .             /             @os_sft_td    up
-  lrld          lctl          @os_alt       @os_met       @spc_space    @os_ctl       @os_ralt      left          down          rght
+  XX            z             x             c             v             b             n             m             ,             .             /             XX            up
+  lrld          XX            XX            XX            @spc_space    rmet          XX            left          down          rght
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys)
