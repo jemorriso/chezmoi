@@ -40,8 +40,7 @@
 
   cw (caps-word 500)
 
-  ret_rmet (tap-hold-release 200 200 ret rmet)
-
+  bspc_rmet (tap-hold-release 200 200 bspc rmet)
   esc_med (tap-hold-release 200 200 esc @l_media)
 )
 (defalias
@@ -91,15 +90,15 @@
   ms_. (multi . @type)
 
   ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
+  ms_bspc_rmet (tap-hold-release 200 200 (multi bspc @type) rmet)
 )
 (deflayer base
-  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX
+  XX            brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             6             7             8             9             0             -             =             XX
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             XX
   @esc_med      @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         XX
-  \             @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             XX            XX
-  ;;lrld          XX            XX            bspc          @ms_spc_space @ret_rmet     XX            XX            XX            XX
-  lrld          XX            XX            ret           @ms_spc_space bspc          ret           XX            XX            XX
+  \             @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             XX            up
+  lrld          XX            XX            ret           @ms_spc_space @ms_bspc_rmet del           left          down          rght
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -116,9 +115,8 @@
   grv           1             2             3             4             5             6             7             8             9             0             -             =             XX
   tab           q             w             e             r             t             y             u             i             o             p             [             ]             XX
   @esc_med      a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX
-  \             z             x             c             v             b             n             m             ,             .             /             XX            XX
-  ;;lrld          XX            XX            bspc          @spc_space    @ret_rmet     XX            XX            XX            XX
-  lrld          XX            XX            ret           @spc_space    bspc          ret           XX            XX            XX
+  \             z             x             c             v             b             n             m             ,             .             /             XX            up
+  lrld          XX            XX            ret           @spc_space    @bspc_rmet    del           left          down          rght
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys)
