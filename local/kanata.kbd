@@ -36,16 +36,13 @@
   ls_acmk (layer-switch ableton_computer_midi_keyboard)
 
   l_space (layer-while-held space)
-
-  os_sft (one-shot 500 lsft)
-  os_ctl (one-shot 500 lctl)
-  os_alt (one-shot 500 lalt)
-  os_met (one-shot 500 lmet)
-
-  os_ralt (one-shot 500 ralt)
+  l_media (layer-while-held media)
 
   cw (caps-word 500)
-  os_sft_td (tap-dance 200 (@os_sft @cw))
+
+  ret_rmet (tap-hold-release 200 200 ret rmet)
+
+  esc_med (tap-hold-release 200 200 esc @l_media)
 )
 (defalias
   #|
@@ -96,12 +93,13 @@
   ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
 )
 (deflayer base
-  esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
-  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
-  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
-  esc           @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
-  XX            @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             XX            up
-  lrld          XX            XX            XX            @ms_spc_space rmet          XX            left          down          rght
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX
+  grv           1             2             3             4             5             6             7             8             9             0             -             =             XX
+  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             XX
+  @esc_med      @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         XX
+  \             @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             XX            XX
+  ;;lrld          XX            XX            bspc          @ms_spc_space @ret_rmet     XX            XX            XX            XX
+  lrld          XX            XX            ret           @ms_spc_space bspc          ret           XX            XX            XX
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -114,12 +112,13 @@
   spc_space (tap-hold-release 200 200 spc @l_space)
 )
 (deflayer base_typing
-  esc           brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
-  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
-  tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
-  esc           a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
-  XX            z             x             c             v             b             n             m             ,             .             /             XX            up
-  lrld          XX            XX            XX            @spc_space    rmet          XX            left          down          rght
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX
+  grv           1             2             3             4             5             6             7             8             9             0             -             =             XX
+  tab           q             w             e             r             t             y             u             i             o             p             [             ]             XX
+  @esc_med      a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX
+  \             z             x             c             v             b             n             m             ,             .             /             XX            XX
+  ;;lrld          XX            XX            bspc          @spc_space    @ret_rmet     XX            XX            XX            XX
+  lrld          XX            XX            ret           @spc_space    bspc          ret           XX            XX            XX
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys)
