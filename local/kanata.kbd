@@ -99,12 +99,12 @@
   ms_bspc_rmet (tap-hold-release 200 200 (multi bspc @type) rmet)
 )
 (deflayer base
-  XX            brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
-  grv           1             2             3             4             5             6             7             8             9             0             -             =             XX
-  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             XX
-  @esc_med      @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         XX
-  \             @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             XX            up
-  lrld          XX            XX            ret           @ms_spc_space @ms_bspc_rmet del           left          down          rght
+  esc           brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
+  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
+  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
+  @esc_med      @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
+  \             @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             rsft          up
+  lrld          lctl          lalt          ret           @ms_spc_space @ms_bspc_rmet ret           left          down          rght
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -117,12 +117,12 @@
   spc_space (tap-hold-release 200 200 spc @l_space)
 )
 (deflayer base_typing
-  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX
-  grv           1             2             3             4             5             6             7             8             9             0             -             =             XX
-  tab           q             w             e             r             t             y             u             i             o             p             [             ]             XX
-  @esc_med      a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             XX
-  \             z             x             c             v             b             n             m             ,             .             /             XX            up
-  lrld          XX            XX            ret           @spc_space    @bspc_rmet    del           left          down          rght
+  esc           brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
+  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
+  tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
+  @esc_med      a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
+  \             z             x             c             v             b             n             m             ,             .             /             rsft          up
+  lrld          lctl          lalt          ret           @spc_space    @bspc_rmet    ret           left          down          rght
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys)
@@ -140,10 +140,10 @@
 (deflayer space
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12           _
-  _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _             del
+  _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _             _
   _             @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_alt     _             _             _
   _             1             2             3             _             _             home          pgdn          pgup          end           _             _             _
-  @ls_acmk      _             _             _             _             _             _             _             _             _
+  @ls_acmk      _             _             _             _             ret           del           _             _             _
 )
 (deflayer media
   _             _             _             _             _             _             _             _             _             _             _             _             _
