@@ -6,58 +6,88 @@
 # Custom key mappings
 ################################################################################
 
+#############################
+# unmap keybindings I don't use
+#############################
+
+# alternate scroll up and scroll down
+unmap <c-e>
+unmap <c-y>
+
+# navigate frames, never seen it do anything
+unmap gf
+unmap gF
+
+# these functions are remapped below
+unmap b # open bookmark
+unmap B # open bookmark in new tab
+unmap t # create tab
+unmap T # search through open tabs
+unmap O # open URL, bookmark, or history entry in new tab
+unmap <a-m> # mute tab
+unmap <a-p> # pin tab
+unmap <a-f> # open multiple links in new tabs
+unmap gT # go tab left
+unmap gt # go tab right
+
+#############################
+# chrome mappings
+#############################
+
 map h goBack
 map l goForward
 map H scrollLeft
 map L scrollRight
 
+map zh ScrollToLeft
+map zl ScrollToRight
+
 map e scrollPageUp
+map E scrollFullPageUp
 map D scrollFullPageDown
 map U scrollFullPageUp
-map E scrollFullPageUp
 
-map s Vomnibar.activateInNewTab
+map g. closeOtherTabs
+map gxh closeTabsOnLeft
+map gxl closeTabsOnRight
+
+map gm toggleMuteTab
+map gp togglePinTab
+
+map <backspace> visitPreviousTab
+
+# this is useful because it can be prefixed, e.g. 3T to open 3 tabs
+map T createTab
+
 map t Vomnibar.activateInNewTab
+map b Vomnibar.activateTabSelection
+map ; Vomnibar.activateTabSelection
+
+map gb Vomnibar.activateBookmarks
+map gt Vomnibar.activateBookmarksInNewTab
+
+map gf LinkHints.activateModeToOpenInNewForegroundTab
+map zf LinkHints.activateModeWithQueue
+map zn LinkHints.activateModeToOpenInNewForegroundTab
+map zi LinkHints.activateModeToOpenIncognito
+map zd LinkHints.activateModeToDownloadLink
 
 # global marks on lowercase keys instead of uppercase
 map ` Marks.activateGotoMode swap
 map ' Marks.activateGotoMode swap
 map m Marks.activateCreateMode swap
 
-map g. closeOtherTabs
-
-map zh ScrollToLeft
-map zl ScrollToRight
-
-unmap B
-
-map b Vomnibar.activateTabSelection
-map <space> Vomnibar.activateTabSelection
-
-unmap <a-m>
-map gm toggleMuteTab
-
-unmap <a-f>
-map zf LinkHints.activateModeWithQueue
-
-unmap <a-p>
-
-unmap gf
-unmap gF
-map gf LinkHints.activateModeToOpenInNewForegroundTab
-
-#############################
-# non-arc
-#############################
-
-map gp togglePinTab
-map gxh closeTabsOnLeft
-map gxl closeTabsOnRight
-
 #############################
 # arc
 #############################
 
+# unmap above custom mappings that don't work properly in arc
+unmap g.
+unmap gp
+unmap gxh
+unmap gxl
+
+# unmap default mappings that don't work properly in arc
 unmap gt
 unmap gT
 unmap J
