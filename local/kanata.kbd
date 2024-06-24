@@ -10,16 +10,24 @@
   v_to_base (layer-switch base)
 )
 (defcfg concurrent-tap-hold yes)
+(defalias
+  raycast M-spc
+  homerow A-spc
+  alttab M-tab
+  bspc_word A-bspc
+  caps_word (caps-word 500)
+)
 (defchordsv2-experimental
-  (w e)   M-tab             40 all-released  (base_typing)
-  (e f)   A-spc             40 all-released  (base_typing)
+  (w e)   @alttab           40 all-released  (base_typing)
+  (e f)   @homerow          40 all-released  (base_typing)
+
+  (i o)   @bspc_word        40 all-released  (base_typing)
+  (i j)   @raycast          40 all-released  (base_typing)
+
+  (f spc) @caps_word               40 all-released  (base_typing)
+
   ;; doesn't work
-  ;; (a f)   (tap-hold-release 200 200 (multi lctl lsft) @cw)             40 all-released  (base_typing)
-
-  (i o)   A-bspc            40 all-released  (base_typing)
-  (i j)   M-spc             40 all-released  (base_typing)
-
-  (f spc)   @cw               40 all-released  (base_typing)
+  ;; (a f)   (tap-hold-release 200 200 (multi lctl lsft) @caps_word)             40 all-released  (base_typing)
 )
 (defvar
   left_keys (q w e r t a s d f g z x c v b)
@@ -37,8 +45,6 @@
 
   l_space (layer-while-held space)
   l_media (layer-while-held media)
-
-  cw (caps-word 500)
 
   bspc_rmet (tap-hold-release 200 200 bspc rmet)
   esc_med (tap-hold-release 200 200 esc @l_media)
