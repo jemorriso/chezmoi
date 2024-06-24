@@ -9,6 +9,18 @@
 (defvirtualkeys
   v_to_base (layer-switch base)
 )
+(defcfg concurrent-tap-hold yes)
+(defchordsv2-experimental
+  (w e)   M-tab             40 all-released  (base_typing)
+  (e f)   A-spc             40 all-released  (base_typing)
+  ;; doesn't work
+  ;; (a f)   (tap-hold-release 200 200 (multi lctl lsft) @cw)             40 all-released  (base_typing)
+
+  (i o)   A-bspc            40 all-released  (base_typing)
+  (i j)   M-spc             40 all-released  (base_typing)
+
+  (f spc)   @cw               40 all-released  (base_typing)
+)
 (defvar
   left_keys (q w e r t a s d f g z x c v b)
   left_keys_home_row (q w e r t g z x c v b) ;; a s d f
