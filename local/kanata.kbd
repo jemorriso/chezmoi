@@ -32,12 +32,15 @@
   l_superkey (layer-while-held superkey)
 
   bspc_rmet (tap-hold-release 200 200 bspc @l_rcmd_layer)
-  esc_med (tap-hold-release 200 200 esc @l_media)
+  ;;esc_med (tap-hold-release 200 200 esc @l_media)
+  esc_skey (tap-hold-release 200 200 esc (multi rsft @l_superkey))
 
   warpd_n (multi lmet lalt c @ls_warpd)
   warpd_off (multi esc @ls_base)
 
-  bslash_skey (tap-hold-release 200 200 \ (multi rsft @l_superkey))
+  ;;bslash_skey (tap-hold-release 200 200 \ (multi rsft @l_superkey))
+  bslash_med (tap-hold-release 200 200 \ @l_media)
+
   ;; os_sft (one-shot 500 lsft)
   ;; os_sft_td (tap-dance 200 (@os_sft @caps_word))
 )
@@ -122,8 +125,8 @@
   esc           brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             6             XX            7             8             9             0             -             =
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         XX            @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]
-  @esc_med      @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         XX            @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'
-  @bslash_skey  @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         XX            @ms_n         @ms_m         @ms_,         @ms_.         /             up
+  @esc_skey     @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         XX            @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'
+  @bslash_med   @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         XX            @ms_n         @ms_m         @ms_,         @ms_.         /             up
   lrld          lctl          lalt          @warpd_n      @ms_spc_space @ms_bspc_rmet ret           left          down          rght
 )
 (defalias
@@ -140,8 +143,8 @@
   esc           brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             6             XX            7             8             9             0             -             =
   tab           q             w             e             r             t             XX            y             u             i             o             p             [             ]
-  @esc_med      a             s             d             @f_sft        g             XX            h             @j_sft        k             l             ;             '
-  @bslash_skey  z             x             c             v             b             XX            n             m             ,             .             /             up
+  @esc_skey     a             s             d             @f_sft        g             XX            h             @j_sft        k             l             ;             '
+  @bslash_med   z             x             c             v             b             XX            n             m             ,             .             /             up
   lrld          lctl          lalt          @warpd_n      @spc_space    @bspc_rmet    ret           left          down          rght
 )
 (defalias
