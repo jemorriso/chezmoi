@@ -8,27 +8,9 @@
 )
 (defvirtualkeys
   v_to_base (layer-switch base)
+  v_rmet rmet
 )
 (defcfg concurrent-tap-hold yes)
-(defalias
-  raycast M-spc
-  homerow A-spc
-  alttab M-tab
-  bspc_word A-bspc
-  caps_word (caps-word 500)
-)
-(defchordsv2-experimental
-  (w e)   @alttab           40 all-released  (base_typing)
-  (e f)   @homerow          40 all-released  (base_typing)
-
-  (i o)   @bspc_word        40 all-released  (base_typing)
-  (i j)   @raycast          40 all-released  (base_typing)
-
-  (f spc) @caps_word               40 all-released  (base_typing)
-
-  ;; doesn't work
-  ;; (a f)   (tap-hold-release 200 200 (multi lctl lsft) @caps_word)             40 all-released  (base_typing)
-)
 (defvar
   left_keys (q w e r t a s d f g z x c v b)
   left_keys_home_row (q w e r t g z x c v b) ;; a s d f
@@ -42,12 +24,44 @@
 
   ls_base (layer-switch base)
   ls_acmk (layer-switch ableton_computer_midi_keyboard)
+  ls_warpd (layer-switch warpd)
 
   l_space (layer-while-held space)
   l_media (layer-while-held media)
+  l_rcmd_layer (layer-while-held rcmd)
+  l_superkey (layer-while-held superkey)
 
-  bspc_rmet (tap-hold-release 200 200 bspc rmet)
+  bspc_rmet (tap-hold-release 200 200 bspc @l_rcmd_layer)
   esc_med (tap-hold-release 200 200 esc @l_media)
+
+  warpd_n (multi lmet lalt c @ls_warpd)
+  warpd_off (multi esc @ls_base)
+
+  ;; os_sft (one-shot 500 lsft)
+  ;; os_sft_td (tap-dance 200 (@os_sft @caps_word))
+)
+(defalias
+  raycast M-spc
+  homerow A-spc
+  alttab M-tab
+  bspc_word A-bspc
+  caps_word (caps-word 500)
+  rsft_superkey (multi rsft @l_superkey)
+)
+(defchordsv2-experimental
+  (w e)   @alttab           40 all-released  (base_typing)
+  (e f)   @homerow          40 all-released  (base_typing)
+
+  ;; right hand is shifted one key to the right
+  (o p)   @bspc_word        40 all-released  (base_typing) ;; (i o)
+  (o k)   @raycast          40 all-released  (base_typing) ;; (i j)
+
+  (f spc) @caps_word               40 all-released  (base_typing)
+
+  (spc rmet) @rsft_superkey 40 all-released  (base_typing)
+
+  ;; doesn't work
+  ;; (a f)   (tap-hold-release 200 200 (multi lctl lsft) @caps_word)             40 all-released  (base_typing)
 )
 (defalias
   #|
@@ -96,15 +110,15 @@
   ms_. (multi . @type)
 
   ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
-  ms_bspc_rmet (tap-hold-release 200 200 (multi bspc @type) rmet)
+  ms_bspc_rmet (tap-hold-release 200 200 (multi bspc @type) @l_rcmd_layer)
 )
 (deflayer base
   esc           brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
-  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
-  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]             \
-  @esc_med      @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'         ret
-  \             @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         @ms_n         @ms_m         @ms_,         @ms_.         /             rsft          up
-  lrld          lctl          lalt          ret           @ms_spc_space @ms_bspc_rmet ret           left          down          rght
+  grv           1             2             3             4             5             6             XX            7             8             9             0             -             =
+  tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         XX            @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]
+  @esc_med      @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         XX            @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'
+  \             @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         XX            @ms_n         @ms_m         @ms_,         @ms_.         /             up
+  lrld          lctl          lalt          @warpd_n      @ms_spc_space @ms_bspc_rmet ret           left          down          rght
 )
 (defalias
   ;; Layer for quick typing. The only tap-holds defined on this layer should be ones that might be useful while typing quickly.
@@ -118,11 +132,42 @@
 )
 (deflayer base_typing
   esc           brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
-  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
-  tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
-  @esc_med      a             s             d             @f_sft        g             h             @j_sft        k             l             ;             '             ret
-  \             z             x             c             v             b             n             m             ,             .             /             rsft          up
-  lrld          lctl          lalt          ret           @spc_space    @bspc_rmet    ret           left          down          rght
+  grv           1             2             3             4             5             6             XX            7             8             9             0             -             =
+  tab           q             w             e             r             t             XX            y             u             i             o             p             [             ]
+  @esc_med      a             s             d             @f_sft        g             XX            h             @j_sft        k             l             ;             '
+  \             z             x             c             v             b             XX            n             m             ,             .             /             up
+  lrld          lctl          lalt          @warpd_n      @spc_space    @bspc_rmet    ret           left          down          rght
+)
+(defalias
+  w_hyp (tap-hold-release 200 200 w @hyp)
+  e_meh (tap-hold-release 200 200 e @meh)
+
+  a_ctl (tap-hold-release 200 200 f lctl)
+  s_alt (tap-hold-release 200 200 j lalt)
+  d_met (tap-hold-release 200 200 j lmet)
+
+  i_meh (tap-hold-release 200 200 i @meh)
+  o_hyp (tap-hold-release 200 200 o @hyp)
+
+  k_met (tap-hold-release 200 200 k lmet)
+  l_alt (tap-hold-release 200 200 l lalt)
+  ;_ctl (tap-hold-release 200 200 ; lctl)
+)
+(deflayer superkey
+  esc           brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
+  grv           1             2             3             4             5             6             XX            7             8             9             0             -             =
+  tab           q             @w_hyp        @e_meh        r             t             XX            y             u             @i_meh        @o_hyp        p             [             ]
+  esc           @a_ctl        @s_alt        @d_met        @f_sft        g             XX            h             @j_sft        @k_met        @l_alt        @;_ctl        '
+  \             z             x             c             v             b             XX            n             m             ,             .             /             up
+  lrld          lctl          lalt          @warpd_n      spc           bspc          ret           left          down          rght
+)
+(deflayer warpd
+  esc           brdn          brup          XX            XX            XX            XX            prev          pp            next          mute          vold          volu
+  grv           1             2             3             4             5             6             XX            7             8             9             0             -             =
+  tab           q             w             e             r             t             XX            y             u             i             o             p             [             ]
+  @warpd_off    a             s             d             f             g             XX            h             j             k             l             ;             '
+  \             z             x             c             v             b             XX            n             m             ,             .             /             up
+  lrld          lctl          lalt          @warpd_off    spc           bspc          ret           left          down          rght
 )
 (defalias
   7_hyp (tap-hold-release-keys 200 200 7 @hyp $left_keys)
@@ -141,16 +186,61 @@
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12           _
   _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _             _
-  _             @0_ctl        @4_alt        @5_met        @6_sft        _             left          @down_sft     @up_met       @rght_alt     _             _             _
-  _             1             2             3             _             _             home          pgdn          pgup          end           _             _             _
-  @ls_acmk      _             _             _             _             ret           del           _             _             _
+  _             @0_ctl        @4_alt        @5_met        @6_sft        _             _             left          @down_sft     @up_met       @rght_alt     _             _
+  _             1             2             3             _             _             _             home          pgdn          pgup          end           _             _
+  @ls_acmk      _             _             _             _             del           _             _             _             _
 )
 (deflayer media
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             prev          vold          volu          next          _             _             _
-  _             _             _             _             _             _             mute          brdn          brup          pp            _             _             _
+  _             _             _             _             _             _             _             prev          vold          volu          next          _             _
+  _             _             _             _             _             _             _             mute          brdn          brup          pp            _             _
+  _             _             _             _             _             _             _             _             _             _
+)
+(defalias
+  #|
+  Layer for `rcmd` macos app.
+
+  Using macros + virtual keys here because I couldn't get rcmd to work with a simple tap-hold on base layer.
+  |#
+  p_rmet (on-press press-virtualkey v_rmet)
+  r_rmet (on-release release-virtualkey v_rmet)
+
+  a_rcmd (macro @p_rmet 50 a 50 @r_rmet)
+  b_rcmd (macro @p_rmet 50 b 50 @r_rmet)
+  c_rcmd (macro @p_rmet 50 c 50 @r_rmet)
+  d_rcmd (macro @p_rmet 50 d 50 @r_rmet)
+  e_rcmd (macro @p_rmet 50 e 50 @r_rmet)
+  f_rcmd (macro @p_rmet 50 f 50 @r_rmet)
+  g_rcmd (macro @p_rmet 50 g 50 @r_rmet)
+  h_rcmd (macro @p_rmet 50 h 50 @r_rmet)
+  i_rcmd (macro @p_rmet 50 i 50 @r_rmet)
+  j_rcmd (macro @p_rmet 50 j 50 @r_rmet)
+  k_rcmd (macro @p_rmet 50 k 50 @r_rmet)
+  l_rcmd (macro @p_rmet 50 l 50 @r_rmet)
+  m_rcmd (macro @p_rmet 50 m 50 @r_rmet)
+  n_rcmd (macro @p_rmet 50 n 50 @r_rmet)
+  o_rcmd (macro @p_rmet 50 o 50 @r_rmet)
+  p_rcmd (macro @p_rmet 50 p 50 @r_rmet)
+  q_rcmd (macro @p_rmet 50 q 50 @r_rmet)
+  r_rcmd (macro @p_rmet 50 r 50 @r_rmet)
+  s_rcmd (macro @p_rmet 50 s 50 @r_rmet)
+  t_rcmd (macro @p_rmet 50 t 50 @r_rmet)
+  u_rcmd (macro @p_rmet 50 u 50 @r_rmet)
+  v_rcmd (macro @p_rmet 50 v 50 @r_rmet)
+  w_rcmd (macro @p_rmet 50 w 50 @r_rmet)
+  x_rcmd (macro @p_rmet 50 x 50 @r_rmet)
+  y_rcmd (macro @p_rmet 50 y 50 @r_rmet)
+  z_rcmd (macro @p_rmet 50 z 50 @r_rmet)
+
+)
+(deflayer rcmd
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             @q_rcmd       @w_rcmd       @e_rcmd       @r_rcmd       @t_rcmd       _             @y_rcmd       @u_rcmd       @i_rcmd       @o_rcmd       @p_rcmd       _             _
+  _             @a_rcmd       @s_rcmd       @d_rcmd       @f_rcmd       @g_rcmd       _             @h_rcmd       @j_rcmd       @k_rcmd       @l_rcmd       _             _
+  _             @z_rcmd       @x_rcmd       @c_rcmd       @v_rcmd       @b_rcmd       _             @n_rcmd       @m_rcmd       _             _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
 (deflayer ableton_computer_midi_keyboard
