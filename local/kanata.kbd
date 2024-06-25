@@ -37,6 +37,7 @@
   warpd_n (multi lmet lalt c @ls_warpd)
   warpd_off (multi esc @ls_base)
 
+  bslash_skey (tap-hold-release 200 200 \ (multi rsft @l_superkey))
   ;; os_sft (one-shot 500 lsft)
   ;; os_sft_td (tap-dance 200 (@os_sft @caps_word))
 )
@@ -44,13 +45,17 @@
   raycast M-spc
   homerow A-spc
   alttab M-tab
+  alttab_on M-bspc
   bspc_word A-bspc
   caps_word (caps-word 500)
+  superkey A-bspc
   rsft_superkey (multi rsft @l_superkey)
 )
 (defchordsv2-experimental
   (w e)   @alttab           40 all-released  (base_typing)
+  (w r)   @alttab_on        40 all-released  (base_typing)
   (e f)   @homerow          40 all-released  (base_typing)
+  (r g)   @superkey         40 all-released  (base_typing)
 
   ;; right hand is shifted one key to the right
   (o p)   @bspc_word        40 all-released  (base_typing) ;; (i o)
@@ -59,6 +64,7 @@
   (f spc) @caps_word               40 all-released  (base_typing)
 
   (spc rmet) @rsft_superkey 40 all-released  (base_typing)
+  (spc lmet) @rsft_superkey 40 all-released  (base_typing)
 
   ;; doesn't work
   ;; (a f)   (tap-hold-release 200 200 (multi lctl lsft) @caps_word)             40 all-released  (base_typing)
@@ -117,7 +123,7 @@
   grv           1             2             3             4             5             6             XX            7             8             9             0             -             =
   tab           @ms_q         @ms_w_hyp     @ms_e_meh     @ms_r         @ms_t         XX            @ms_y         @ms_u         @ms_i_meh     @ms_o_hyp     @ms_p         [             ]
   @esc_med      @ms_a_ctl     @ms_s_alt     @ms_d_met     @ms_f_sft     @ms_g         XX            @ms_h         @ms_j_sft     @ms_k_met     @ms_l_alt     @ms_;_ctl     @ms_'
-  \             @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         XX            @ms_n         @ms_m         @ms_,         @ms_.         /             up
+  @bslash_skey  @ms_z         @ms_x         @ms_c         @ms_v         @ms_b         XX            @ms_n         @ms_m         @ms_,         @ms_.         /             up
   lrld          lctl          lalt          @warpd_n      @ms_spc_space @ms_bspc_rmet ret           left          down          rght
 )
 (defalias
@@ -135,16 +141,16 @@
   grv           1             2             3             4             5             6             XX            7             8             9             0             -             =
   tab           q             w             e             r             t             XX            y             u             i             o             p             [             ]
   @esc_med      a             s             d             @f_sft        g             XX            h             @j_sft        k             l             ;             '
-  \             z             x             c             v             b             XX            n             m             ,             .             /             up
+  @bslash_skey  z             x             c             v             b             XX            n             m             ,             .             /             up
   lrld          lctl          lalt          @warpd_n      @spc_space    @bspc_rmet    ret           left          down          rght
 )
 (defalias
   w_hyp (tap-hold-release 200 200 w @hyp)
   e_meh (tap-hold-release 200 200 e @meh)
 
-  a_ctl (tap-hold-release 200 200 f lctl)
-  s_alt (tap-hold-release 200 200 j lalt)
-  d_met (tap-hold-release 200 200 j lmet)
+  a_ctl (tap-hold-release 200 200 a lctl)
+  s_alt (tap-hold-release 200 200 s lalt)
+  d_met (tap-hold-release 200 200 d lmet)
 
   i_meh (tap-hold-release 200 200 i @meh)
   o_hyp (tap-hold-release 200 200 o @hyp)
