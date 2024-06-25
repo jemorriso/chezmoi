@@ -1,0 +1,12 @@
+#speed: 500
+#max_speed: 5000
+#acceleration: 8000
+#decelerator_speed: 150
+#speed: 250
+#max_speed: 2500
+#acceleration: 4000
+#decelerator_speed: 150
+
+scroll_speed: 1500
+scroll_acceleration: 2500
+scroll_max_speed: 10000
