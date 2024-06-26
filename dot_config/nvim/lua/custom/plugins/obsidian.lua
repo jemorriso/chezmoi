@@ -2,6 +2,7 @@ return {
   'epwalsh/obsidian.nvim',
   opts = {
     workspaces = {
+      { name = 'docs-v8', path = '~/docs/vaults/docs-v8' },
       { name = 'docs-v7', path = '~/docs/vaults/docs-v7' },
       { name = 'docs-v6', path = '~/docs/vaults/docs-v6' },
       { name = 'docs-v5', path = '~/docs/foam/docs-v5' },
