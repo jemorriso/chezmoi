@@ -46,28 +46,44 @@
 )
 (defalias
   raycast M-spc
+
   homerow A-spc
+  homerow_scroll A-tab
+
   alttab M-tab
+  alttab_grv M-grv
   alttab_on M-bspc
+
+  superkey A-M-bspc
+  superkey_rsft (multi rsft @l_superkey)
+
+  1pass_quick A-M-S-spc
+  1pass_auto A-M-S-ret
+
+  godspeed_quick A-M-spc
+
   bspc_word A-bspc
   caps_word (caps-word 500)
-  superkey A-bspc
-  rsft_superkey (multi rsft @l_superkey)
 )
 (defchordsv2-experimental
   (w e)   @alttab           40 all-released  (base_typing)
+  (e r)   @alttab_grv       40 all-released  (base_typing)
   (w r)   @alttab_on        40 all-released  (base_typing)
   (e f)   @homerow          40 all-released  (base_typing)
+  (w f)   @homerow_scroll   40 all-released  (base_typing)
   (r g)   @superkey         40 all-released  (base_typing)
 
   ;; right hand is shifted one key to the right
   (o p)   @bspc_word        40 all-released  (base_typing) ;; (i o)
   (o k)   @raycast          40 all-released  (base_typing) ;; (i j)
+  (p k)   @godspeed_quick   40 all-released  (base_typing) ;; (o j)
 
-  (f spc) @caps_word               40 all-released  (base_typing)
+  (1 ralt) @1pass_auto      40 all-released  (base_typing) ;; (1 ret)
+  (1 spc) @1pass_quick      40 all-released  (base_typing)
+  (f spc) @caps_word        40 all-released  (base_typing)
 
-  (spc rmet) @rsft_superkey 40 all-released  (base_typing)
-  (spc lmet) @rsft_superkey 40 all-released  (base_typing)
+  (spc rmet) @superkey_rsft 40 all-released  (base_typing)
+  (spc lmet) @superkey_rsft 40 all-released  (base_typing)
 
   ;; doesn't work
   ;; (a f)   (tap-hold-release 200 200 (multi lctl lsft) @caps_word)             40 all-released  (base_typing)
