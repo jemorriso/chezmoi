@@ -54,13 +54,13 @@
   alttab_grv M-grv
   alttab_on M-bspc
 
-  superkey A-M-bspc
+  superkey A-M-spc
   superkey_rsft (multi rsft @l_superkey)
 
   1pass_quick A-M-S-spc
   1pass_auto A-M-S-ret
 
-  godspeed_quick A-M-spc
+  godspeed_quick M-S-spc
 
   bspc_word A-bspc
   caps_word (caps-word 500)
