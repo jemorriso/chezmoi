@@ -27,6 +27,9 @@ return {
         },
       }
 
+      require('mini.files').setup {}
+
+      vim.keymap.set('n', ';m', '<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>')
       -- -- Simple and easy statusline.
       -- --  You could remove this setup call if you don't like it,
       -- --  and try some other statusline plugin
